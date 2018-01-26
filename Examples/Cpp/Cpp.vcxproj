@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F3368B9D-31D3-46F2-B741-513529016E92}</ProjectGuid>
+    <RootNamespace>Cpp</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>aspose_pch.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>aspose_pch.h</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>pch;source</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>aspose_pch.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>aspose_pch.h</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>pch;source</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>aspose_pch.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>aspose_pch.h</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>pch;source</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>aspose_pch.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>aspose_pch.h</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>pch;source</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="pch\aspose_pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="source\Email\AddAttachment.cpp" />
+    <ClCompile Include="source\Email\AddEmailAttachments.cpp" />
+    <ClCompile Include="source\Email\AddNewTNEFAttachments.cpp" />
+    <ClCompile Include="source\Email\BayesianSpamAnalyzer.cpp" />
+    <ClCompile Include="source\Email\ChangeEmailAddress.cpp" />
+    <ClCompile Include="source\Email\CheckBouncedMessage.cpp" />
+    <ClCompile Include="source\Email\CreateNewEmail.cpp" />
+    <ClCompile Include="source\Email\CreateNewMailMessage.cpp" />
+    <ClCompile Include="source\Email\DisplayAttachmentFileName.cpp" />
+    <ClCompile Include="source\Email\DisplayEmailAddressesNames.cpp" />
+    <ClCompile Include="source\Email\DisplayEmailInformation.cpp" />
+    <ClCompile Include="source\Email\DraftAppointmentRequest.cpp" />
+    <ClCompile Include="source\Email\EmbeddedObjects.cpp" />
+    <ClCompile Include="source\Email\ExportEmailToEML.cpp" />
+    <ClCompile Include="source\Email\ExportEmailToMHTWithCustomTimezone.cpp" />
+    <ClCompile Include="source\Email\ExtractAttachments.cpp" />
+    <ClCompile Include="source\Email\ExtractEmbeddedObjects.cpp" />
+    <ClCompile Include="source\Email\ExtractEmbeddedObjectsFromEmail.cpp" />
+    <ClCompile Include="source\Email\ExtractingEmailHeaders.cpp" />
+    <ClCompile Include="source\Email\ExtractMSGEmbeddedAttachment.cpp" />
+    <ClCompile Include="source\Email\GetDecodedHeaderValues.cpp" />
+    <ClCompile Include="source\Email\GetDeliveryStatusNotificationMessages.cpp" />
+    <ClCompile Include="source\Email\IdentifyInlineAndRegularAttachments.cpp" />
+    <ClCompile Include="source\Email\LoadAndSaveFileAsEML.cpp" />
+    <ClCompile Include="source\Email\LoadingEMLAndSavingToMSG.cpp" />
+    <ClCompile Include="source\Email\LoadMessageWithLoadOptions.cpp" />
+    <ClCompile Include="source\Email\PreserveOriginalBoundaries.cpp" />
+    <ClCompile Include="source\Email\PreserveTNEFAttachment.cpp" />
+    <ClCompile Include="source\Email\ProcessBouncedMsgs.cpp" />
+    <ClCompile Include="source\Email\ReadMessageByPreservingTNEFAttachments.cpp" />
+    <ClCompile Include="source\Email\RemoveAttachments.cpp" />
+    <ClCompile Include="source\Email\RetrieveContentDescriptionFromAttachment.cpp" />
+    <ClCompile Include="source\Email\SaveMailMessageAsMHTML.cpp" />
+    <ClCompile Include="source\Email\SaveMessageAsDraft.cpp" />
+    <ClCompile Include="source\Email\SetAlternateText.cpp" />
+    <ClCompile Include="source\Email\SetDefaultTextEncoding.cpp" />
+    <ClCompile Include="source\Email\SetEmailHeaders.cpp" />
+    <ClCompile Include="source\Email\SetHTMLBody.cpp" />
+    <ClCompile Include="source\Examples.cpp" />
+    <ClCompile Include="source\Outlook\AccessContactInformation.cpp" />
+    <ClCompile Include="source\Outlook\AddAttachmentsToMapiJournal.cpp" />
+    <ClCompile Include="source\Outlook\AddAttachmentsToMapiTask.cpp" />
+    <ClCompile Include="source\Outlook\AddAudioReminderToCalendar.cpp" />
+    <ClCompile Include="source\Outlook\AddDisplayReminderToACalendar.cpp" />
+    <ClCompile Include="source\Outlook\AddFilesToPST.cpp" />
+    <ClCompile Include="source\Outlook\AddMapiCalendarToPST.cpp" />
+    <ClCompile Include="source\Outlook\AddMapiNoteToPST.cpp" />
+    <ClCompile Include="source\Outlook\AddMapiTaskToPST.cpp" />
+    <ClCompile Include="source\Outlook\AddMessagesFromOtherPST.cpp" />
+    <ClCompile Include="source\Outlook\AddMessagesToPSTFiles.cpp" />
+    <ClCompile Include="source\Outlook\AddRecurrenceToMapiTask.cpp" />
+    <ClCompile Include="source\Outlook\AddReminderInformationToMapiTask.cpp" />
+    <ClCompile Include="source\Outlook\AddVotingButtonToExistingMessage.cpp" />
+    <ClCompile Include="source\Outlook\ChangeFolderContainerClass.cpp" />
+    <ClCompile Include="source\Outlook\CheckPasswordProtection.cpp" />
+    <ClCompile Include="source\Outlook\ConvertEMLToMSG.cpp" />
+    <ClCompile Include="source\Outlook\ConvertMIMEMessagesFromMSGToEML.cpp" />
+    <ClCompile Include="source\Outlook\ConvertMIMEMessageToEML.cpp" />
+    <ClCompile Include="source\Outlook\ConvertOSTToPST.cpp" />
+    <ClCompile Include="source\Outlook\CreatAndSaveAnOutlookNote.cpp" />
+    <ClCompile Include="source\Outlook\CreateAndSaveCalendaritems.cpp" />
+    <ClCompile Include="source\Outlook\CreateAndSaveDistributionList.cpp" />
+    <ClCompile Include="source\Outlook\CreateAndSaveOutlookContact.cpp" />
+    <ClCompile Include="source\Outlook\CreateDistributionListInPST.cpp" />
+    <ClCompile Include="source\Outlook\CreateMapiCalendarTimeZoneFromStandardTimezone.cpp" />
+    <ClCompile Include="source\Outlook\CreatEMLFileAndConvertToMSG.cpp" />
+    <ClCompile Include="source\Outlook\CreateNewMapiCalendarAndAddToCalendarSubfolder.cpp" />
+    <ClCompile Include="source\Outlook\CreateNewMapiContactAndAddToContactsSubfolder.cpp" />
+    <ClCompile Include="source\Outlook\CreateNewMapiJournalAndAddToSubfolder.cpp" />
+    <ClCompile Include="source\Outlook\CreateNewPSTFileAndAddingSubfolders.cpp" />
+    <ClCompile Include="source\Outlook\CreatePollUsingMapiMessage.cpp" />
+    <ClCompile Include="source\Outlook\CreateSaveOutlookFiles.cpp" />
+    <ClCompile Include="source\Outlook\CreatingAndSavingOutlookMessages.cpp" />
+    <ClCompile Include="source\Outlook\CreatingAndSavingOutlookTasks.cpp" />
+    <ClCompile Include="source\Outlook\CreatingMSGFilesWithRTFBody.cpp" />
+    <ClCompile Include="source\Outlook\DeleteMessagesFromPSTFiles.cpp" />
+    <ClCompile Include="source\Outlook\DeleteVotingButtonFromMessage.cpp" />
+    <ClCompile Include="source\Outlook\DestroyAttachment.cpp" />
+    <ClCompile Include="source\Outlook\DisplayRecipientsStatusFromMeetingRequest.cpp" />
+    <ClCompile Include="source\Outlook\EmbedMessageAsAttachment.cpp" />
+    <ClCompile Include="source\Outlook\EndAfterDate.cpp" />
+    <ClCompile Include="source\Outlook\ExposeProperties.cpp" />
+    <ClCompile Include="source\Outlook\ExtractAttachmentsFromPSTMessages.cpp" />
+    <ClCompile Include="source\Outlook\ExtractMessagesFromPSTFile.cpp" />
+    <ClCompile Include="source\Outlook\ExtractNumberOfMessages.cpp" />
+    <ClCompile Include="source\Outlook\GenerateRecurrenceFromRecurrenceRule.cpp" />
+    <ClCompile Include="source\Outlook\GetMAPIProperty.cpp" />
+    <ClCompile Include="source\Outlook\GetMessageInformation.cpp" />
+    <ClCompile Include="source\Outlook\GetTheTextAndRTFBodies.cpp" />
+    <ClCompile Include="source\Outlook\LoadingContactFromMSG.cpp" />
+    <ClCompile Include="source\Outlook\LoadingContactFromVCard.cpp" />
+    <ClCompile Include="source\Outlook\LoadingFromStream.cpp" />
+    <ClCompile Include="source\Outlook\LoadMSGFiles.cpp" />
+    <ClCompile Include="source\Outlook\ManageAttachmentsFromCalendarFiles.cpp" />
+    <ClCompile Include="source\Outlook\MarkFollowUpFlagAsCompleted.cpp" />
+    <ClCompile Include="source\Outlook\MergeFolderFromAnotherPSTFile.cpp" />
+    <ClCompile Include="source\Outlook\MergeMultiplePSTsInToSinglePST.cpp" />
+    <ClCompile Include="source\Outlook\MonthlyEndAfterDate.cpp" />
+    <ClCompile Include="source\Outlook\MoveItemsToOtherFolders.cpp" />
+    <ClCompile Include="source\Outlook\NewPSTAddSubfolders.cpp" />
+    <ClCompile Include="source\Outlook\ParseOutlookMessageFile.cpp" />
+    <ClCompile Include="source\Outlook\ParseSearchableFolders.cpp" />
+    <ClCompile Include="source\Outlook\PST\ConvertingOSTToPST.cpp" />
+    <ClCompile Include="source\Outlook\PST\DisplayInformationOfPSTFile.cpp" />
+    <ClCompile Include="source\Outlook\PST\LoadingPSTFile.cpp" />
+    <ClCompile Include="source\Outlook\PST\ReadingOSTFiles.cpp" />
+    <ClCompile Include="source\Outlook\ReadandConvertOSTFiles.cpp" />
+    <ClCompile Include="source\Outlook\ReadAndWritingOutlookTemplateFile.cpp" />
+    <ClCompile Include="source\Outlook\ReadFollowupFlagOptionsForMessage.cpp" />
+    <ClCompile Include="source\Outlook\ReadiNamedMAPIPropertyFromAttachment.cpp" />
+    <ClCompile Include="source\Outlook\ReadingDistributionListFromPST.cpp" />
+    <ClCompile Include="source\Outlook\ReadingMapiTask.cpp" />
+    <ClCompile Include="source\Outlook\ReadingNamedMAPIPropertyFromAttachment.cpp" />
+    <ClCompile Include="source\Outlook\ReadingOnlyVotingButtons.cpp" />
+    <ClCompile Include="source\Outlook\ReadingVotingOptions.cpp" />
+    <ClCompile Include="source\Outlook\ReadingVToDoTask.cpp" />
+    <ClCompile Include="source\Outlook\ReadMapiNote.cpp" />
+    <ClCompile Include="source\Outlook\ReadNamedMAPIProperties.cpp" />
+    <ClCompile Include="source\Outlook\ReadVoteResultsInformation.cpp" />
+    <ClCompile Include="source\Outlook\ReadVotingOptionsFromMapiMessage.cpp" />
+    <ClCompile Include="source\Outlook\RemoveAttachmentsFromFile.cpp" />
+    <ClCompile Include="source\Outlook\RemoveFollowUpflag.cpp" />
+    <ClCompile Include="source\Outlook\RemovePropertiesFromMSGAndAttachments.cpp" />
+    <ClCompile Include="source\Outlook\RemovingPaswordProperty.cpp" />
+    <ClCompile Include="source\Outlook\RetreiveParentFolderInformationFromMessageInfo.cpp" />
+    <ClCompile Include="source\Outlook\RetrieveReadAndDeliveryReceiptInformation.cpp" />
+    <ClCompile Include="source\Outlook\SaveAttachmentsFromOutlookMSGFile.cpp" />
+    <ClCompile Include="source\Outlook\SaveCalendarItems.cpp" />
+    <ClCompile Include="source\Outlook\SaveContactInformation.cpp" />
+    <ClCompile Include="source\Outlook\SaveMessagesDirectlyFromPSTToStream.cpp" />
+    <ClCompile Include="source\Outlook\SavingMessageInDraftStatus.cpp" />
+    <ClCompile Include="source\Outlook\SavingTheCalendarItemAsMSG.cpp" />
+    <ClCompile Include="source\Outlook\SearchMessagesAndFoldersInPST.cpp" />
+    <ClCompile Include="source\Outlook\SearchStringInPSTWithIgnoreCaseParameter.cpp" />
+    <ClCompile Include="source\Outlook\SetAdditionalMAPIProperties.cpp" />
+    <ClCompile Include="source\Outlook\SetBodyCompression.cpp" />
+    <ClCompile Include="source\Outlook\SetColorCategories.cpp" />
+    <ClCompile Include="source\Outlook\SetDailyNeverEndRecurrence.cpp" />
+    <ClCompile Include="source\Outlook\SetDailyOccurrenceCount.cpp" />
+    <ClCompile Include="source\Outlook\SetFollowUpflag.cpp" />
+    <ClCompile Include="source\Outlook\SetFollowUpForRecipients.cpp" />
+    <ClCompile Include="source\Outlook\SetMAPIProperties.cpp" />
+    <ClCompile Include="source\Outlook\SetMonthlyNeverEndRecurrence.cpp" />
+    <ClCompile Include="source\Outlook\SetPasswordOnPST.cpp" />
+    <ClCompile Include="source\Outlook\SetReminderByAddingTags.cpp" />
+    <ClCompile Include="source\Outlook\SetYearlyNeverEndRecurrence.cpp" />
+    <ClCompile Include="source\Outlook\SplitSinglePSTInToMultiplePST.cpp" />
+    <ClCompile Include="source\Outlook\YearlyEndAfterNoccurrences.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch\aspose_pch.h" />
+    <ClInclude Include="source\Examples.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\aspose.email.cpp.vc140.18.1.0\build\native\aspose.email.cpp.vc140.targets" Condition="Exists('..\packages\aspose.email.cpp.vc140.18.1.0\build\native\aspose.email.cpp.vc140.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\aspose.email.cpp.vc140.18.1.0\build\native\aspose.email.cpp.vc140.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\aspose.email.cpp.vc140.18.1.0\build\native\aspose.email.cpp.vc140.targets'))" />
+  </Target>
+</Project>
