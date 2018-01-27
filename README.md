@@ -5,7 +5,7 @@
 
 Directory | Description
 --------- | -----------
-[Examples](Examples)  | A collection of C++ examples that help you learn the product features
+[Examples](Examples)  | A collection of C++ examples that help you learn the product features. Read [How to Run the Examples](https://docs.aspose.com/display/emailcpp/How+to+Run+the+Examples) to get started.
 
 
 ## Resources
