@@ -1,9 +1,9 @@
 ﻿/* This project uses Automatic Package Restore feature of NuGet to resolve Aspose.Email for .NET 
    API reference when the project is build. Please check https://Docs.nuget.org/consume/nuget-faq 
    for more information. If you do not wish to use NuGet, you can manually download 
-   Aspose.Email for .NET API from http://www.aspose.com/downloads, 
+   Aspose.Email for .NET API from https://www.nuget.org/packages/Aspose.Email/, 
    install it and then add its reference to this project. For any issues, questions or suggestions 
-   please feel free to contact us using http://www.aspose.com/community/forums/default.aspx            
+   please feel free to contact us using https://forum.aspose.com/c/email            
 */
 
 #include <system/string.h>
@@ -12,23 +12,23 @@
 #include <system/exceptions.h>
 #include <system/console.h>
 #include <system/collections/ienumerator.h>
-#include <Formats/Outlook/Pst/PersonalStorage.h>
-#include <Formats/Outlook/Pst/Messaging/MessageInfoCollection.h>
-#include <Formats/Outlook/Pst/Messaging/MessageInfo.h>
-#include <Formats/Outlook/Pst/Messaging/FolderInfoCollection.h>
-#include <Formats/Outlook/Pst/Messaging/FolderInfo.h>
-#include <Formats/Outlook/Pst/FileFormat.h>
+#include <Storage/Pst/PersonalStorage.h>
+#include <Storage/Pst/MessageInfoCollection.h>
+#include <Storage/Pst/MessageInfo.h>
+#include <Storage/Pst/FolderInfoCollection.h>
+#include <Storage/Pst/FolderInfo.h>
+#include <Storage/Pst/FileFormat.h>
 
 #include "Examples.h"
 
+using namespace Aspose::Email;
+using namespace Aspose::Email::Storage::Pst;
 
-using namespace Aspose::Email::Outlook::Pst;
-
-void DisplayFolderContents(System::SharedPtr<Aspose::Email::Outlook::Pst::FolderInfo> folderInfo, System::SharedPtr<Aspose::Email::Outlook::Pst::PersonalStorage> pst)
+void DisplayFolderContents(System::SharedPtr<Aspose::Email::Storage::Pst::FolderInfo> folderInfo, System::SharedPtr<Aspose::Email::Storage::Pst::PersonalStorage> pst)
 {
     // Display the folder name
-    System::Console::WriteLine(System::String(L"Folder: ") + folderInfo->get_DisplayName());
-    System::Console::WriteLine(L"==================================");
+    System::Console::WriteLine(System::String(u"Folder: ") + folderInfo->get_DisplayName());
+    System::Console::WriteLine(u"==================================");
     // Display information about messages inside this folder
     System::SharedPtr<MessageInfoCollection> messageInfoCollection = folderInfo->GetContents();
 
@@ -37,10 +37,10 @@ void DisplayFolderContents(System::SharedPtr<Aspose::Email::Outlook::Pst::Folder
         decltype(messageInfo_enumerator->get_Current()) messageInfo;
         while (messageInfo_enumerator->MoveNext() && (messageInfo = messageInfo_enumerator->get_Current(), true))
         {
-            System::Console::WriteLine(System::String(L"Subject: ") + messageInfo->get_Subject());
-            System::Console::WriteLine(System::String(L"Sender: ") + messageInfo->get_SenderRepresentativeName());
-            System::Console::WriteLine(System::String(L"Recipients: ") + messageInfo->get_DisplayTo());
-            System::Console::WriteLine(L"------------------------------");
+            System::Console::WriteLine(System::String(u"Subject: ") + messageInfo->get_Subject());
+            System::Console::WriteLine(System::String(u"Sender: ") + messageInfo->get_SenderRepresentativeName());
+            System::Console::WriteLine(System::String(u"Recipients: ") + messageInfo->get_DisplayTo());
+            System::Console::WriteLine(u"------------------------------");
         }
     }
 
@@ -56,13 +56,12 @@ void DisplayFolderContents(System::SharedPtr<Aspose::Email::Outlook::Pst::Folder
     }
 }
 
-
 void GetMessageInformation()
 {
     System::String dataDir = GetDataDir_Outlook();
     
     // Load the Outlook file
-    System::String path = dataDir + L"PersonalStorage.pst";
+    System::String path = dataDir + u"PersonalStorage.pst";
     
     try
     {
@@ -71,7 +70,7 @@ void GetMessageInformation()
         System::SharedPtr<PersonalStorage> personalStorage = PersonalStorage::FromFile(path);
         
         // Get the Display Format of the PST file
-        System::Console::WriteLine(System::String(L"Display Format: ") + System::ObjectExt::ToString(personalStorage->get_Format()));
+        System::Console::WriteLine(System::String(u"Display Format: ") + System::ObjectExt::ToString(personalStorage->get_Format()));
         
         // Get the folders and messages information
         System::SharedPtr<FolderInfo> folderInfo = personalStorage->get_RootFolder();
@@ -85,11 +84,5 @@ void GetMessageInformation()
     }
     
 }
-
-
-
-
-
-
 
 

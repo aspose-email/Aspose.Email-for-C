@@ -1,27 +1,24 @@
 ﻿/*
 This project uses Automatic Package Restore feature of NuGet to resolve Aspose.Email for .NET API reference 
 when the project is build. Please check https://Docs.nuget.org/consume/nuget-faq for more information. 
-If you do not wish to use NuGet, you can manually download Aspose.Email for .NET API from http://www.aspose.com/downloads, 
+If you do not wish to use NuGet, you can manually download Aspose.Email for .NET API from https://www.nuget.org/packages/Aspose.Email/, 
 install it and then add its reference to this project. For any issues, questions or suggestions 
-please feel free to contact us using http://www.aspose.com/community/forums/default.aspx
+please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
 #include <system/console.h>
-#include <Formats/Outlook/Mapi/MapiPropertyTag.h>
-#include <Formats/Outlook/Mapi/MapiPropertyCollection.h>
-#include <Formats/Outlook/Mapi/MapiProperty.h>
-#include <Formats/Outlook/Mapi/MapiMessage.h>
+#include <Mapi/MapiPropertyTag.h>
+#include <Mapi/MapiPropertyCollection.h>
+#include <Mapi/MapiProperty.h>
+#include <Mapi/MapiMessage.h>
 #include <cstdint>
 
 #include "Examples.h"
 
-
 using namespace Aspose::Email;
-
-using namespace Aspose::Email::Outlook;
-
+using namespace Aspose::Email::Mapi;
 
 void ReadiNamedMAPIPropertyFromAttachment()
 {
@@ -30,7 +27,7 @@ void ReadiNamedMAPIPropertyFromAttachment()
     System::String dataDir = GetDataDir_Outlook();
     
     // Load from file
-    System::SharedPtr<MapiMessage> msg = MapiMessage::FromFile(dataDir + L"message.msg");
+    System::SharedPtr<MapiMessage> msg = MapiMessage::FromFile(dataDir + u"message.msg");
     
     System::String subject;
     
@@ -46,26 +43,20 @@ void ReadiNamedMAPIPropertyFromAttachment()
     // Cannot found
     if (prop == nullptr)
     {
-        System::Console::WriteLine(L"No property found!");
+        System::Console::WriteLine(u"No property found!");
         return;
     }
     
     // Get the property data as string
     subject = prop->GetString();
     
-    System::Console::WriteLine(System::String(L"Subject:") + subject);
+    System::Console::WriteLine(System::String(u"Subject:") + subject);
     // Read internet code page property
     prop = msg->get_Properties()->idx_get(MapiPropertyTag::PR_INTERNET_CPID);
     if (prop != nullptr)
     {
-        System::Console::WriteLine(System::String(L"CodePage:") + prop->GetLong());
+        System::Console::WriteLine(System::String(u"CodePage:") + prop->GetLong());
     }
     //ExEnd:ReadiNamedMAPIPropertyFromAttachment
 }
-
-
-
-
-
-
 

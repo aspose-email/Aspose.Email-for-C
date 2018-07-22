@@ -1,9 +1,9 @@
 ﻿/*
 This project uses Automatic Package Restore feature of NuGet to resolve Aspose.Email for .NET API reference 
 when the project is build. Please check https://Docs.nuget.org/consume/nuget-faq for more information. 
-If you do not wish to use NuGet, you can manually download Aspose.Email for .NET API from http://www.aspose.com/downloads, 
+If you do not wish to use NuGet, you can manually download Aspose.Email for .NET API from https://www.nuget.org/packages/Aspose.Email/, 
 install it and then add its reference to this project. For any issues, questions or suggestions 
-please feel free to contact us using http://www.aspose.com/community/forums/default.aspx
+please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/string.h>
@@ -22,23 +22,20 @@ please feel free to contact us using http://www.aspose.com/community/forums/defa
 #include <system/collections/icollection.h>
 #include <system/bit_converter.h>
 #include <system/array.h>
-#include <Formats/Outlook/Mapi/MapiPropertyCollection.h>
-#include <Formats/Outlook/Mapi/MapiProperty.h>
-#include <Formats/Outlook/Mapi/MapiObjectProperty.h>
-#include <Formats/Outlook/Mapi/MapiMessage.h>
-#include <Formats/Outlook/Mapi/MapiAttachmentCollection.h>
-#include <Formats/Outlook/Mapi/MapiAttachment.h>
+#include <Mapi/MapiPropertyCollection.h>
+#include <Mapi/MapiProperty.h>
+#include <Mapi/MapiObjectProperty.h>
+#include <Mapi/MapiMessage.h>
+#include <Mapi/MapiAttachmentCollection.h>
+#include <Mapi/MapiAttachment.h>
 #include <cstdint>
 
 #include "Examples.h"
 
+using namespace Aspose::Email;
+using namespace Aspose::Email::Mapi;
 
-using namespace Aspose::Email::Outlook;
-
-
-
-
-bool IsAttachmentInline(System::SharedPtr<Aspose::Email::Outlook::MapiAttachment> attachment)
+bool IsAttachmentInline(System::SharedPtr<Aspose::Email::Mapi::MapiAttachment> attachment)
 {
     
     {
@@ -46,7 +43,7 @@ bool IsAttachmentInline(System::SharedPtr<Aspose::Email::Outlook::MapiAttachment
         decltype(property_enumerator->get_Current()) property;
         while (property_enumerator->MoveNext() && (property = property_enumerator->get_Current(), true))
         {
-            if (property->get_Name() == L"\x0003" L"ObjInfo")
+            if (property->get_Name() == u"\x0003" u"ObjInfo")
             {
                 uint16_t odtPersist1 = System::BitConverter::ToUInt16(property->get_Data(), 0);
                 return (odtPersist1 & (1 << (7 - 1))) == 0;
@@ -56,21 +53,28 @@ bool IsAttachmentInline(System::SharedPtr<Aspose::Email::Outlook::MapiAttachment
     return false;
 }
 
-void SaveAttachment(System::SharedPtr<Aspose::Email::Outlook::MapiAttachment> attachment, System::String fileName)
+void SaveAttachment(System::SharedPtr<Aspose::Email::Mapi::MapiAttachment> attachment, System::String fileName)
 {
     auto property_enumerator = (attachment->get_ObjectData()->get_Properties()->get_Values())->GetEnumerator();
     decltype(property_enumerator->get_Current()) property;
     while (property_enumerator->MoveNext() && (property = property_enumerator->get_Current(), true))
     {
-        if (property->get_Name() == L"Package")
+        if (property->get_Name() == u"Package")
         {
             {
                 System::SharedPtr<System::IO::FileStream> fs = System::MakeObject<System::IO::FileStream>(fileName, System::IO::FileMode::Create, System::IO::FileAccess::Write);
-                
                 // Clearing resources under 'using' statement
-                System::Details::DisposeGuard __dispose_guard_0{ fs, ASPOSE_CURRENT_FUNCTION_LINE };
+                System::Details::DisposeGuard<1> __dispose_guard_0({ fs});
                 // ------------------------------------------
-                fs->Write(property->get_Data(), 0, property->get_Data()->get_Length());
+                
+                try
+                {
+                    fs->Write(property->get_Data(), 0, property->get_Data()->get_Length());
+                }
+                catch(...)
+                {
+                    __dispose_guard_0.SetCurrentException(std::current_exception());
+                }
             }
         }
     }
@@ -78,7 +82,7 @@ void SaveAttachment(System::SharedPtr<Aspose::Email::Outlook::MapiAttachment> at
 
 void ExtractInlineAttachments(System::String dataDir)
 {
-    System::SharedPtr<MapiMessage> message = MapiMessage::FromFile(dataDir + L"MSG file with RTF Formatting.msg");
+    System::SharedPtr<MapiMessage> message = MapiMessage::FromFile(dataDir + u"MSG file with RTF Formatting.msg");
     System::SharedPtr<MapiAttachmentCollection> attachments = message->get_Attachments();
 
     {
@@ -108,6 +112,8 @@ void ExtractMSGEmbeddedAttachment()
     System::String dataDir = GetDataDir_Email();
     ExtractInlineAttachments(dataDir);
 }
+
+
 
 
 

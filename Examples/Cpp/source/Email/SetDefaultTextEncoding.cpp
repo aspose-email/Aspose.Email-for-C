@@ -1,26 +1,24 @@
 ﻿/*
 This project uses Automatic Package Restore feature of NuGet to resolve Aspose.Email for .NET API reference 
 when the project is build. Please check https://Docs.nuget.org/consume/nuget-faq for more information. 
-If you do not wish to use NuGet, you can manually download Aspose.Email for .NET API from http://www.aspose.com/downloads, 
+If you do not wish to use NuGet, you can manually download Aspose.Email for .NET API from https://www.nuget.org/packages/Aspose.Email/, 
 install it and then add its reference to this project. For any issues, questions or suggestions 
-please feel free to contact us using http://www.aspose.com/community/forums/default.aspx
+please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/text/encoding.h>
 #include <system/string.h>
 #include <system/shared_ptr.h>
 #include <system/object.h>
-#include <Mail/MailMessage/SaveOptions/SaveOptions.h>
-#include <Mail/MailMessage/SaveOptions/MsgSaveOptions.h>
-#include <Mail/MailMessage/MailMessage.h>
-#include <Mail/MailAddressCollection.h>
-#include <Mail/MailAddress.h>
+#include <SaveOptions.h>
+#include <MsgSaveOptions.h>
+#include <MailMessage.h>
+#include <MailAddressCollection.h>
+#include <MailAddress.h>
 
 #include "Examples.h"
 
-
-using namespace Aspose::Email::Mail;
-
+using namespace Aspose::Email;
 
 void SetDefaultTextEncoding()
 {
@@ -33,11 +31,11 @@ void SetDefaultTextEncoding()
     msg->set_PreferredTextEncoding(System::Text::Encoding::GetEncoding(28591));
     
     // Set email addresses, subject and body
-    msg->set_From(System::MakeObject<MailAddress>(L"dmo@domain.com", System::String(L"démo")));
-    msg->get_To()->Add(System::MakeObject<MailAddress>(L"dmo@domain.com", System::String(L"démo")));
-    msg->set_Subject(L"démo");
-    msg->set_HtmlBody(L"démo");
-    msg->Save(fileName + L"SetDefaultTextEncoding_out.msg", SaveOptions::get_DefaultMsg());
+    msg->set_From(System::MakeObject<MailAddress>(u"dmo@domain.com", System::String(u"démo")));
+    msg->get_To()->Add(System::MakeObject<MailAddress>(u"dmo@domain.com", System::String(u"démo")));
+    msg->set_Subject(u"démo");
+    msg->set_HtmlBody(u"démo");
+    msg->Save(fileName + u"SetDefaultTextEncoding_out.msg", SaveOptions::get_DefaultMsg());
     // ExEnd:SetDefaultTextEncoding
 }
 

@@ -1,24 +1,23 @@
 ﻿/*
 This project uses Automatic Package Restore feature of NuGet to resolve Aspose.Email for .NET API reference 
 when the project is build. Please check https://Docs.nuget.org/consume/nuget-faq for more information. 
-If you do not wish to use NuGet, you can manually download Aspose.Email for .NET API from http://www.aspose.com/downloads, 
+If you do not wish to use NuGet, you can manually download Aspose.Email for .NET API from https://www.nuget.org/packages/Aspose.Email/, 
 install it and then add its reference to this project. For any issues, questions or suggestions 
-please feel free to contact us using http://www.aspose.com/community/forums/default.aspx
+please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
 #include <system/object.h>
 #include <system/console.h>
-#include <Mail/MailMessage/MailMessage.h>
-#include <Mail/MailMessage/LoadOptions/EmlLoadOptions.h>
-#include <Mail/MailAddressCollection.h>
-#include <Mail/MailAddress.h>
+#include <MailMessage.h>
+#include <MailAddressCollection.h>
+#include <MailAddress.h>
+#include <EmlLoadOptions.h>
 
 #include "Examples.h"
 
-
-using namespace Aspose::Email::Mail;
+using namespace Aspose::Email;
 
 
 void ExposeProperties()
@@ -26,7 +25,7 @@ void ExposeProperties()
     System::String dataDir = GetDataDir_Outlook();
     
     // Load mail message
-    System::SharedPtr<MailMessage> msg = MailMessage::Load(dataDir + L"Message.eml", System::MakeObject<EmlLoadOptions>());
+    System::SharedPtr<MailMessage> msg = MailMessage::Load(dataDir + u"Message.eml", System::MakeObject<EmlLoadOptions>());
     
     // Subject
     if (msg->get_Subject() != nullptr)
@@ -35,7 +34,7 @@ void ExposeProperties()
     }
     else
     {
-        System::Console::WriteLine(L"no subject");
+        System::Console::WriteLine(u"no subject");
     }
     
     // From
@@ -45,7 +44,7 @@ void ExposeProperties()
     }
     else
     {
-        System::Console::WriteLine(L"No sender");
+        System::Console::WriteLine(u"No sender");
     }
     
     // To
@@ -55,7 +54,7 @@ void ExposeProperties()
     }
     else
     {
-        System::Console::WriteLine(L"No one in To");
+        System::Console::WriteLine(u"No one in To");
     }
     
     // Cc
@@ -65,13 +64,7 @@ void ExposeProperties()
     }
     else
     {
-        System::Console::WriteLine(L"No one in cc");
+        System::Console::WriteLine(u"No one in cc");
     }
 }
-
-
-
-
-
-
 

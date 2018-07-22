@@ -1,9 +1,9 @@
 ﻿/*
 This project uses Automatic Package Restore feature of NuGet to resolve Aspose.Email for .NET API reference 
 when the project is build. Please check https://Docs.nuget.org/consume/nuget-faq for more information. 
-If you do not wish to use NuGet, you can manually download Aspose.Email for .NET API from http://www.aspose.com/downloads, 
+If you do not wish to use NuGet, you can manually download Aspose.Email for .NET API from https://www.nuget.org/packages/Aspose.Email/, 
 install it and then add its reference to this project. For any issues, questions or suggestions 
-please feel free to contact us using http://www.aspose.com/community/forums/default.aspx
+please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/string.h>
@@ -13,24 +13,24 @@ please feel free to contact us using http://www.aspose.com/community/forums/defa
 #include <system/exceptions.h>
 #include <system/details/dispose_guard.h>
 #include <system/console.h>
-#include <Formats/Outlook/Pst/PersonalStorage.h>
-#include <Formats/Outlook/Pst/Messaging/ItemMovedEventArgs.h>
-#include <Formats/Outlook/Pst/Messaging/FolderInfo.h>
-#include <Formats/Outlook/Pst/Messaging/Enums/StandardIpmFolder.h>
+#include <Storage/Pst/StandardIpmFolder.h>
+#include <Storage/Pst/PersonalStorage.h>
+#include <Storage/Pst/ItemMovedEventArgs.h>
+#include <Storage/Pst/FolderInfo.h>
 #include <cstdint>
 
 #include "Examples.h"
 
+using namespace Aspose::Email;
+using namespace Aspose::Email::Storage::Pst;
 
-using namespace Aspose::Email::Outlook::Pst;
+static int32_t totalAdded = 0;
 
-
-int32_t totalAdded = 0;
-
-void destinationFolder_ItemMoved(System::SharedPtr<System::Object> sender, System::SharedPtr<Aspose::Email::Outlook::Pst::ItemMovedEventArgs> e)
+static void destinationFolder_ItemMoved(System::SharedPtr<System::Object> sender, System::SharedPtr<Aspose::Email::Storage::Pst::ItemMovedEventArgs> e)
 {
     totalAdded++;
 }
+
 
 void MergeFolderFromAnotherPSTFile()
 {
@@ -40,41 +40,46 @@ void MergeFolderFromAnotherPSTFile()
     try
     {
         {
-            System::SharedPtr<PersonalStorage> destinationPst = PersonalStorage::FromFile(dataDir + L"destination.pst");
-            
+            System::SharedPtr<PersonalStorage> destinationPst = PersonalStorage::FromFile(dataDir + u"destination.pst");
             // Clearing resources under 'using' statement
-            System::Details::DisposeGuard __dispose_guard_0{ destinationPst, ASPOSE_CURRENT_FUNCTION_LINE };
+            System::Details::DisposeGuard<1> __dispose_guard_1({ destinationPst});
             // ------------------------------------------
-            {
-                System::SharedPtr<PersonalStorage> sourcePst = PersonalStorage::FromFile(dataDir + L"source.pst");
-                
+            
+            try{
+                System::SharedPtr<PersonalStorage> sourcePst = PersonalStorage::FromFile(dataDir + u"source.pst");
                 // Clearing resources under 'using' statement
-                System::Details::DisposeGuard __dispose_guard_1{ sourcePst, ASPOSE_CURRENT_FUNCTION_LINE };
+                System::Details::DisposeGuard<1> __dispose_guard_0({ sourcePst});
                 // ------------------------------------------
-                System::SharedPtr<FolderInfo> destinationFolder = destinationPst->get_RootFolder()->AddSubFolder(L"FolderFromAnotherPst");
-                System::SharedPtr<FolderInfo> sourceFolder = sourcePst->GetPredefinedFolder(Aspose::Email::Outlook::Pst::StandardIpmFolder::DeletedItems);
                 
-                // The events subscription is an optional step for the tracking process only.
-                destinationFolder->ItemMoved.connect(destinationFolder_ItemMoved);
-                
-                // Merges with the folder from another pst.
-                destinationFolder->MergeWith(sourceFolder);
-                System::Console::WriteLine(L"Total messages added: {0}", System::ObjectExt::Box<int32_t>(totalAdded));
+                try
+                {
+                    System::SharedPtr<FolderInfo> destinationFolder = destinationPst->get_RootFolder()->AddSubFolder(u"FolderFromAnotherPst");
+                    System::SharedPtr<FolderInfo> sourceFolder = sourcePst->GetPredefinedFolder(Aspose::Email::Storage::Pst::StandardIpmFolder::DeletedItems);
+                    
+                    // The events subscription is an optional step for the tracking process only.
+                    destinationFolder->ItemMoved.connect(destinationFolder_ItemMoved);
+                    
+                    // Merges with the folder from another pst.
+                    destinationFolder->MergeWith(sourceFolder);
+                    System::Console::WriteLine(u"Total messages added: {0}", System::ObjectExt::Box<int32_t>(totalAdded));
+                }
+                catch(...)
+                {
+                    __dispose_guard_0.SetCurrentException(std::current_exception());
+                }
+            }
+            catch(...)
+            {
+                __dispose_guard_1.SetCurrentException(std::current_exception());
             }
         }
     }
     catch (System::Exception& ex)
     {
-        System::Console::WriteLine(ex.get_Message() + L"\nThis example will only work if you apply a valid Aspose Email License. You can purchase full license or get 30 day temporary license from http:// Www.aspose.com/purchase/default.aspx.");
+        System::Console::WriteLine(ex.get_Message() + u"\nThis example will only work if you apply a valid Aspose Email License. You can purchase full license or get 30 day temporary license from http:// Www.aspose.com/purchase/default.aspx.");
     }
     
     // ExEnd:MergePSTFolders
 }
-
-
-
-
-
-
 
 
