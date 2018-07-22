@@ -11,7 +11,7 @@
 #include <system/array.h>
 #include <cstdint>
 
-#include <Assembly/Licensing/License.h>
+#include <Licensing/License.h>
 
 using namespace Aspose::Email;
 using namespace System;
@@ -32,6 +32,7 @@ void RunExamples()
     //LoadLicense(L"Aspose.lic");
 
     // Uncomment the one you want to try out
+
     // =====================================================
     // =====================================================
     // Email
@@ -39,10 +40,17 @@ void RunExamples()
     // =====================================================
     //AddEmailAttachments();
     //AddNewTNEFAttachments();
+    //BayesianSpamAnalyzer();
     //ChangeEmailAddress();
     //CheckBouncedMessage();
+    //ConvertMHTMLWithOptionalSettings();
     //CreateNewEmail();
     //CreateNewMailMessage();
+    //CreateTNEFEMLFromMSG();
+    //CreatingTNEFFromMSG();
+    //DetectDifferentFileFormats();
+    //DetectMessageIsTNEF();
+    //DetermineAttachmentEmbeddedMessage();
     //DisplayAttachmentFileName();
     //DisplayEmailInformation();
     //DraftAppointmentRequest();
@@ -60,24 +68,36 @@ void RunExamples()
     //LoadAndSaveFileAsEML();
     //LoadingEMLAndSavingToMSG();
     //LoadMessageWithLoadOptions();
+    //PreserveEmbeddedMSGFormatDuringLoad();
     //PreserveOriginalBoundaries();
     //PreserveTNEFAttachment();
+    //PreservingEmbeddedMsgFormat();
     //ReadMessageByPreservingTNEFAttachments();
     //RemoveAttachments();
+    //RenderingCalendarEvents();
     //RetrieveContentDescriptionFromAttachment();
     //SaveMailMessageAsMHTML();
+    //SaveMessageAsOFT();
+    //SavingMSGWithPreservedDates();
     //SetAlternateText();
     //SetDefaultTextEncoding();
     //SetEmailHeaders();
     //SetHTMLBody();
+    //SetParticipantStatusOfAppointmentAttendees();
+    //UpdateTNEFAttachments();
+    //UseMailMessageFeatures();
 
-    //// =====================================================
-    //// =====================================================
-    //// Outlook
-    //// =====================================================
-    //// =====================================================
+
+    /// / =====================================================
+    /// / =====================================================
+    /// / Outlook
+    /// / =====================================================
+    /// / =====================================================
+
     //NewPSTAddSubfolders();
     //CreateSaveOutlookFiles();
+    //DeleteBulkItemsFromPSTFile();
+    //UpdateBulkMessagesInPSTFile();
     //LoadMSGFiles();
     //LoadingFromStream();
     //GetMAPIProperty();
@@ -87,7 +107,6 @@ void RunExamples()
     //ReadingNamedMAPIPropertyFromAttachment();
     //RemovePropertiesFromMSGAndAttachments();
     //ConvertEMLToMSG();
-    //CreatEMLFileAndConvertToMSG();
     //ReadAndWritingOutlookTemplateFile();
     //SetFollowUpflag();
     //SetFollowUpForRecipients();
@@ -114,24 +133,35 @@ void RunExamples()
     //AddVotingButtonToExistingMessage();
     //DeleteVotingButtonFromMessage();
     //CreateAndSaveDistributionList();
+    //CreatReplyMessage();
+    //CreateForwardMessage();
+    //EndAfterNoccurrences();
+    //WeeklyEndAfterNoccurrences();
+    //EndAfterNoccurrenceSelectMultipleDaysInweek();
+    //MonthlyEndAfterNoccurrences();
     //YearlyEndAfterNoccurrences();
     //GenerateRecurrenceFromRecurrenceRule();
     //ExposeProperties();
     //GetTheTextAndRTFBodies();
     //CreateNewMapiCalendarAndAddToCalendarSubfolder();
     //ParseOutlookMessageFile();
+    //ConvertMSGToMIMEMessage();
     //CreatingAndSavingOutlookMessages();
     //CreatingMSGFilesWithRTFBody();
     //SavingMessageInDraftStatus();
     //SetBodyCompression();
     //ReadingVotingOptions();
-    //ReadingOnlyVotingButtons();
+    //SetAdditionalMAPIProperties();
     //SaveAttachmentsFromOutlookMSGFile();
     //RemoveAttachmentsFromFile();
     //DestroyAttachment();
     //EmbedMessageAsAttachment();
+    //ReadEmbeddedMessageFromAttachment();
+    //InsertMSGAttachmentAtSpecificlocation();
+    //ReplaceEmbeddedMSGAttachmentContents();
     //LoadingContactFromMSG();
     //LoadingContactFromVCard();
+    //LoadingContactFromVCardWithSpecifiedEncoding();
     //ReadingMapiTask();
     //ReadingVToDoTask();
     //SavingTheCalendarItemAsMSG();
@@ -139,14 +169,23 @@ void RunExamples()
     //CreateMapiCalendarTimeZoneFromStandardTimezone();
     //ReadingDistributionListFromPST();
     //SetDailyOccurrenceCount();
+    //SetRecurrenceEveryDay();
     //SetDailyNeverEndRecurrence();
+    //SetWeeklyRecurrenceMultipleDaysInWeekWithInterval();
+    //SetWeeklyEndAfterDateRecurrence();
+    //SetWeeklyNeverEndRecurrence();
+    //SetMonthlyEndAfterDateRecurrence();
     //SetMonthlyNeverEndRecurrence();
+    //YearlyEndAfterDate();
     //SetYearlyNeverEndRecurrence();
-    
-    // Working with Outlook Personal Storage (PST) files
+
+    //Working with Outlook Personal Storage (PST) files
+
     //SplitSinglePSTInToMultiplePST();
     //MergeMultiplePSTsInToSinglePST();
     //MergeFolderFromAnotherPSTFile();
+    //ConvertOSTToPST();
+    //ExtractNumberOfMessages();
     //ExtractAttachmentsFromPSTMessages();
     //AddMessagesToPSTFiles();
     //ReadandConvertOSTFiles();
@@ -173,27 +212,34 @@ void RunExamples()
     //SearchMessagesAndFoldersInPST();
     //MoveItemsToOtherFolders();
     //AddMapiNoteToPST();
+    //UpdatePSTCustomProperites();
     //SaveContactInformation();
     //DisplayInformationOfPSTFile();
+    //SpecificCriterionSplitPST();
     //AddMessagesFromOtherPST();
+    //DeleteMessagesFromPSTFiles();
     //MergeFolderFromAnotherPSTFile();
     //LoadingPSTFile();
-    
+    //ModifyDeleteOccurrenceInRecurrence();
+
+
+
+   
     printf("\n\nProgram Finished. Press any key to exit....");
     getchar();
 }
 
 System::String GetDataDir_Email()
 {
-    return System::IO::Path::GetFullPath(GetDataDir_Data() + L"Email/");
+    return System::IO::Path::GetFullPath(GetDataDir_Data() + u"Email/");
 }
 
 System::String GetDataDir_Outlook()
 {
-    return System::IO::Path::GetFullPath(GetDataDir_Data() + L"Outlook/");
+    return System::IO::Path::GetFullPath(GetDataDir_Data() + u"Outlook/");
 }
 
-System::String dataDir = L"../Data/";
+System::String dataDir = u"../Data/";
 
 System::String GetDataDir_Data()
 {
@@ -216,7 +262,7 @@ System::String GetDataDir_Data()
     {
         startDirectory = parent->get_FullName();
     }
-    return startDirectory != nullptr ? System::IO::Path::Combine(startDirectory, L"Data\\") : nullptr;
+    return startDirectory != nullptr ? System::IO::Path::Combine(startDirectory, u"Data\\") : nullptr;
 }
 
 int main(int argc, char** argv)

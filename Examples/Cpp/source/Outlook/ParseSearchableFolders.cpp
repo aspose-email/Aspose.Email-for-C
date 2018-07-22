@@ -1,9 +1,9 @@
 ﻿/* This project uses Automatic Package Restore feature of NuGet to resolve Aspose.Email for .NET 
    API reference when the project is build. Please check https://Docs.nuget.org/consume/nuget-faq 
    for more information. If you do not wish to use NuGet, you can manually download 
-   Aspose.Email for .NET API from http://www.aspose.com/downloads, 
+   Aspose.Email for .NET API from https://www.nuget.org/packages/Aspose.Email/, 
    install it and then add its reference to this project. For any issues, questions or suggestions 
-   please feel free to contact us using http://www.aspose.com/community/forums/default.aspx            
+   please feel free to contact us using https://forum.aspose.com/c/email            
 */
 
 #include <system/string.h>
@@ -19,36 +19,33 @@
 #include <system/collections/ilist.h>
 #include <system/collections/ienumerator.h>
 #include <system/array.h>
-#include <Formats/Outlook/Pst/PersonalStorage.h>
-#include <Formats/Outlook/Pst/Messaging/FolderInfoCollection.h>
-#include <Formats/Outlook/Pst/Messaging/FolderInfo.h>
-#include <Formats/Outlook/Pst/Messaging/Enums/FolderKind.h>
+#include <Storage/Pst/PersonalStorage.h>
+#include <Storage/Pst/FolderKind.h>
+#include <Storage/Pst/FolderInfoCollection.h>
+#include <Storage/Pst/FolderInfo.h>
 #include <cstdint>
 
 #include "Examples.h"
 
+using namespace Aspose::Email;
+using namespace Aspose::Email::Storage::Pst;
 
-using namespace Aspose::Email::Outlook::Pst;
-
-
-
-
-void WalkFolders(System::SharedPtr<Aspose::Email::Outlook::Pst::FolderInfo> folder, System::String parentFolderName, System::SharedPtr<System::Collections::Generic::IList<System::String>> folderData)
+void WalkFolders(System::SharedPtr<Aspose::Email::Storage::Pst::FolderInfo> folder, System::String parentFolderName, System::SharedPtr<System::Collections::Generic::IList<System::String>> folderData)
 {
-    System::String displayName = (System::String::IsNullOrEmpty(folder->get_DisplayName())) ? L"ROOT" : folder->get_DisplayName();
-    System::String folderNames = System::String::Format(L"DisplayName = {0}; Parent.DisplayName = {1}",displayName,parentFolderName);
+    System::String displayName = (System::String::IsNullOrEmpty(folder->get_DisplayName())) ? u"ROOT" : folder->get_DisplayName();
+    System::String folderNames = System::String::Format(u"DisplayName = {0}; Parent.DisplayName = {1}", displayName, parentFolderName);
     folderData->Add(folderNames);
-    if (displayName == L"Finder")
+    if (displayName == u"Finder")
     {
-        System::Console::WriteLine(L"Test this case");
+        System::Console::WriteLine(u"Test this case");
     }
-    
+
     if (!folder->get_HasSubFolders())
     {
         return;
     }
-    System::SharedPtr<FolderInfoCollection> coll = folder->GetSubFolders(Aspose::Email::Outlook::Pst::FolderKind::Search | Aspose::Email::Outlook::Pst::FolderKind::Normal);
-    
+    System::SharedPtr<FolderInfoCollection> coll = folder->GetSubFolders(Aspose::Email::Storage::Pst::FolderKind::Search | Aspose::Email::Storage::Pst::FolderKind::Normal);
+
     {
         auto subfolder_enumerator = (coll)->GetEnumerator();
         decltype(subfolder_enumerator->get_Current()) subfolder;
@@ -62,20 +59,27 @@ void WalkFolders(System::SharedPtr<Aspose::Email::Outlook::Pst::FolderInfo> fold
 void WalkAllFolders()
 {
     System::String dataDir = GetDataDir_Outlook();
-    System::String path = dataDir + L"PersonalStorage.pst";
+    System::String path = dataDir + u"PersonalStorage.pst";
     System::ArrayPtr<uint8_t> buffer = System::IO::File::ReadAllBytes(path);
     {
         System::SharedPtr<System::IO::Stream> s = System::IO::File::OpenRead(path);
-
         // Clearing resources under 'using' statement
-        System::Details::DisposeGuard __dispose_guard_0{ s, ASPOSE_CURRENT_FUNCTION_LINE };
+        System::Details::DisposeGuard<1> __dispose_guard_0({ s});
         // ------------------------------------------
-        System::SharedPtr<PersonalStorage> pst = PersonalStorage::FromStream(s);
-
-        // One sample of the sub-folder EntryId which could not be retrieved in Finder sub-folder
-        System::SharedPtr<FolderInfo> target = pst->GetFolderById(L"AAAAAB9of1CGOidPhTb686WQY68igAAA");
-        System::SharedPtr<System::Collections::Generic::IList<System::String>> folderData = System::MakeObject<System::Collections::Generic::List<System::String>>();
-        WalkFolders(pst->get_RootFolder(), L"N/A", folderData);
+        
+        try
+        {
+            System::SharedPtr<PersonalStorage> pst = PersonalStorage::FromStream(s);
+            
+            // One sample of the sub-folder EntryId which could not be retrieved in Finder sub-folder
+            System::SharedPtr<FolderInfo> target = pst->GetFolderById(u"AAAAAB9of1CGOidPhTb686WQY68igAAA");
+            System::SharedPtr<System::Collections::Generic::IList<System::String>> folderData = System::MakeObject<System::Collections::Generic::List<System::String>>();
+            WalkFolders(pst->get_RootFolder(), u"N/A", folderData);
+        }
+        catch(...)
+        {
+            __dispose_guard_0.SetCurrentException(std::current_exception());
+        }
     }
 }
 
@@ -84,9 +88,3 @@ void ParseSearchableFolders()
 {
     WalkAllFolders();
 }
-
-
-
-
-
-

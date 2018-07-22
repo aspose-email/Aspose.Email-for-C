@@ -1,9 +1,9 @@
 ﻿/*
 This project uses Automatic Package Restore feature of NuGet to resolve Aspose.Email for .NET API reference 
 when the project is build. Please check https://Docs.nuget.org/consume/nuget-faq for more information. 
-If you do not wish to use NuGet, you can manually download Aspose.Email for .NET API from http://www.aspose.com/downloads, 
+If you do not wish to use NuGet, you can manually download Aspose.Email for .NET API from https://www.nuget.org/packages/Aspose.Email/, 
 install it and then add its reference to this project. For any issues, questions or suggestions 
-please feel free to contact us using http://www.aspose.com/community/forums/default.aspx
+please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/string.h>
@@ -11,21 +11,20 @@ please feel free to contact us using http://www.aspose.com/community/forums/defa
 #include <system/object_ext.h>
 #include <system/console.h>
 #include <system/collections/ienumerator.h>
-#include <Formats/Outlook/Mapi/MapiRecipientTrackStatus.h>
-#include <Formats/Outlook/Mapi/MapiRecipientCollection.h>
-#include <Formats/Outlook/Mapi/MapiRecipient.h>
-#include <Formats/Outlook/Mapi/MapiMessage.h>
+#include <Mapi/MapiRecipientTrackStatus.h>
+#include <Mapi/MapiRecipientCollection.h>
+#include <Mapi/MapiRecipient.h>
+#include <Mapi/MapiMessage.h>
 
 #include "Examples.h"
 
-
-using namespace Aspose::Email::Outlook;
-
+using namespace Aspose::Email;
+using namespace Aspose::Email::Mapi;
 
 void DisplayRecipientsStatusFromMeetingRequest()
 {
     System::String dataDir = GetDataDir_Outlook();
-    System::String fileName = dataDir + L"Test Meeting.msg";
+    System::String fileName = dataDir + u"Test Meeting.msg";
     
     // ExStart:DisplayRecipientsStatusFromMeetingRequest
     System::SharedPtr<MapiMessage> message = MapiMessage::FromFile(fileName);
@@ -35,15 +34,9 @@ void DisplayRecipientsStatusFromMeetingRequest()
         decltype(recipient_enumerator->get_Current()) recipient;
         while (recipient_enumerator->MoveNext() && (recipient = recipient_enumerator->get_Current(), true))
         {
-            System::Console::WriteLine(System::ObjectExt::ToString(recipient->get_RecipientTrackStatus()));
+            System::Console::WriteLine(System::ObjectExt::Box<MapiRecipientTrackStatus>(recipient->get_RecipientTrackStatus()));
         }
     }
     // ExEnd:DisplayRecipientsStatusFromMeetingRequest
 }
-
-
-
-
-
-
 

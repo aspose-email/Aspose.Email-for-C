@@ -8,43 +8,42 @@
 #include <system/details/dispose_guard.h>
 #include <system/console.h>
 #include <system/array.h>
-#include <Formats/Outlook/Pst/StorageProcessedEventArgs.h>
-#include <Formats/Outlook/Pst/PersonalStorage.h>
-#include <Formats/Outlook/Pst/Messaging/ItemMovedEventArgs.h>
-#include <Formats/Outlook/Pst/Messaging/FolderInfo.h>
+#include <Storage/Pst/StorageProcessedEventArgs.h>
+#include <Storage/Pst/PersonalStorage.h>
+#include <Storage/Pst/ItemMovedEventArgs.h>
+#include <Storage/Pst/FolderInfo.h>
 #include <cstdint>
 
 #include "Examples.h"
 
-
-using namespace Aspose::Email::Outlook::Pst;
-
+using namespace Aspose::Email;
+using namespace Aspose::Email::Storage::Pst;
 
 static int32_t totalAdded = 0;
 static System::String currentFolder;
 static int32_t messageCount = 0;
 
-void PstMerge_OnStorageProcessed(System::SharedPtr<System::Object> sender, System::SharedPtr<Aspose::Email::Outlook::Pst::StorageProcessedEventArgs> e)
+static void PstMerge_OnStorageProcessed(System::SharedPtr<System::Object> sender, System::SharedPtr<Aspose::Email::Storage::Pst::StorageProcessedEventArgs> e)
 {
-    System::Console::WriteLine(L"*** The storage is merging: {0}", System::ObjectExt::Box<System::String>(e->get_FileName()));
+    System::Console::WriteLine(u"*** The storage is merging: {0}", System::ObjectExt::Box<System::String>(e->get_FileName()));
 }
 
-void PstMerge_OnItemMoved(System::SharedPtr<System::Object> sender, System::SharedPtr<Aspose::Email::Outlook::Pst::ItemMovedEventArgs> e)
+void PstMerge_OnItemMoved(System::SharedPtr<System::Object> sender, System::SharedPtr<Aspose::Email::Storage::Pst::ItemMovedEventArgs> e)
 {
     if (currentFolder == nullptr)
     {
         currentFolder = e->get_DestinationFolder()->RetrieveFullPath();
     }
-
+    
     System::String folderPath = e->get_DestinationFolder()->RetrieveFullPath();
-
+    
     if (currentFolder != folderPath)
     {
-        System::Console::WriteLine(L"    Added {0} messages to \"{1}\"", System::ObjectExt::Box<int32_t>(messageCount), System::ObjectExt::Box<System::String>(currentFolder));
+        System::Console::WriteLine(u"    Added {0} messages to \"{1}\"", System::ObjectExt::Box<int32_t>(messageCount), System::ObjectExt::Box<System::String>(currentFolder));
         messageCount = 0;
         currentFolder = folderPath;
     }
-
+    
     messageCount++;
     totalAdded++;
 }
@@ -55,38 +54,37 @@ void MergeMultiplePSTsInToSinglePST()
     // ExStart:MergePSTFiles
     // The path to the File directory.
     System::String dataDir = GetDataDir_Outlook();
-    System::String dst = dataDir + L"Sub.pst";
+    System::String dst = dataDir + u"Sub.pst";
     totalAdded = 0;
     try
     {
         {
             System::SharedPtr<PersonalStorage> personalStorage = PersonalStorage::FromFile(dst);
-            
             // Clearing resources under 'using' statement
-            System::Details::DisposeGuard __dispose_guard_0{ personalStorage, ASPOSE_CURRENT_FUNCTION_LINE };
+            System::Details::DisposeGuard<1> __dispose_guard_0({ personalStorage });
             // ------------------------------------------
-            // The events subscription is an optional step for the tracking process only.
-            personalStorage->StorageProcessed.connect(PstMerge_OnStorageProcessed);
-            personalStorage->ItemMoved.connect(PstMerge_OnItemMoved);
-            
-            // Merges with the pst files that are located in separate folder. 
-            personalStorage->MergeWith(System::IO::Directory::GetFiles(dataDir + L"MergePST\\"));
-            System::Console::WriteLine(L"Total messages added: {0}", System::ObjectExt::Box<int32_t>(totalAdded));
+
+            try
+            {
+                // The events subscription is an optional step for the tracking process only.
+                personalStorage->StorageProcessed.connect(PstMerge_OnStorageProcessed);
+                personalStorage->ItemMoved.connect(PstMerge_OnItemMoved);
+
+                // Merges with the pst files that are located in separate folder. 
+                personalStorage->MergeWith(System::IO::Directory::GetFiles(dataDir + u"MergePST\\"));
+                System::Console::WriteLine(u"Total messages added: {0}", System::ObjectExt::Box<int32_t>(totalAdded));
+            }
+            catch (...)
+            {
+                __dispose_guard_0.SetCurrentException(std::current_exception());
+            }
         }
-        System::Console::WriteLine(System::Environment::get_NewLine() + L"PST merged successfully at " + dst);
+        System::Console::WriteLine(System::Environment::get_NewLine() + u"PST merged successfully at " + dst);
     }
     catch (System::Exception& ex)
     {
-        System::Console::WriteLine(ex.get_Message() + L"\nThis example will only work if you apply a valid Aspose Email License. You can purchase full license or get 30 day temporary license from http:// Www.aspose.com/purchase/default.aspx.");
+        System::Console::WriteLine(ex.get_Message() + u"\nThis example will only work if you apply a valid Aspose Email License. You can purchase full license or get 30 day temporary license from http:// Www.aspose.com/purchase/default.aspx.");
     }
-    
+
     // ExEnd:MergePSTFiles
 }
-
-
-
-
-
-
-
-

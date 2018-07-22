@@ -3,16 +3,15 @@
 #include <system/object.h>
 #include <system/console.h>
 #include <system/collections/ienumerator.h>
-#include <Mail/Mime/HeaderCollection.h>
-#include <Mail/MailMessage/MailMessage.h>
-#include <Mail/MailMessage/LoadOptions/EmlLoadOptions.h>
+#include <Mime/HeaderCollection.h>
+#include <MailMessage.h>
+#include <EmlLoadOptions.h>
 #include <cstdint>
 
 #include "Examples.h"
 
-
-using namespace Aspose::Email::Mail;
-
+using namespace Aspose::Email;
+using namespace Aspose::Email::Mime;
 
 void ExtractingEmailHeaders()
 {
@@ -23,8 +22,8 @@ void ExtractingEmailHeaders()
     System::SharedPtr<MailMessage> message;
     
     // Create MailMessage instance by loading an EML file
-    message = MailMessage::Load(dataDir + L"email-headers.eml", System::MakeObject<EmlLoadOptions>());
-    System::Console::WriteLine(L"\n\nheaders:\n\n");
+    message = MailMessage::Load(dataDir + u"email-headers.eml", System::MakeObject<EmlLoadOptions>());
+    System::Console::WriteLine(u"\n\nheaders:\n\n");
     
     // Print out all the headers
     int32_t index = 0;
@@ -34,7 +33,7 @@ void ExtractingEmailHeaders()
         decltype(header_enumerator->get_Current()) header;
         while (header_enumerator->MoveNext() && (header = header_enumerator->get_Current(), true))
         {
-            System::Console::Write(header + L" - ");
+            System::Console::Write(header + u" - ");
             System::Console::WriteLine(message->get_Headers()->Get(index++));
         }
     }

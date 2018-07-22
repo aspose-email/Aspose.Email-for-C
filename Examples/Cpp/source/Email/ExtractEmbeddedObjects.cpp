@@ -1,9 +1,9 @@
 ﻿/*
 This project uses Automatic Package Restore feature of NuGet to resolve Aspose.Email for .NET API reference 
 when the project is build. Please check https://Docs.nuget.org/consume/nuget-faq for more information. 
-If you do not wish to use NuGet, you can manually download Aspose.Email for .NET API from http://www.aspose.com/downloads, 
+If you do not wish to use NuGet, you can manually download Aspose.Email for .NET API from https://www.nuget.org/packages/Aspose.Email/, 
 install it and then add its reference to this project. For any issues, questions or suggestions 
-please feel free to contact us using http://www.aspose.com/community/forums/default.aspx
+please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/string.h>
@@ -12,18 +12,17 @@ please feel free to contact us using http://www.aspose.com/community/forums/defa
 #include <system/io/memory_stream.h>
 #include <system/console.h>
 #include <system/collections/ienumerator.h>
-#include <Mail/MimeParts/LinkedResourceCollection.h>
-#include <Mail/MimeParts/LinkedResource.h>
-#include <Mail/MimeParts/AttachmentCollection.h>
-#include <Mail/MimeParts/Attachment.h>
-#include <Mail/Mime/ContentType.h>
-#include <Mail/MailMessage/MailMessage.h>
+#include <Mime/ContentType.h>
+#include <MailMessage.h>
+#include <LinkedResourceCollection.h>
+#include <LinkedResource.h>
+#include <AttachmentCollection.h>
+#include <Attachment.h>
 
 #include "Examples.h"
 
-
-using namespace Aspose::Email::Mail;
-
+using namespace Aspose::Email;
+using namespace Aspose::Email::Mime;
 
 void ExtractEmbeddedObjects()
 {
@@ -32,7 +31,7 @@ void ExtractEmbeddedObjects()
     System::String dataDir = GetDataDir_Email();
     
     // Create an instance of MailMessage and load an email file
-    System::SharedPtr<MailMessage> mailMsg = MailMessage::Load(dataDir + L"EmailWithAttandEmbedded.eml");
+    System::SharedPtr<MailMessage> mailMsg = MailMessage::Load(dataDir + u"EmailWithAttandEmbedded.eml");
     
     // Extract Attachments from the message
     

@@ -140,14 +140,21 @@
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </ForcedIncludeFiles>
     </ClCompile>
-    <ClCompile Include="source\Email\AddAttachment.cpp" />
+    <ClCompile Include="source\Examples.cpp" />
     <ClCompile Include="source\Email\AddEmailAttachments.cpp" />
     <ClCompile Include="source\Email\AddNewTNEFAttachments.cpp" />
     <ClCompile Include="source\Email\BayesianSpamAnalyzer.cpp" />
     <ClCompile Include="source\Email\ChangeEmailAddress.cpp" />
     <ClCompile Include="source\Email\CheckBouncedMessage.cpp" />
+    <ClCompile Include="source\Email\ConvertMHTMLWithOptionalSettings.cpp" />
     <ClCompile Include="source\Email\CreateNewEmail.cpp" />
     <ClCompile Include="source\Email\CreateNewMailMessage.cpp" />
+    <ClCompile Include="source\Email\CreateTNEFEMLFromMSG.cpp" />
+    <ClCompile Include="source\Email\CreatingTNEFFromMSG.cpp" />
+    <ClCompile Include="source\Email\DetectDifferentFileFormats.cpp" />
+    <ClCompile Include="source\Email\DetectMessageIsTNEF.cpp" />
+    <ClCompile Include="source\Email\DetectTNEFMessage.cpp" />
+    <ClCompile Include="source\Email\DetermineAttachmentEmbeddedMessage.cpp" />
     <ClCompile Include="source\Email\DisplayAttachmentFileName.cpp" />
     <ClCompile Include="source\Email\DisplayEmailAddressesNames.cpp" />
     <ClCompile Include="source\Email\DisplayEmailInformation.cpp" />
@@ -166,25 +173,35 @@
     <ClCompile Include="source\Email\LoadAndSaveFileAsEML.cpp" />
     <ClCompile Include="source\Email\LoadingEMLAndSavingToMSG.cpp" />
     <ClCompile Include="source\Email\LoadMessageWithLoadOptions.cpp" />
+    <ClCompile Include="source\Email\PreserveEmbeddedMSGFormatDuringLoad.cpp" />
     <ClCompile Include="source\Email\PreserveOriginalBoundaries.cpp" />
     <ClCompile Include="source\Email\PreserveTNEFAttachment.cpp" />
+    <ClCompile Include="source\Email\PreservingEmbeddedMsgFormat.cpp" />
     <ClCompile Include="source\Email\ProcessBouncedMsgs.cpp" />
     <ClCompile Include="source\Email\ReadMessageByPreservingTNEFAttachments.cpp" />
+    <ClCompile Include="source\Email\ReadMultilpleEventsFromICS.cpp" />
     <ClCompile Include="source\Email\RemoveAttachments.cpp" />
+    <ClCompile Include="source\Email\RemoveLRTracesFromMessageBody.cpp" />
+    <ClCompile Include="source\Email\RenderingCalendarEvents.cpp" />
     <ClCompile Include="source\Email\RetrieveContentDescriptionFromAttachment.cpp" />
     <ClCompile Include="source\Email\SaveMailMessageAsMHTML.cpp" />
     <ClCompile Include="source\Email\SaveMessageAsDraft.cpp" />
+    <ClCompile Include="source\Email\SaveMessageAsOFT.cpp" />
+    <ClCompile Include="source\Email\SavingMSGWithPreservedDates.cpp" />
     <ClCompile Include="source\Email\SetAlternateText.cpp" />
     <ClCompile Include="source\Email\SetDefaultTextEncoding.cpp" />
     <ClCompile Include="source\Email\SetEmailHeaders.cpp" />
     <ClCompile Include="source\Email\SetHTMLBody.cpp" />
-    <ClCompile Include="source\Examples.cpp" />
+    <ClCompile Include="source\Email\SetParticipantStatusOfAppointmentAttendees.cpp" />
+    <ClCompile Include="source\Email\UpdateTNEFAttachments.cpp" />
+    <ClCompile Include="source\Email\UseMailMessageFeatures.cpp" />
     <ClCompile Include="source\Outlook\AccessContactInformation.cpp" />
     <ClCompile Include="source\Outlook\AddAttachmentsToMapiJournal.cpp" />
     <ClCompile Include="source\Outlook\AddAttachmentsToMapiTask.cpp" />
     <ClCompile Include="source\Outlook\AddAudioReminderToCalendar.cpp" />
     <ClCompile Include="source\Outlook\AddDisplayReminderToACalendar.cpp" />
     <ClCompile Include="source\Outlook\AddFilesToPST.cpp" />
+    <ClCompile Include="source\Outlook\AddingBulkMessagesWithImprovedPerformance.cpp" />
     <ClCompile Include="source\Outlook\AddMapiCalendarToPST.cpp" />
     <ClCompile Include="source\Outlook\AddMapiNoteToPST.cpp" />
     <ClCompile Include="source\Outlook\AddMapiTaskToPST.cpp" />
@@ -198,14 +215,15 @@
     <ClCompile Include="source\Outlook\ConvertEMLToMSG.cpp" />
     <ClCompile Include="source\Outlook\ConvertMIMEMessagesFromMSGToEML.cpp" />
     <ClCompile Include="source\Outlook\ConvertMIMEMessageToEML.cpp" />
+    <ClCompile Include="source\Outlook\ConvertMSGToMIMEMessage.cpp" />
     <ClCompile Include="source\Outlook\ConvertOSTToPST.cpp" />
     <ClCompile Include="source\Outlook\CreatAndSaveAnOutlookNote.cpp" />
     <ClCompile Include="source\Outlook\CreateAndSaveCalendaritems.cpp" />
     <ClCompile Include="source\Outlook\CreateAndSaveDistributionList.cpp" />
     <ClCompile Include="source\Outlook\CreateAndSaveOutlookContact.cpp" />
     <ClCompile Include="source\Outlook\CreateDistributionListInPST.cpp" />
+    <ClCompile Include="source\Outlook\CreateForwardMessage.cpp" />
     <ClCompile Include="source\Outlook\CreateMapiCalendarTimeZoneFromStandardTimezone.cpp" />
-    <ClCompile Include="source\Outlook\CreatEMLFileAndConvertToMSG.cpp" />
     <ClCompile Include="source\Outlook\CreateNewMapiCalendarAndAddToCalendarSubfolder.cpp" />
     <ClCompile Include="source\Outlook\CreateNewMapiContactAndAddToContactsSubfolder.cpp" />
     <ClCompile Include="source\Outlook\CreateNewMapiJournalAndAddToSubfolder.cpp" />
@@ -215,12 +233,16 @@
     <ClCompile Include="source\Outlook\CreatingAndSavingOutlookMessages.cpp" />
     <ClCompile Include="source\Outlook\CreatingAndSavingOutlookTasks.cpp" />
     <ClCompile Include="source\Outlook\CreatingMSGFilesWithRTFBody.cpp" />
+    <ClCompile Include="source\Outlook\CreatReplyMessage.cpp" />
+    <ClCompile Include="source\Outlook\DeleteBulkItemsFromPSTFile.cpp" />
     <ClCompile Include="source\Outlook\DeleteMessagesFromPSTFiles.cpp" />
     <ClCompile Include="source\Outlook\DeleteVotingButtonFromMessage.cpp" />
     <ClCompile Include="source\Outlook\DestroyAttachment.cpp" />
     <ClCompile Include="source\Outlook\DisplayRecipientsStatusFromMeetingRequest.cpp" />
     <ClCompile Include="source\Outlook\EmbedMessageAsAttachment.cpp" />
     <ClCompile Include="source\Outlook\EndAfterDate.cpp" />
+    <ClCompile Include="source\Outlook\EndAfterNoccurrences.cpp" />
+    <ClCompile Include="source\Outlook\EndAfterNoccurrenceSelectMultipleDaysInweek.cpp" />
     <ClCompile Include="source\Outlook\ExposeProperties.cpp" />
     <ClCompile Include="source\Outlook\ExtractAttachmentsFromPSTMessages.cpp" />
     <ClCompile Include="source\Outlook\ExtractMessagesFromPSTFile.cpp" />
@@ -228,16 +250,21 @@
     <ClCompile Include="source\Outlook\GenerateRecurrenceFromRecurrenceRule.cpp" />
     <ClCompile Include="source\Outlook\GetMAPIProperty.cpp" />
     <ClCompile Include="source\Outlook\GetMessageInformation.cpp" />
+    <ClCompile Include="source\Outlook\GetNestedMailMessageAttachments.cpp" />
     <ClCompile Include="source\Outlook\GetTheTextAndRTFBodies.cpp" />
+    <ClCompile Include="source\Outlook\InsertMSGAttachmentAtSpecificlocation.cpp" />
     <ClCompile Include="source\Outlook\LoadingContactFromMSG.cpp" />
     <ClCompile Include="source\Outlook\LoadingContactFromVCard.cpp" />
+    <ClCompile Include="source\Outlook\LoadingContactFromVCardWithSpecifiedEncoding.cpp" />
     <ClCompile Include="source\Outlook\LoadingFromStream.cpp" />
     <ClCompile Include="source\Outlook\LoadMSGFiles.cpp" />
     <ClCompile Include="source\Outlook\ManageAttachmentsFromCalendarFiles.cpp" />
     <ClCompile Include="source\Outlook\MarkFollowUpFlagAsCompleted.cpp" />
     <ClCompile Include="source\Outlook\MergeFolderFromAnotherPSTFile.cpp" />
     <ClCompile Include="source\Outlook\MergeMultiplePSTsInToSinglePST.cpp" />
+    <ClCompile Include="source\Outlook\ModifyDeleteOccurrenceInRecurrence.cpp" />
     <ClCompile Include="source\Outlook\MonthlyEndAfterDate.cpp" />
+    <ClCompile Include="source\Outlook\MonthlyEndAfterNoccurrences.cpp" />
     <ClCompile Include="source\Outlook\MoveItemsToOtherFolders.cpp" />
     <ClCompile Include="source\Outlook\NewPSTAddSubfolders.cpp" />
     <ClCompile Include="source\Outlook\ParseOutlookMessageFile.cpp" />
@@ -248,12 +275,12 @@
     <ClCompile Include="source\Outlook\PST\ReadingOSTFiles.cpp" />
     <ClCompile Include="source\Outlook\ReadandConvertOSTFiles.cpp" />
     <ClCompile Include="source\Outlook\ReadAndWritingOutlookTemplateFile.cpp" />
+    <ClCompile Include="source\Outlook\ReadEmbeddedMessageFromAttachment.cpp" />
     <ClCompile Include="source\Outlook\ReadFollowupFlagOptionsForMessage.cpp" />
     <ClCompile Include="source\Outlook\ReadiNamedMAPIPropertyFromAttachment.cpp" />
     <ClCompile Include="source\Outlook\ReadingDistributionListFromPST.cpp" />
     <ClCompile Include="source\Outlook\ReadingMapiTask.cpp" />
     <ClCompile Include="source\Outlook\ReadingNamedMAPIPropertyFromAttachment.cpp" />
-    <ClCompile Include="source\Outlook\ReadingOnlyVotingButtons.cpp" />
     <ClCompile Include="source\Outlook\ReadingVotingOptions.cpp" />
     <ClCompile Include="source\Outlook\ReadingVToDoTask.cpp" />
     <ClCompile Include="source\Outlook\ReadMapiNote.cpp" />
@@ -264,12 +291,15 @@
     <ClCompile Include="source\Outlook\RemoveFollowUpflag.cpp" />
     <ClCompile Include="source\Outlook\RemovePropertiesFromMSGAndAttachments.cpp" />
     <ClCompile Include="source\Outlook\RemovingPaswordProperty.cpp" />
+    <ClCompile Include="source\Outlook\RenderingContactInformationToMhtml.cpp" />
+    <ClCompile Include="source\Outlook\ReplaceEmbeddedMSGAttachmentContents.cpp" />
     <ClCompile Include="source\Outlook\RetreiveParentFolderInformationFromMessageInfo.cpp" />
     <ClCompile Include="source\Outlook\RetrieveReadAndDeliveryReceiptInformation.cpp" />
     <ClCompile Include="source\Outlook\SaveAttachmentsFromOutlookMSGFile.cpp" />
     <ClCompile Include="source\Outlook\SaveCalendarItems.cpp" />
     <ClCompile Include="source\Outlook\SaveContactInformation.cpp" />
     <ClCompile Include="source\Outlook\SaveMessagesDirectlyFromPSTToStream.cpp" />
+    <ClCompile Include="source\Outlook\SaveMsgAsTemplate.cpp" />
     <ClCompile Include="source\Outlook\SavingMessageInDraftStatus.cpp" />
     <ClCompile Include="source\Outlook\SavingTheCalendarItemAsMSG.cpp" />
     <ClCompile Include="source\Outlook\SearchMessagesAndFoldersInPST.cpp" />
@@ -282,11 +312,21 @@
     <ClCompile Include="source\Outlook\SetFollowUpflag.cpp" />
     <ClCompile Include="source\Outlook\SetFollowUpForRecipients.cpp" />
     <ClCompile Include="source\Outlook\SetMAPIProperties.cpp" />
+    <ClCompile Include="source\Outlook\SetMonthlyEndAfterDateRecurrence.cpp" />
     <ClCompile Include="source\Outlook\SetMonthlyNeverEndRecurrence.cpp" />
     <ClCompile Include="source\Outlook\SetPasswordOnPST.cpp" />
+    <ClCompile Include="source\Outlook\SetRecurrenceEveryDay.cpp" />
     <ClCompile Include="source\Outlook\SetReminderByAddingTags.cpp" />
+    <ClCompile Include="source\Outlook\SetWeeklyEndAfterDateRecurrence.cpp" />
+    <ClCompile Include="source\Outlook\SetWeeklyNeverEndRecurrence.cpp" />
+    <ClCompile Include="source\Outlook\SetWeeklyRecurrenceMultipleDaysInWeekWithInterval.cpp" />
     <ClCompile Include="source\Outlook\SetYearlyNeverEndRecurrence.cpp" />
+    <ClCompile Include="source\Outlook\SpecificCriterionSplitPST.cpp" />
     <ClCompile Include="source\Outlook\SplitSinglePSTInToMultiplePST.cpp" />
+    <ClCompile Include="source\Outlook\UpdateBulkMessagesInPSTFile.cpp" />
+    <ClCompile Include="source\Outlook\UpdatePSTCustomProperites.cpp" />
+    <ClCompile Include="source\Outlook\WeeklyEndAfterNoccurrences.cpp" />
+    <ClCompile Include="source\Outlook\YearlyEndAfterDate.cpp" />
     <ClCompile Include="source\Outlook\YearlyEndAfterNoccurrences.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -294,16 +334,19 @@
     <ClInclude Include="source\Examples.h" />
   </ItemGroup>
   <ItemGroup>
+    <Natvis Include="natvis\aspose_types.natvis" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\packages\aspose.email.cpp.vc140.18.1.0\build\native\aspose.email.cpp.vc140.targets" Condition="Exists('..\packages\aspose.email.cpp.vc140.18.1.0\build\native\aspose.email.cpp.vc140.targets')" />
+    <Import Project="..\packages\Aspose.Email.Cpp.18.6.1\build\native\aspose.email.cpp.vc140.targets" Condition="Exists('..\packages\Aspose.Email.Cpp.18.6.1\build\native\aspose.email.cpp.vc140.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\aspose.email.cpp.vc140.18.1.0\build\native\aspose.email.cpp.vc140.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\aspose.email.cpp.vc140.18.1.0\build\native\aspose.email.cpp.vc140.targets'))" />
+    <Error Condition="!Exists('..\packages\Aspose.Email.Cpp.18.6.1\build\native\aspose.email.cpp.vc140.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Aspose.Email.Cpp.18.6.1\build\native\aspose.email.cpp.vc140.targets'))" />
   </Target>
 </Project>

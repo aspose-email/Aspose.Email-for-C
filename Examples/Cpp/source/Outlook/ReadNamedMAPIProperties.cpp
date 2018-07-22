@@ -1,9 +1,9 @@
 ﻿/*
 This project uses Automatic Package Restore feature of NuGet to resolve Aspose.Email for .NET API reference 
 when the project is build. Please check https://Docs.nuget.org/consume/nuget-faq for more information. 
-If you do not wish to use NuGet, you can manually download Aspose.Email for .NET API from http://www.aspose.com/downloads, 
+If you do not wish to use NuGet, you can manually download Aspose.Email for .NET API from https://www.nuget.org/packages/Aspose.Email/, 
 install it and then add its reference to this project. For any issues, questions or suggestions 
-please feel free to contact us using http://www.aspose.com/community/forums/default.aspx
+please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/string.h>
@@ -13,16 +13,15 @@ please feel free to contact us using http://www.aspose.com/community/forums/defa
 #include <system/console.h>
 #include <system/collections/ienumerator.h>
 #include <system/collections/icollection.h>
-#include <Formats/Outlook/Mapi/MapiPropertyCollection.h>
-#include <Formats/Outlook/Mapi/MapiProperty.h>
-#include <Formats/Outlook/Mapi/MapiNamedProperty.h>
-#include <Formats/Outlook/Mapi/MapiMessage.h>
+#include <Mapi/MapiPropertyCollection.h>
+#include <Mapi/MapiProperty.h>
+#include <Mapi/MapiNamedProperty.h>
+#include <Mapi/MapiMessage.h>
 
 #include "Examples.h"
 
-
-using namespace Aspose::Email::Outlook;
-
+using namespace Aspose::Email;
+using namespace Aspose::Email::Mapi;
 
 void ReadNamedMAPIProperties()
 {
@@ -31,7 +30,7 @@ void ReadNamedMAPIProperties()
     System::String dataDir = GetDataDir_Outlook();
     
     // Load from file
-    System::SharedPtr<MapiMessage> message = MapiMessage::FromFile(dataDir + L"message.msg");
+    System::SharedPtr<MapiMessage> message = MapiMessage::FromFile(dataDir + u"message.msg");
     
     // Get all named MAPI properties
     System::SharedPtr<MapiPropertyCollection> properties = message->get_NamedProperties();
@@ -44,16 +43,16 @@ void ReadNamedMAPIProperties()
         {
             // Read any specific property
             {
-                const System::String switch_value_0 = mapiNamedProp->get_NameId();
+                const System::String& switch_value_0 = mapiNamedProp->get_NameId();
                 do {
-                    if (switch_value_0 == L"TEST")
+                    if (switch_value_0 == u"TEST")
                     {
-                        System::Console::WriteLine(L"{0} = {1}", System::ObjectExt::Box<System::String>(mapiNamedProp->get_NameId()), System::ObjectExt::Box<System::String>(mapiNamedProp->GetString()));
+                        System::Console::WriteLine(u"{0} = {1}", System::ObjectExt::Box<System::String>(mapiNamedProp->get_NameId()), System::ObjectExt::Box<System::String>(mapiNamedProp->GetString()));
                         break;
                     }
-                    if (switch_value_0 == L"MYPROP")
+                    if (switch_value_0 == u"MYPROP")
                     {
-                        System::Console::WriteLine(L"{0} = {1}", System::ObjectExt::Box<System::String>(mapiNamedProp->get_NameId()), System::ObjectExt::Box<System::String>(mapiNamedProp->GetString()));
+                        System::Console::WriteLine(u"{0} = {1}", System::ObjectExt::Box<System::String>(mapiNamedProp->get_NameId()), System::ObjectExt::Box<System::String>(mapiNamedProp->GetString()));
                         break;
                     }
                     if (true) 
@@ -66,10 +65,4 @@ void ReadNamedMAPIProperties()
     }
     //ExEnd:ReadNamedMAPIProperties
 }
-
-
-
-
-
-
 
