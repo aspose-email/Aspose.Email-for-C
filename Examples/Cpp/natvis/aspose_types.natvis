@@ -63,8 +63,7 @@
       </Expand>
   </Type>
 	  
-  <!-- VS 2017 x86 version -->
-  <!-- VS 2015 x64 version -->
+  <!-- VS 2017 x86 version -->  
   <Type Name="System::String">
       <!-- Length = m_str.fUnion.fFields.fLengthAndFlags >= 0 ? m_str.fUnion.fFields.fLengthAndFlags >> icu_59::UnicodeString::kLengthShift : m_str.fUnion.fFields.fLength -->
       <!-- String = m_str.fUnion.fFields.fLengthAndFlags & icu_59::UnicodeString::kUsingStackBuffer ? m_str.fUnion.fStackFields.fBuffer : m_str.fUnion.fFields.fArray -->
@@ -93,6 +92,37 @@
         </Item>
       </Expand>
   </Type>
+
+  <!-- VS 2017 x64 version -->
+  <Type Name="System::String">
+    <!-- Length = m_str.fUnion.fFields.fLengthAndFlags >= 0 ? m_str.fUnion.fFields.fLengthAndFlags >> icu_59::UnicodeString::kLengthShift : m_str.fUnion.fFields.fLength -->
+    <!-- String = m_str.fUnion.fFields.fLengthAndFlags & icu_59::UnicodeString::kUsingStackBuffer ? m_str.fUnion.fStackFields.fBuffer : m_str.fUnion.fFields.fArray -->
+    <DisplayString>
+      {((aspose_cpp_vc150x64d.dll!icu_59::UnicodeString*)&amp;m_str.m_data)-&gt;fUnion.fFields.fLengthAndFlags &amp; aspose_cpp_vc150x64d.dll!icu_59::UnicodeString::kUsingStackBuffer
+      ? ((aspose_cpp_vc150x64d.dll!icu_59::UnicodeString*)&amp;m_str.m_data)-&gt;fUnion.fStackFields.fBuffer
+      : ((aspose_cpp_vc150x64d.dll!icu_59::UnicodeString*)&amp;m_str.m_data)-&gt;fUnion.fFields.fArray,
+      [((aspose_cpp_vc150x64d.dll!icu_59::UnicodeString*)&amp;m_str.m_data)-&gt;fUnion.fFields.fLengthAndFlags &gt;= 0
+      ? ((aspose_cpp_vc150x64d.dll!icu_59::UnicodeString*)&amp;m_str.m_data)-&gt;fUnion.fFields.fLengthAndFlags &gt;&gt; aspose_cpp_vc150x64d.dll!icu_59::UnicodeString::kLengthShift
+      : ((aspose_cpp_vc150x64d.dll!icu_59::UnicodeString*)&amp;m_str.m_data)-&gt;fUnion.fFields.fLength]su}
+    </DisplayString>
+    <StringView>
+      ((aspose_cpp_vc150x64d.dll!icu_59::UnicodeString*)&amp;m_str.m_data)-&gt;fUnion.fFields.fLengthAndFlags &amp; aspose_cpp_vc150x64d.dll!icu_59::UnicodeString::kUsingStackBuffer
+      ? ((aspose_cpp_vc150x64d.dll!icu_59::UnicodeString*)&amp;m_str.m_data)-&gt;fUnion.fStackFields.fBuffer
+      : ((aspose_cpp_vc150x64d.dll!icu_59::UnicodeString*)&amp;m_str.m_data)-&gt;fUnion.fFields.fArray,
+      [((aspose_cpp_vc150x64d.dll!icu_59::UnicodeString*)&amp;m_str.m_data)-&gt;fUnion.fFields.fLengthAndFlags &gt;= 0
+      ? ((aspose_cpp_vc150x64d.dll!icu_59::UnicodeString*)&amp;m_str.m_data)-&gt;fUnion.fFields.fLengthAndFlags &gt;&gt; aspose_cpp_vc150x64d.dll!icu_59::UnicodeString::kLengthShift
+      : ((aspose_cpp_vc150x64d.dll!icu_59::UnicodeString*)&amp;m_str.m_data)-&gt;fUnion.fFields.fLength]su
+    </StringView>
+    <Expand>
+      <Item Name="IsNull">m_is_null</Item>
+      <Item Name="Length">
+        ((aspose_cpp_vc150x64d.dll!icu_59::UnicodeString*)&amp;m_str.m_data)-&gt;fUnion.fFields.fLengthAndFlags &gt;= 0
+        ? ((aspose_cpp_vc150x64d.dll!icu_59::UnicodeString*)&amp;m_str.m_data)-&gt;fUnion.fFields.fLengthAndFlags &gt;&gt; aspose_cpp_vc150x64d.dll!icu_59::UnicodeString::kLengthShift
+        : ((aspose_cpp_vc150x64d.dll!icu_59::UnicodeString*)&amp;m_str.m_data)-&gt;fUnion.fFields.fLength
+      </Item>
+    </Expand>
+  </Type>
+  
 
   <!--                    System::SharedPtr                    -->
 

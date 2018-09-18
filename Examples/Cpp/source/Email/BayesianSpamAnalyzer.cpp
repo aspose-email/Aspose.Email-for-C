@@ -51,7 +51,7 @@ void TeachAndCreateDatabase(System::String hamFolder, System::String spamFolder,
         System::SharedPtr<MailMessage> spamMailMessage;
         try
         {
-            spamMailMessage = MailMessage::Load(hamFiles[i]);
+            spamMailMessage = MailMessage::Load(spamFiles[i]);
         }
         catch (System::Exception& )
         {
