@@ -1,5 +1,6 @@
 ﻿#include "Examples.h"
 
+#include <system/aspose_cpp_library.h>
 #include <system/string.h>
 #include <system/object_ext.h>
 #include <system/io/path.h>
@@ -223,10 +224,116 @@ void RunExamples()
     //ModifyDeleteOccurrenceInRecurrence();
 
 
+    // IMAP
+    //AddingNewMessage();
+    //BuildingComplexQueries();
+    //CaseSensitiveEmailsFiltering();
+    //ConnectingWithIMAPServer();
+    //CopyMultipleMessagesFromOneFoldertoAnother();
+    //DeleteMultipleMessages();
+    //DeleteSingleMessage();
+    //DeletingAndRenamingFolders();
+    //DeletingFolders();
+    //FetchEmailMessagesFromIMAPServer();
+    //FilteringMessagesFromIMAPMailbox();
+    //GetMessageIdUsingImapMessageInfo();
+    //GetMessagesWithSpecificCriteria();
+    //GettingFoldersInformation();
+    //IMAP4ExtendedListCommand();
+    //IMAP4IDExtensionSupport();
+    //ImapClientActivityLogging();
+    //InsertHeaderAtSpecificLocation();
+    //InternalDateFilter();
+    //ListingMessagesRecursively();
+    //ListingMessagesWithPagingSupport();
+    //ListingMIMEMessageIdInImapMessageInfo();
+    //ListMessagesAsynchronously();
+    //ListMessagesWithMaximumNumberOfMessages();
+    //MessagesFromIMAPServerToDisk();
+    //MoveMessage();
+    //ReadMessagesRecursively();
+    //RemovingMessageFlags();
+    //RenamingFolders();
+    //RetreivingServerExtensions();
+    //RetrieveExtraParameters();
+    //RetrievingMessagesAsynchronously();
+    //SavingMessagesFromIMAPServer();
+    //SearchWithPagingSupport();
+    //SendIMAPasynchronousEmail();
+    //SetCustomFlag();
+    //SettingMessageFlags();
+    //SpecifyEncodingForQueryBuilder();
+    //SSLEnabledIMAPServer();
+    //SupportIMAPIdleCommand();
+
+    // POP3
+    //ApplyCaseSensitiveFilters();
+    //BuildComplexQueries();
+    //CancelDeletes();
+    //ConnectingToPOP3();
+    //DeleteAllEmails();
+    //DeleteEmailByIndex();
+    //FilterMessagesFromPOP3Mailbox();
+    //GetEmailCountIntheMailbox();
+    //GetMessagesUsingSpecificCriteria();
+    //GetServerExtensionsUsingPop3Client();
+    //GettingMailboxInfo();
+    //ListMessagesAsynchronouslyWithMailQuery();
+    //ParseMessageAndSave();
+    //Pop3ClientActivityLogging();
+    //RecipientInformation();
+    //RetrieveEmailViaPop3ClientProxyServer();
+    //RetrieveMessagesAsynchronously();
+    //RetrieveMessageSummaryInformationUsingUniqueId();
+    RetrievingEmailHeaders();
+    //RetrievingEmailMessages();
+    //SaveToDiskWithoutParsing();
+    //SSLEnabledPOP3Server();
+
+    // SMTP
+    //CustomizingEmailHeader();
+    //CustomizingEmailHeaders();
+    //DeliveryNotifications();
+    //ForwardEmail();
+    //ForwardEmailWithoutUsingMailMessage();
+    //ImportEML();
+    //LoadingEMLFilesFromDisk();
+    //MeetingRequests();
+    //MultipleRecipients();
+    //RetreiveServerExtensions();
+    //SendEmailsSynchronously();
+    //SendEmailUsingSMTP();
+    //SendEmailWithAlternateText();
+    //SendingBulkEmails();
+    //SendingEmailWithAlternateText();
+    //SendingEMLFilesWithSMTP();
+    //SendMessageAsTNEF();
+    //SendPlainTextEmailMessage();
+    //SetEmailInfo();
+    //SettingHTMLBody();
+    //SettingTextBody();
+    //SMTPClientActivityLogging();
+    //SSLEnabledSMTPServer();
+    //UseSmtpClientFeatures();
 
    
     printf("\n\nProgram Finished. Press any key to exit....");
     getchar();
+}
+
+System::String GetDataDir_POP3()
+{
+    return System::IO::Path::GetFullPath(GetDataDir_Data() + u"POP3/");
+}
+
+System::String GetDataDir_IMAP()
+{
+    return System::IO::Path::GetFullPath(GetDataDir_Data() + u"IMAP/");
+}
+
+System::String GetDataDir_SMTP()
+{
+    return System::IO::Path::GetFullPath(GetDataDir_Data() + u"SMTP/");
 }
 
 System::String GetDataDir_Email()
@@ -281,6 +388,8 @@ int main(int argc, char** argv)
         Console::WriteLine(System::String(L"Examples execution error:") + e.ToString());
     }
 
+
+    System::AsposeCppLibrary::PrepareForUnload();
 
     return 0;
 }

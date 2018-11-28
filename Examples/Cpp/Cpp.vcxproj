@@ -55,6 +55,7 @@
   </ImportGroup>
   <ImportGroup Label="Shared">
     <Import Project="..\packages\Aspose.Email.Cpp.18.8.0\build\native\aspose.email.cpp.targets" Condition="Exists('..\packages\Aspose.Email.Cpp.18.8.0\build\native\aspose.email.cpp.targets')" />
+    <Import Project="..\packages\Aspose.Email.Cpp.18.11.0\build\native\aspose.email.cpp.targets" Condition="Exists('..\packages\Aspose.Email.Cpp.18.11.0\build\native\aspose.email.cpp.targets')" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -196,6 +197,46 @@
     <ClCompile Include="source\Email\SetParticipantStatusOfAppointmentAttendees.cpp" />
     <ClCompile Include="source\Email\UpdateTNEFAttachments.cpp" />
     <ClCompile Include="source\Email\UseMailMessageFeatures.cpp" />
+    <ClCompile Include="source\IMAP\AddingNewMessage.cpp" />
+    <ClCompile Include="source\IMAP\BuildingComplexQueries.cpp" />
+    <ClCompile Include="source\IMAP\CaseSensitiveEmailsFiltering.cpp" />
+    <ClCompile Include="source\IMAP\ConnectingWithIMAPServer.cpp" />
+    <ClCompile Include="source\IMAP\CopyMultipleMessagesFromOneFoldertoAnother.cpp" />
+    <ClCompile Include="source\IMAP\DeleteMultipleMessages.cpp" />
+    <ClCompile Include="source\IMAP\DeleteSingleMessage.cpp" />
+    <ClCompile Include="source\IMAP\DeletingAndRenamingFolders.cpp" />
+    <ClCompile Include="source\IMAP\DeletingFolders.cpp" />
+    <ClCompile Include="source\IMAP\FetchEmailMessagesFromIMAPServer.cpp" />
+    <ClCompile Include="source\IMAP\FilteringMessagesFromIMAPMailbox.cpp" />
+    <ClCompile Include="source\IMAP\GetMessageIdUsingImapMessageInfo.cpp" />
+    <ClCompile Include="source\IMAP\GetMessagesWithSpecificCriteria.cpp" />
+    <ClCompile Include="source\IMAP\GettingFoldersInformation.cpp" />
+    <ClCompile Include="source\IMAP\IMAP4ExtendedListCommand.cpp" />
+    <ClCompile Include="source\IMAP\IMAP4IDExtensionSupport.cpp" />
+    <ClCompile Include="source\IMAP\ImapClientActivityLogging.cpp" />
+    <ClCompile Include="source\IMAP\InsertHeaderAtSpecificLocation.cpp" />
+    <ClCompile Include="source\IMAP\InternalDateFilter.cpp" />
+    <ClCompile Include="source\IMAP\ListingMessagesRecursively.cpp" />
+    <ClCompile Include="source\IMAP\ListingMessagesWithPagingSupport.cpp" />
+    <ClCompile Include="source\IMAP\ListingMIMEMessageIdInImapMessageInfo.cpp" />
+    <ClCompile Include="source\IMAP\ListMessagesAsynchronously.cpp" />
+    <ClCompile Include="source\IMAP\ListMessagesWithMaximumNumberOfMessages.cpp" />
+    <ClCompile Include="source\IMAP\MessagesFromIMAPServerToDisk.cpp" />
+    <ClCompile Include="source\IMAP\MoveMessage.cpp" />
+    <ClCompile Include="source\IMAP\ReadMessagesRecursively.cpp" />
+    <ClCompile Include="source\IMAP\RemovingMessageFlags.cpp" />
+    <ClCompile Include="source\IMAP\RenamingFolders.cpp" />
+    <ClCompile Include="source\IMAP\RetreivingServerExtensions.cpp" />
+    <ClCompile Include="source\IMAP\RetrieveExtraParameters.cpp" />
+    <ClCompile Include="source\IMAP\RetrievingMessagesAsynchronously.cpp" />
+    <ClCompile Include="source\IMAP\SavingMessagesFromIMAPServer.cpp" />
+    <ClCompile Include="source\IMAP\SearchWithPagingSupport.cpp" />
+    <ClCompile Include="source\IMAP\SendIMAPasynchronousEmail.cpp" />
+    <ClCompile Include="source\IMAP\SetCustomFlag.cpp" />
+    <ClCompile Include="source\IMAP\SettingMessageFlags.cpp" />
+    <ClCompile Include="source\IMAP\SpecifyEncodingForQueryBuilder.cpp" />
+    <ClCompile Include="source\IMAP\SSLEnabledIMAPServer.cpp" />
+    <ClCompile Include="source\IMAP\SupportIMAPIdleCommand.cpp" />
     <ClCompile Include="source\Outlook\AccessContactInformation.cpp" />
     <ClCompile Include="source\Outlook\AddAttachmentsToMapiJournal.cpp" />
     <ClCompile Include="source\Outlook\AddAttachmentsToMapiTask.cpp" />
@@ -329,6 +370,52 @@
     <ClCompile Include="source\Outlook\WeeklyEndAfterNoccurrences.cpp" />
     <ClCompile Include="source\Outlook\YearlyEndAfterDate.cpp" />
     <ClCompile Include="source\Outlook\YearlyEndAfterNoccurrences.cpp" />
+    <ClCompile Include="source\POP3\ApplyCaseSensitiveFilters.cpp" />
+    <ClCompile Include="source\POP3\BuildComplexQueries.cpp" />
+    <ClCompile Include="source\POP3\CancelDeletes.cpp" />
+    <ClCompile Include="source\POP3\ConnectingToPOP3.cpp" />
+    <ClCompile Include="source\POP3\DeleteAllEmails.cpp" />
+    <ClCompile Include="source\POP3\DeleteEmailByIndex.cpp" />
+    <ClCompile Include="source\POP3\FilterMessagesFromPOP3Mailbox.cpp" />
+    <ClCompile Include="source\POP3\GetEmailCountIntheMailbox.cpp" />
+    <ClCompile Include="source\POP3\GetMessagesUsingSpecificCriteria.cpp" />
+    <ClCompile Include="source\POP3\GetServerExtensionsUsingPop3Client.cpp" />
+    <ClCompile Include="source\POP3\GettingMailboxInfo.cpp" />
+    <ClCompile Include="source\POP3\ListMessagesAsynchronouslyWithMailQuery.cpp" />
+    <ClCompile Include="source\POP3\ParseMessageAndSave.cpp" />
+    <ClCompile Include="source\POP3\Pop3ClientActivityLogging.cpp" />
+    <ClCompile Include="source\POP3\RecipientInformation.cpp" />
+    <ClCompile Include="source\POP3\RetrieveEmailViaPop3ClientProxyServer.cpp" />
+    <ClCompile Include="source\POP3\RetrieveMessagesAsynchronously.cpp" />
+    <ClCompile Include="source\POP3\RetrieveMessageSummaryInformationUsingUniqueId.cpp" />
+    <ClCompile Include="source\POP3\RetrievingEmailHeaders.cpp" />
+    <ClCompile Include="source\POP3\RetrievingEmailMessages.cpp" />
+    <ClCompile Include="source\POP3\SaveToDiskWithoutParsing.cpp" />
+    <ClCompile Include="source\POP3\SSLEnabledPOP3Server.cpp" />
+    <ClCompile Include="source\SMTP\CustomizingEmailHeader.cpp" />
+    <ClCompile Include="source\SMTP\CustomizingEmailHeaders.cpp" />
+    <ClCompile Include="source\SMTP\DeliveryNotifications.cpp" />
+    <ClCompile Include="source\SMTP\ForwardEmail.cpp" />
+    <ClCompile Include="source\SMTP\ForwardEmailWithoutUsingMailMessage.cpp" />
+    <ClCompile Include="source\SMTP\ImportEML.cpp" />
+    <ClCompile Include="source\SMTP\LoadingEMLFilesFromDisk.cpp" />
+    <ClCompile Include="source\SMTP\MeetingRequests.cpp" />
+    <ClCompile Include="source\SMTP\MultipleRecipients.cpp" />
+    <ClCompile Include="source\SMTP\RetreiveServerExtensions.cpp" />
+    <ClCompile Include="source\SMTP\SendEmailsSynchronously.cpp" />
+    <ClCompile Include="source\SMTP\SendEmailUsingSMTP.cpp" />
+    <ClCompile Include="source\SMTP\SendEmailWithAlternateText.cpp" />
+    <ClCompile Include="source\SMTP\SendingBulkEmails.cpp" />
+    <ClCompile Include="source\SMTP\SendingEmailWithAlternateText.cpp" />
+    <ClCompile Include="source\SMTP\SendingEMLFilesWithSMTP.cpp" />
+    <ClCompile Include="source\SMTP\SendMessageAsTNEF.cpp" />
+    <ClCompile Include="source\SMTP\SendPlainTextEmailMessage.cpp" />
+    <ClCompile Include="source\SMTP\SetEmailInfo.cpp" />
+    <ClCompile Include="source\SMTP\SettingHTMLBody.cpp" />
+    <ClCompile Include="source\SMTP\SettingTextBody.cpp" />
+    <ClCompile Include="source\SMTP\SMTPClientActivityLogging.cpp" />
+    <ClCompile Include="source\SMTP\SSLEnabledSMTPServer.cpp" />
+    <ClCompile Include="source\SMTP\UseSmtpClientFeatures.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch\aspose_pch.h" />
@@ -345,6 +432,7 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Aspose.Email.Cpp.18.8.0\build\native\aspose.email.cpp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Aspose.Email.Cpp.18.8.0\build\native\aspose.email.cpp.targets'))" />
+    <Error Condition="!Exists('..\packages\Aspose.Email.Cpp.18.11.0\build\native\aspose.email.cpp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Aspose.Email.Cpp.18.11.0\build\native\aspose.email.cpp.targets'))" />
+    <Error Condition="!Exists('..\packages\Aspose.Email.Cpp.18.11.0\build\native\aspose.email.cpp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Aspose.Email.Cpp.18.11.0\build\native\aspose.email.cpp.targets'))" />
   </Target>
 </Project>
