@@ -55,7 +55,5 @@ using namespace Aspose::Email::Clients::Smtp;void SendEmailWithAlternateText()
     }
     
     
-    System::Console::WriteLine(u"Press enter to quit");
-    System::Console::Read();
 }
 

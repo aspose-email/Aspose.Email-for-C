@@ -13,7 +13,6 @@
 #include <Clients/Imap/ImapPageInfo.h>
 #include <Clients/Imap/ImapMessageInfoCollection.h>
 #include <Clients/Imap/ImapFolderInfo.h>
-#include <Clients/Imap/ImapClient/PageSettings.h>
 #include <Clients/Imap/ImapClient/ImapClient.h>
 
 #include "Examples.h"

@@ -49,7 +49,5 @@ void SendEmailUsingSMTP()
         System::Diagnostics::Trace::WriteLine(System::ObjectExt::ToString(ex));
     }
     
-    System::Console::WriteLine(u"Press enter to quit");
-    System::Console::Read();
 }
 
