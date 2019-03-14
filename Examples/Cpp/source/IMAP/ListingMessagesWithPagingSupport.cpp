@@ -14,6 +14,7 @@
 #include <Clients/Imap/ImapMessageInfoCollection.h>
 #include <Clients/Imap/ImapFolderInfo.h>
 #include <Clients/Imap/ImapClient/ImapClient.h>
+#include <Clients/Imap/PageSettings.h>
 
 #include "Examples.h"
 
