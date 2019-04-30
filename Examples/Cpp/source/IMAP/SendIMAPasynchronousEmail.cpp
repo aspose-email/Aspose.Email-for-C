@@ -22,7 +22,7 @@ please feel free to contact us using https://forum.aspose.com/c/email
 #include <Clients/Imap/ImapMessageInfoCollection.h>
 #include <Clients/Imap/ImapMessageInfo.h>
 #include <Clients/Imap/ImapClient/ImapClient.h>
-#include <Clients/IConnectionAdapter.h>
+#include <Clients/Base/IConnection.h>
 
 #include "Examples.h"
 

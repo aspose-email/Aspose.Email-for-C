@@ -13,6 +13,7 @@
 #include <cstdint>
 
 #include <Licensing/License.h>
+#include "Gmail/GoogleTestUser.h"
 
 using namespace Aspose::Email;
 using namespace System;
@@ -30,7 +31,7 @@ void RunExamples()
     Console::WriteLine(L"Open Examples.cpp \nIn RunExamples() function uncomment the example that you want to run.");
     Console::WriteLine(L"=====================================================");
 
-    //LoadLicense(L"Aspose.lic");
+    //LoadLicense(u"C:\\Projects\\License\\Aspose.Email.Cpp.lic");
 
     // Uncomment the one you want to try out
 
@@ -266,6 +267,18 @@ void RunExamples()
     //SSLEnabledIMAPServer();
     //SupportIMAPIdleCommand();
 
+    //// Gmail
+    //InsertFetchAndUpdateCalendar();
+    //DeleteParticularCalendar();
+    //AccessColorInfo();
+    //AccessGmailContacts();
+    //CreateGmailContact();
+    //UpdateGmailContact();
+    //DeleteGmailContact();
+    //SavingContact();
+
+
+
     // POP3
     //ApplyCaseSensitiveFilters();
     //BuildComplexQueries();
@@ -285,7 +298,7 @@ void RunExamples()
     //RetrieveEmailViaPop3ClientProxyServer();
     //RetrieveMessagesAsynchronously();
     //RetrieveMessageSummaryInformationUsingUniqueId();
-    RetrievingEmailHeaders();
+    //RetrievingEmailHeaders();
     //RetrievingEmailMessages();
     //SaveToDiskWithoutParsing();
     //SSLEnabledPOP3Server();
@@ -319,6 +332,23 @@ void RunExamples()
    
     printf("\n\nProgram Finished. Press any key to exit....");
     getchar();
+}
+
+GoogleTestUser GetGoogleTestUser()
+{
+
+    return GoogleTestUser(
+        u"test_user",
+        u"test_user@gmail.com",
+        u"*********",
+        u"test_client_id.apps.googleusercontent.com",
+        u"test_client_secret",
+        u"test_refresh_token");
+}
+
+System::String GetDataDir_Gmail()
+{
+    return System::IO::Path::GetFullPath(GetDataDir_Data() + u"Gmail/");
 }
 
 System::String GetDataDir_POP3()

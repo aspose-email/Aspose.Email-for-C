@@ -54,7 +54,7 @@
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="Shared">
-    <Import Project="..\packages\Aspose.Email.Cpp.19.2.0\build\native\aspose.email.cpp.targets" Condition="Exists('..\packages\Aspose.Email.Cpp.19.2.0\build\native\aspose.email.cpp.targets')" />
+    <Import Project="..\packages\Aspose.Email.Cpp.19.3.0\build\native\aspose.email.cpp.targets" Condition="Exists('..\packages\Aspose.Email.Cpp.19.3.0\build\native\aspose.email.cpp.targets')" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -196,6 +196,23 @@
     <ClCompile Include="source\Email\SetParticipantStatusOfAppointmentAttendees.cpp" />
     <ClCompile Include="source\Email\UpdateTNEFAttachments.cpp" />
     <ClCompile Include="source\Email\UseMailMessageFeatures.cpp" />
+    <ClCompile Include="source\Gmail\AccessClientSettings.cpp" />
+    <ClCompile Include="source\Gmail\AccessColorInfo.cpp" />
+    <ClCompile Include="source\Gmail\AccessGmailContacts.cpp" />
+    <ClCompile Include="source\Gmail\AddingAnAppointment.cpp" />
+    <ClCompile Include="source\Gmail\CreateGmailContact.cpp" />
+    <ClCompile Include="source\Gmail\DeleteGmailContact.cpp" />
+    <ClCompile Include="source\Gmail\DeleteParticularCalendar.cpp" />
+    <ClCompile Include="source\Gmail\GoogleOAuthHelper.cpp" />
+    <ClCompile Include="source\Gmail\GoogleTestUser.cpp" />
+    <ClCompile Include="source\Gmail\InsertFetchAndUpdateCalendar.cpp" />
+    <ClCompile Include="source\Gmail\ManageAccessRule.cpp" />
+    <ClCompile Include="source\Gmail\MoveAndDeleteAppointment.cpp" />
+    <ClCompile Include="source\Gmail\QueryingCalendar.cpp" />
+    <ClCompile Include="source\Gmail\RetrieveUpdateAppointment.cpp" />
+    <ClCompile Include="source\Gmail\SavingContact.cpp" />
+    <ClCompile Include="source\Gmail\TestUser.cpp" />
+    <ClCompile Include="source\Gmail\UpdateGmailContact.cpp" />
     <ClCompile Include="source\IMAP\AddingNewMessage.cpp" />
     <ClCompile Include="source\IMAP\BuildingComplexQueries.cpp" />
     <ClCompile Include="source\IMAP\CaseSensitiveEmailsFiltering.cpp" />
@@ -419,6 +436,9 @@
   <ItemGroup>
     <ClInclude Include="pch\aspose_pch.h" />
     <ClInclude Include="source\Examples.h" />
+    <ClInclude Include="source\Gmail\GoogleOAuthHelper.h" />
+    <ClInclude Include="source\Gmail\GoogleTestUser.h" />
+    <ClInclude Include="source\Gmail\TestUser.h" />
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="natvis\aspose_types.natvis" />
@@ -431,6 +451,6 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Aspose.Email.Cpp.19.2.0\build\native\aspose.email.cpp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Aspose.Email.Cpp.19.2.0\build\native\aspose.email.cpp.targets'))" />
+    <Error Condition="!Exists('..\packages\Aspose.Email.Cpp.19.3.0\build\native\aspose.email.cpp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Aspose.Email.Cpp.19.3.0\build\native\aspose.email.cpp.targets'))" />
   </Target>
 </Project>

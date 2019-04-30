@@ -4,6 +4,8 @@
 #include <system/object.h>
 #include <system/array.h>
 
+#include "Gmail/GoogleTestUser.h"
+
 System::String GetDataDir_Data();
 System::String GetDataDir_KnowledgeBase();
 System::String GetDataDir_Thunderbird();
@@ -14,6 +16,8 @@ System::String GetDataDir_POP3();
 System::String GetDataDir_IMAP();
 System::String GetDataDir_SMTP();
 System::String GetDataDir_Gmail();
+GoogleTestUser GetGoogleTestUser();
+
 
 void AddEmailAttachments();
 void AddNewTNEFAttachments();
@@ -279,3 +283,16 @@ void SettingTextBody();
 void SMTPClientActivityLogging();
 void SSLEnabledSMTPServer();
 void UseSmtpClientFeatures();
+
+// GMail
+void AccessClientSettings();
+void InsertFetchAndUpdateCalendar();
+void DeleteParticularCalendar();
+void AccessColorInfo();
+void AccessGmailContacts();
+void CreateGmailContact();
+void UpdateGmailContact();
+void DeleteGmailContact();
+void SavingContact();
+
+
