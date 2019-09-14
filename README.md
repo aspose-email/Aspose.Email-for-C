@@ -13,7 +13,7 @@ Directory | Description
 * Open the solution file in Visual Studio and build the project.
 * On first run, the dependencies will automatically be downloaded via NuGet.
 * Data folder at the root folder of Examples contains input files. It is mandatory that you download the Data folder along with the examples project.
-* Open **main.cpp**, all the examples are called from here.
+* Open **Examples.cpp**, all the examples are called from here.
 * Uncomment the examples you want to run from within the project.
 
 Please find more details for how to run the examples [here](https://docs.aspose.com/display/emailcpp/How+to+Run+the+Examples).
