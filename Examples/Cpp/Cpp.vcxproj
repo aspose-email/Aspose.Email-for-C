@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F3368B9D-31D3-46F2-B741-513529016E92}</ProjectGuid>
     <RootNamespace>Cpp</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -54,7 +54,7 @@
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="Shared">
-    <Import Project="..\packages\Aspose.Email.Cpp.19.3.0\build\native\aspose.email.cpp.targets" Condition="Exists('..\packages\Aspose.Email.Cpp.19.3.0\build\native\aspose.email.cpp.targets')" />
+    <Import Project="..\packages\Aspose.Email.Cpp.19.9.0\build\native\aspose.email.cpp.targets" Condition="Exists('..\packages\Aspose.Email.Cpp.19.9.0\build\native\aspose.email.cpp.targets')" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -141,7 +141,6 @@
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </ForcedIncludeFiles>
     </ClCompile>
-    <ClCompile Include="source\Examples.cpp" />
     <ClCompile Include="source\Email\AddEmailAttachments.cpp" />
     <ClCompile Include="source\Email\AddNewTNEFAttachments.cpp" />
     <ClCompile Include="source\Email\BayesianSpamAnalyzer.cpp" />
@@ -196,6 +195,89 @@
     <ClCompile Include="source\Email\SetParticipantStatusOfAppointmentAttendees.cpp" />
     <ClCompile Include="source\Email\UpdateTNEFAttachments.cpp" />
     <ClCompile Include="source\Email\UseMailMessageFeatures.cpp" />
+    <ClCompile Include="source\Examples.cpp" />
+    <ClCompile Include="source\Exchange_EWS\AccessAnotherMailboxUsingExchangeWebServiceClient.cpp" />
+    <ClCompile Include="source\Exchange_EWS\AccessCustomFolderUsingExchangeWebServiceClient.cpp" />
+    <ClCompile Include="source\Exchange_EWS\AddContactsToExchangeServerUsingEWS.cpp" />
+    <ClCompile Include="source\Exchange_EWS\AddingHeadersToEWSRequests.cpp" />
+    <ClCompile Include="source\Exchange_EWS\AddMembersToPrivateDistributionList.cpp" />
+    <ClCompile Include="source\Exchange_EWS\AddMembersWithoutListing.cpp" />
+    <ClCompile Include="source\Exchange_EWS\CaseSensitiveEmailsFilteringUsingEWS.cpp" />
+    <ClCompile Include="source\Exchange_EWS\ConnectingToExchangeServerUsingEWS.cpp" />
+    <ClCompile Include="source\Exchange_EWS\CopyConversations.cpp" />
+    <ClCompile Include="source\Exchange_EWS\CopyingMessageToAnotherFolder.cpp" />
+    <ClCompile Include="source\Exchange_EWS\CreateAndSendingMessageWithVotingOptions.cpp" />
+    <ClCompile Include="source\Exchange_EWS\CreateFoldersOnExchangeServerMailbox.cpp" />
+    <ClCompile Include="source\Exchange_EWS\CreateNewRuleOntheExchangeServer.cpp" />
+    <ClCompile Include="source\Exchange_EWS\CreatePrivateDistributionList.cpp" />
+    <ClCompile Include="source\Exchange_EWS\CreateREAndFWMessages.cpp" />
+    <ClCompile Include="source\Exchange_EWS\CreatingUpdatingAndDeletingCalendarItemsUsingEWS.cpp" />
+    <ClCompile Include="source\Exchange_EWS\CreatUserConfigurations.cpp" />
+    <ClCompile Include="source\Exchange_EWS\DeleteContactsFromExchangeServerUsingEWS.cpp" />
+    <ClCompile Include="source\Exchange_EWS\DeleteConversations.cpp" />
+    <ClCompile Include="source\Exchange_EWS\DeleteExchangeTask.cpp" />
+    <ClCompile Include="source\Exchange_EWS\DeleteMembersFromPrivateDistributionList.cpp" />
+    <ClCompile Include="source\Exchange_EWS\DeleteMembersWithoutListing.cpp" />
+    <ClCompile Include="source\Exchange_EWS\DeleteMessagesFromUsingEWS.cpp" />
+    <ClCompile Include="source\Exchange_EWS\DeletePrivateDistributionList.cpp" />
+    <ClCompile Include="source\Exchange_EWS\DeleteTaskOnExchange.cpp" />
+    <ClCompile Include="source\Exchange_EWS\DeleteUserConfiguration.cpp" />
+    <ClCompile Include="source\Exchange_EWS\DeleteWithoutListing.cpp" />
+    <ClCompile Include="source\Exchange_EWS\DownloadMessagesFromPublicFolders.cpp" />
+    <ClCompile Include="source\Exchange_EWS\EnumeratMessagesWithPaginginEWS.cpp" />
+    <ClCompile Include="source\Exchange_EWS\ExchangeConnectHelper.cpp" />
+    <ClCompile Include="source\Exchange_EWS\ExchangeFoldersBackupToPST.cpp" />
+    <ClCompile Include="source\Exchange_EWS\ExchangeServerReadRules.cpp" />
+    <ClCompile Include="source\Exchange_EWS\ExpandPublicDistributionList.cpp" />
+    <ClCompile Include="source\Exchange_EWS\FetchContactUsingId.cpp" />
+    <ClCompile Include="source\Exchange_EWS\FetchMessageUsingEWS.cpp" />
+    <ClCompile Include="source\Exchange_EWS\FetchPrivateDistributionList.cpp" />
+    <ClCompile Include="source\Exchange_EWS\FilterAppointmentsUsingEWS.cpp" />
+    <ClCompile Include="source\Exchange_EWS\FilterMessagesOnCriteriaUsingEWS.cpp" />
+    <ClCompile Include="source\Exchange_EWS\FilterMessagesUsingEWS.cpp" />
+    <ClCompile Include="source\Exchange_EWS\FilterWithComplexQueriesUsingEWS.cpp" />
+    <ClCompile Include="source\Exchange_EWS\FindConversationsOnExchangeServer.cpp" />
+    <ClCompile Include="source\Exchange_EWS\GetExchangeMessageInfoFromMessageURI.cpp" />
+    <ClCompile Include="source\Exchange_EWS\GetFolderTypeInformationUsingEWS.cpp" />
+    <ClCompile Include="source\Exchange_EWS\GetMailboxInformationFromExchangeWebServices.cpp" />
+    <ClCompile Include="source\Exchange_EWS\GetMailTips.cpp" />
+    <ClCompile Include="source\Exchange_EWS\GetMessageTypeFromExchangeMessageInfo.cpp" />
+    <ClCompile Include="source\Exchange_EWS\GettingContactsUsingEWS.cpp" />
+    <ClCompile Include="source\Exchange_EWS\GettingUnifiedMessagingConfigurationInformation.cpp" />
+    <ClCompile Include="source\Exchange_EWS\IgnoringInvalidSSLCertificates.cpp" />
+    <ClCompile Include="source\Exchange_EWS\ListFoldersFromExchangeServer.cpp" />
+    <ClCompile Include="source\Exchange_EWS\ListingMessagesFromFolders.cpp" />
+    <ClCompile Include="source\Exchange_EWS\ListingMessagesUsingEWS.cpp" />
+    <ClCompile Include="source\Exchange_EWS\MoveConversations.cpp" />
+    <ClCompile Include="source\Exchange_EWS\MoveMessageFromOneFolderToAnotherusingEWS.cpp" />
+    <ClCompile Include="source\Exchange_EWS\PagingSupportForListingAppointments.cpp" />
+    <ClCompile Include="source\Exchange_EWS\PagingSupportForListingFolders.cpp" />
+    <ClCompile Include="source\Exchange_EWS\PagingSupportForListingMessages.cpp" />
+    <ClCompile Include="source\Exchange_EWS\PreFetchMessageSizeUsingIEWSClient.cpp" />
+    <ClCompile Include="source\Exchange_EWS\ProcessExchangeTasksUsingIEWSClient.cpp" />
+    <ClCompile Include="source\Exchange_EWS\ReadUserConfiguration.cpp" />
+    <ClCompile Include="source\Exchange_EWS\ResolveContactsUsingContactName.cpp" />
+    <ClCompile Include="source\Exchange_EWS\RetreiveExtAttributesForCalendarItems.cpp" />
+    <ClCompile Include="source\Exchange_EWS\RetrieveExtraParametersAsSummaryInformation.cpp" />
+    <ClCompile Include="source\Exchange_EWS\RetrieveFolderPermissionsUsingExchangeWebServiceClient.cpp" />
+    <ClCompile Include="source\Exchange_EWS\SaveExchangeTaskToDisc.cpp" />
+    <ClCompile Include="source\Exchange_EWS\SaveMessagesInMSGFormatExchangeEWS.cpp" />
+    <ClCompile Include="source\Exchange_EWS\SaveMessagesToMemoryStreamUsingEWS.cpp" />
+    <ClCompile Include="source\Exchange_EWS\SaveMessagesUsingExchangeWebServices.cpp" />
+    <ClCompile Include="source\Exchange_EWS\SecondaryCalendarEvents.cpp" />
+    <ClCompile Include="source\Exchange_EWS\SendCalendarInvitation.cpp" />
+    <ClCompile Include="source\Exchange_EWS\SendEmailMessagesUsingExchangeWebServices.cpp" />
+    <ClCompile Include="source\Exchange_EWS\SendEmailToPrivateDistributionList.cpp" />
+    <ClCompile Include="source\Exchange_EWS\SendExchangeTask.cpp" />
+    <ClCompile Include="source\Exchange_EWS\SendMeetingRequestsUsingEWS.cpp" />
+    <ClCompile Include="source\Exchange_EWS\SendTaskRequestUsingIEWSClient.cpp" />
+    <ClCompile Include="source\Exchange_EWS\SpecifyTimeZoneForExchange.cpp" />
+    <ClCompile Include="source\Exchange_EWS\SynchronizeFolderItems.cpp" />
+    <ClCompile Include="source\Exchange_EWS\UpdateContactInformationUsingEWS.cpp" />
+    <ClCompile Include="source\Exchange_EWS\UpdateExchangeTask.cpp" />
+    <ClCompile Include="source\Exchange_EWS\UpdateRuleOntheExchangeServer.cpp" />
+    <ClCompile Include="source\Exchange_EWS\UpdateTaskOnExchange.cpp" />
+    <ClCompile Include="source\Exchange_EWS\UpdateUserConfiguration.cpp" />
     <ClCompile Include="source\Gmail\AccessClientSettings.cpp" />
     <ClCompile Include="source\Gmail\AccessColorInfo.cpp" />
     <ClCompile Include="source\Gmail\AccessGmailContacts.cpp" />
@@ -339,6 +421,7 @@
     <ClCompile Include="source\Outlook\ReadingDistributionListFromPST.cpp" />
     <ClCompile Include="source\Outlook\ReadingMapiTask.cpp" />
     <ClCompile Include="source\Outlook\ReadingNamedMAPIPropertyFromAttachment.cpp" />
+    <ClCompile Include="source\Outlook\ReadingOnlyVotingButtons.cpp" />
     <ClCompile Include="source\Outlook\ReadingVotingOptions.cpp" />
     <ClCompile Include="source\Outlook\ReadingVToDoTask.cpp" />
     <ClCompile Include="source\Outlook\ReadMapiNote.cpp" />
@@ -451,6 +534,6 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Aspose.Email.Cpp.19.3.0\build\native\aspose.email.cpp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Aspose.Email.Cpp.19.3.0\build\native\aspose.email.cpp.targets'))" />
+    <Error Condition="!Exists('..\packages\Aspose.Email.Cpp.19.9.0\build\native\aspose.email.cpp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Aspose.Email.Cpp.19.9.0\build\native\aspose.email.cpp.targets'))" />
   </Target>
 </Project>

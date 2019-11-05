@@ -14,6 +14,7 @@
 
 #include <Licensing/License.h>
 #include "Gmail/GoogleTestUser.h"
+#include "Exchange_EWS/ExchangeTestUser.h"
 
 using namespace Aspose::Email;
 using namespace System;
@@ -22,8 +23,6 @@ void LoadLicense(const String& licFile)
 {
     SharedPtr<License> license = System::MakeObject<License>();
     license->SetLicense(licFile);
-    bool licensed = license->get_IsLicensed(); // return true if license is correctly identified
-    //assert(licensed);
 }
 
 void RunExamples()
@@ -31,7 +30,7 @@ void RunExamples()
     Console::WriteLine(L"Open Examples.cpp \nIn RunExamples() function uncomment the example that you want to run.");
     Console::WriteLine(L"=====================================================");
 
-    //LoadLicense(u"C:\\Projects\\License\\Aspose.Email.Cpp.lic");
+    //LoadLicense(u"C:\\project\\License\\Aspose.Email.Cpp.lic");
 
     // Uncomment the one you want to try out
 
@@ -329,7 +328,82 @@ void RunExamples()
     //SSLEnabledSMTPServer();
     //UseSmtpClientFeatures();
 
-   
+    //Exchange_EWS
+    //AccessAnotherMailboxUsingExchangeWebServiceClient();
+    //AccessCustomFolderUsingExchangeWebServiceClient();
+    //AddContactsToExchangeServerUsingEWS();
+    //AddingHeadersToEWSRequests();
+    //AddMembersToPrivateDistributionList();
+    //AddMembersWithoutListing();
+    //CaseSensitiveEmailsFilteringUsingEWS();
+    //ConnectingToExchangeServerUsingEWS();
+    //CopyConversations();
+    //CopyingMessageToAnotherFolder();
+    //CreateAndSendingMessageWithVotingOptions();
+    //CreateFoldersOnExchangeServerMailbox();
+    //CreateNewRuleOntheExchangeServer();
+    //CreatePrivateDistributionList();
+    //CreateREAndFWMessages();
+    //CreatUserConfigurations();
+    //DeleteContactsFromExchangeServerUsingEWS();
+    //DeleteConversations();
+    //DeleteExchangeTask();
+    //DeleteMembersFromPrivateDistributionList();
+    //DeleteMembersWithoutListing();
+    //DeleteMessagesFromusingEWS();
+    //DeletePrivateDistributionList();
+    //DeleteTaskOnExchange();
+    //DeleteUserConfiguration();
+    //DeleteWithoutListing();
+    //DownloadMessagesFromPublicFolders();
+    //EnumeratMessagesWithPaginginEWS();
+    //ExchangeFoldersBackupToPST();
+    //ExchangeServerReadRules();
+    //ExpandPublicDistributionList();
+    //FetchContactUsingId();
+    //FetchMessageUsingEWS();
+    //FetchPrivateDistributionList();
+    //FilterAppointmentsUsingEWS();
+    //FilterMessagesOnCriteriaUsingEWS();
+    //FilterMessagesUsingEWS();
+    //FilterWithComplexQueriesUsingEWS();
+    //FindConversationsOnExchangeServer();
+    //GetExchangeMessageInfoFromMessageURI();
+    //GetFolderTypeInformationUsingEWS();
+    //GetMailboxInformationFromExchangeWebServices();
+    //GetMailTips();
+    //GetMessageTypeFromExchangeMessageInfo();
+    //GettingContactsUsingEWS();
+    //GettingUnifiedMessagingConfigurationInformation();
+    //IgnoringInvalidSSLCertificates();
+    //ListFoldersFromExchangeServer();
+    //ListingMessagesFromFolders();
+    //ListingMessagesUsingEWS();
+    //MoveConversations();
+    //MoveMessageFromOneFolderToAnotherusingEWS();
+    //PagingSupportForListingFolders();
+    //PagingSupportForListingMessages();
+    //PreFetchMessageSizeUsingIEWSClient();
+    //ProcessExchangeTasksUsingIEWSClient();
+    //ReadUserConfiguration();
+    //ResolveContactsUsingContactName();
+    //RetrieveFolderPermissionsUsingExchangeWebServiceClient();
+    //SaveExchangeTaskToDisc();
+    //SaveMessagesInMSGFormatExchangeEWS();
+    //SaveMessagesToMemoryStreamUsingEWS();
+    //SaveMessagesUsingExchangeWebServices();
+    //SecondaryCalendarEvents();
+    //SendCalendarInvitation();
+    //SendEmailMessagesUsingExchangeWebServices();
+    //SendEmailToPrivateDistributionList();
+    //SendExchangeTask();
+    //SendMeetingRequestsUsingEWS();
+    //SendTaskRequestUsingIEWSClient();
+    //SynchronizeFolderItems();
+    //UpdateContactInformationUsingEWS();
+    //UpdateRuleOntheExchangeServer();
+    //UpdateUserConfiguration();
+
     printf("\n\nProgram Finished. Press any key to exit....");
     getchar();
 }
@@ -345,6 +419,16 @@ GoogleTestUser GetGoogleTestUser()
         u"test_client_secret",
         u"test_refresh_token");
 }
+
+ExchangeTestUser GetExchangeTestUser()
+{
+
+    return ExchangeTestUser(
+        u"https://your.exchange.server/ews/Exchange.asmx",
+        u"username",
+        u"password");
+}
+
 
 System::String GetDataDir_Gmail()
 {
@@ -375,6 +459,12 @@ System::String GetDataDir_Outlook()
 {
     return System::IO::Path::GetFullPath(GetDataDir_Data() + u"Outlook/");
 }
+
+System::String GetDataDir_Exchange()
+{
+    return System::IO::Path::GetFullPath(GetDataDir_Data() + u"Exchange/");
+}
+
 
 System::String dataDir = u"../Data/";
 

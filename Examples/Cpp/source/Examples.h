@@ -3,7 +3,7 @@
 #include <system/string.h>
 #include <system/object.h>
 #include <system/array.h>
-
+#include "Exchange_EWS/ExchangeTestUser.h"
 #include "Gmail/GoogleTestUser.h"
 
 System::String GetDataDir_Data();
@@ -17,7 +17,11 @@ System::String GetDataDir_IMAP();
 System::String GetDataDir_SMTP();
 System::String GetDataDir_Gmail();
 GoogleTestUser GetGoogleTestUser();
+ExchangeTestUser GetExchangeTestUser();
 
+namespace Aspose { namespace Email { namespace Clients  { namespace Exchange { namespace WebService { class IEWSClient; } } } } }
+
+System::SharedPtr<Aspose::Email::Clients::Exchange::WebService::IEWSClient> GetExchangeEWSClient(ExchangeTestUser exchangeUser);
 
 void AddEmailAttachments();
 void AddNewTNEFAttachments();
@@ -295,4 +299,90 @@ void UpdateGmailContact();
 void DeleteGmailContact();
 void SavingContact();
 
+//Exchange_EWS
+void AccessAnotherMailboxUsingExchangeWebServiceClient();
+void AccessCustomFolderUsingExchangeWebServiceClient();
+void AddContactsToExchangeServerUsingEWS();
+void AddingHeadersToEWSRequests();
+void AddMembersToPrivateDistributionList();
+void AddMembersWithoutListing();
+void CaseSensitiveEmailsFilteringUsingEWS();
+void ConnectExchangeServerUsingIMAP();
+void ConnectingToExchangeServerUsingEWS();
+void CopyConversations();
+void CopyingMessageToAnotherFolder();
+void CreateAndSendingMessageWithVotingOptions();
+void CreateFoldersOnExchangeServerMailbox();
+void CreateNewRuleOntheExchangeServer();
+void CreatePrivateDistributionList();
+void CreateREAndFWMessages();
+void CreatingUpdatingAndDeletingCalendarItemsUsingEWS();
+void CreatUserConfigurations();
+void DeleteContactsFromExchangeServerUsingEWS();
+void DeleteConversations();
+void DeleteExchangeTask();
+void DeleteMembersFromPrivateDistributionList();
+void DeleteMembersWithoutListing();
+void DeleteMessagesFromusingEWS();
+void DeletePrivateDistributionList();
+void DeleteTaskOnExchange();
+void DeleteUserConfiguration();
+void DeleteWithoutListing();
+void DownloadMessagesFromPublicFolders();
+void EnumeratMessagesWithPaginginEWS();
+void ExchangeFoldersBackupToPST();
+void ExchangeImpersonationUsingEWS();
+void ExchangeServerReadRules();
+void ExchangeServerUsesSSL();
+void ExpandPublicDistributionList();
+void FetchContactUsingId();
+void FetchMessageUsingEWS();
+void FetchPrivateDistributionList();
+void FilterAppointmentsUsingEWS();
+void FilterMessagesOnCriteriaUsingEWS();
+void FilterMessagesUsingEWS();
+void FilterWithComplexQueriesUsingEWS();
+void FindConversationsOnExchangeServer();
+void GetExchangeMessageInfoFromMessageURI();
+void GetFolderTypeInformationUsingEWS();
+void GetMailboxInformationFromExchangeWebServices();
+void GetMailTips();
+void GetMessageTypeFromExchangeMessageInfo();
+void GettingContactsUsingEWS();
+void GettingUnifiedMessagingConfigurationInformation();
+void IgnoringInvalidSSLCertificates();
+void ListFoldersFromExchangeServer();
+void ListingMessagesFromFolders();
+void ListingMessagesUsingEWS();
+void MoveConversations();
+void MoveMessageFromOneFolderToAnotherusingEWS();
+void PagingSupportForListingAppointments();
+void PagingSupportForListingFolders();
+void PagingSupportForListingMessages();
+void PreFetchMessageSizeUsingIEWSClient();
+void ProcessExchangeTasksUsingIEWSClient();
+void ReadUserConfiguration();
+void ResolveContactsUsingContactName();
+void RetreiveExtAttributesForCalendarItems();
+void RetrieveExtraParametersAsSummaryInformation();
+void RetrieveFolderPermissionsUsingExchangeWebServiceClient();
+void SaveExchangeTaskToDisc();
+void SaveMessagesInMSGFormatExchangeEWS();
+void SaveMessagesToMemoryStreamUsingEWS();
+void SaveMessagesUsingExchangeWebServices();
+void SaveMessagesUsingIMAP();
+void SecondaryCalendarEvents();
+void SendCalendarInvitation();
+void SendEmailMessagesUsingExchangeWebServices();
+void SendEmailToPrivateDistributionList();
+void SendExchangeTask();
+void SendMeetingRequestsUsingEWS();
+void SendTaskRequestUsingIEWSClient();
+void SpecifyTimeZoneForExchange();
+void SynchronizeFolderItems();
+void UpdateContactInformationUsingEWS();
+void UpdateExchangeTask();
+void UpdateRuleOntheExchangeServer();
+void UpdateTaskOnExchange();
+void UpdateUserConfiguration();
 

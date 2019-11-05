@@ -13,7 +13,7 @@ please feel free to contact us using https://forum.aspose.com/c/email
 #include <system/console.h>
 #include <cstdint>
 #include <Clients/SecurityOptions.h>
-#include <Clients/Pop3/Pop3Exception.h>
+#include <Exceptions/Pop3Exception.h>
 #include <Clients/Pop3/Pop3Client/Pop3Client.h>
 
 #include "Examples.h"
@@ -31,7 +31,7 @@ void GetEmailCountIntheMailbox()
         int32_t i = client->GetMessageCount();
         System::Console::WriteLine(System::String(u"Message count: ") + i);
     }
-    catch (Pop3Exception& ex)
+    catch (System::Exception& ex)
     {
         System::Console::WriteLine(System::String(u"Error:") + System::ObjectExt::ToString(ex));
     }

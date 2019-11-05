@@ -14,26 +14,24 @@ please feel free to contact us using http://www.aspose.com/community/forums/defa
 #include <system/io/file.h>
 #include <system/details/dispose_guard.h>
 #include <system/array.h>
-#include <Formats/Outlook/Mapi/MapiMessage.h>
-#include <Formats/Outlook/Mapi/FollowUpManager.h>
+#include <Mapi/MapiMessage.h>
+#include <Mapi/FollowUpManager.h>
 #include <cstdint>
 
 #include "Examples.h"
 
 
-using namespace Aspose::Email::Outlook;
+using namespace Aspose::Email::Mapi;
 
 
 void ReadingOnlyVotingButtons()
 {
     System::String dataDir = GetDataDir_Outlook();
-    System::String fileName = dataDir + L"MessageWithVotingButtons.msg";
+    System::String fileName = dataDir + u"MessageWithVotingButtons.msg";
     
     {
         System::SharedPtr<System::IO::MemoryStream> ms = System::MakeObject<System::IO::MemoryStream>(System::IO::File::ReadAllBytes(fileName));
         
-        // Clearing resources under 'using' statement
-        System::Details::DisposeGuard __dispose_guard_0{ ms, ASPOSE_CURRENT_FUNCTION_LINE };
         // ------------------------------------------
         // ExStart:ReadingOnlyVotingButtons
         System::SharedPtr<MapiMessage> testMsg = MapiMessage::FromStream(ms);
