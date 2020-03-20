@@ -42,7 +42,7 @@ void SaveMessagesToMemoryStreamUsingEWS()
     catch (System::Exception& ex)
     {
         
-        System::Console::Write(ex.get_Message());
+        System::Console::Write(ex->get_Message());
     }
     
 }

@@ -75,7 +75,7 @@ void CreateREAndFWMessages()
     }
     catch (System::Exception& ex)
     {
-        System::Console::WriteLine(System::String(u"Error in program") + ex.get_Message());
+        System::Console::WriteLine(System::String(u"Error in program") + ex->get_Message());
     }
     
 }

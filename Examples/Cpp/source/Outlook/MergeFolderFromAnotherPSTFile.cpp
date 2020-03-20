@@ -76,7 +76,7 @@ void MergeFolderFromAnotherPSTFile()
     }
     catch (System::Exception& ex)
     {
-        System::Console::WriteLine(ex.get_Message() + u"\nThis example will only work if you apply a valid Aspose Email License. You can purchase full license or get 30 day temporary license from http:// Www.aspose.com/purchase/default.aspx.");
+        System::Console::WriteLine(ex->get_Message() + u"\nThis example will only work if you apply a valid Aspose Email License. You can purchase full license or get 30 day temporary license from http:// Www.aspose.com/purchase/default.aspx.");
     }
     
     // ExEnd:MergePSTFolders

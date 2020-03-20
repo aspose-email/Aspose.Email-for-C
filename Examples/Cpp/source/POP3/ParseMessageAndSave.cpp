@@ -50,7 +50,7 @@ void ParseMessageAndSave()
         }
         catch (System::Exception& ex)
         {
-            System::Console::WriteLine(System::Environment::get_NewLine() + ex.get_Message());
+            System::Console::WriteLine(System::Environment::get_NewLine() + ex->get_Message());
         }
     }
     // ExEnd:ParseMessageAndSave

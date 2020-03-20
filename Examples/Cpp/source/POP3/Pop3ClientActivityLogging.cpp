@@ -46,7 +46,7 @@ void Pop3ClientActivityLogging()
     }
     catch (System::Exception& ex)
     {
-        System::Console::WriteLine(ex.get_Message());
+        System::Console::WriteLine(ex->get_Message());
     }
     
     // ExEnd:Pop3ClientActivityLogging

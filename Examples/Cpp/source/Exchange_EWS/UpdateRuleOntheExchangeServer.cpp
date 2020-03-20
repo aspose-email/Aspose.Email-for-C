@@ -8,14 +8,16 @@
 #include <net/network_credential.h>
 #include <MailAddressCollection.h>
 #include <MailAddress.h>
-#include <Clients/Exchange/WebService/InboxRules/RulePredicates.h>
-#include <Clients/Exchange/WebService/InboxRules/InboxRule.h>
+#include <Clients/Exchange/InboxRules/RulePredicates.h>
+#include <Clients/Exchange/InboxRules/InboxRule.h>
 #include <Clients/Exchange/WebService/EWSClient/IEWSClient.h>
 #include <Clients/Exchange/WebService/EWSClient/EWSClient.h>
 
 using namespace System;
 using namespace Aspose::Email;
 using namespace Aspose::Email::Clients::Exchange::WebService;
+using namespace Aspose::Email::Clients::Exchange;
+
 void UpdateRuleOntheExchangeServer()
 {
     
@@ -53,7 +55,7 @@ void UpdateRuleOntheExchangeServer()
     catch (System::Exception& ex)
     {
         
-        System::Console::Write(ex.get_Message());
+        System::Console::Write(ex->get_Message());
     }
     
 }

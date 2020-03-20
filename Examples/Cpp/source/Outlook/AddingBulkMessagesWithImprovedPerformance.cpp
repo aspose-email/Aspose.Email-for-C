@@ -31,7 +31,7 @@ class MapiMessageEnumerator : public System::Collections::Generic::IEnumerator<S
 {
 public:
 
-    System::SharedPtr<Aspose::Email::Mapi::MapiMessage> get_Current();
+    System::SharedPtr<Aspose::Email::Mapi::MapiMessage> get_Current() const override;
 
     MapiMessageEnumerator(System::String path);
 
@@ -64,7 +64,7 @@ private:
 
 
 
-System::SharedPtr<Aspose::Email::Mapi::MapiMessage> MapiMessageEnumerator::get_Current()
+System::SharedPtr<Aspose::Email::Mapi::MapiMessage> MapiMessageEnumerator::get_Current() const
 {
     try
     {

@@ -38,7 +38,7 @@ void SaveToDiskWithoutParsing()
     }
     catch (System::Exception& ex)
     {
-        System::Console::WriteLine(ex.get_Message());
+        System::Console::WriteLine(ex->get_Message());
     }
     
     System::Console::WriteLine(System::Environment::get_NewLine() + u"Retrieved email messages using POP3 ");

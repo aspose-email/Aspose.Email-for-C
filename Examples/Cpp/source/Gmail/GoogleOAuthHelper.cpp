@@ -113,7 +113,7 @@ void GoogleOAuthHelper::GetAccessTokenByRefreshToken(const GoogleTestUser& user,
                     }
                     if (switch_value_0 == u"expires_in")
                     {
-                        expires_in = System::Convert::ToInt32Native(value);
+                        expires_in = System::Convert::ToInt32(value);
                         break;
                     }
                 } while (false);

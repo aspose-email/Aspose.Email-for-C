@@ -80,7 +80,7 @@ void GetMessageInformation()
     }
     catch (System::Exception& ex)
     {
-        System::Console::WriteLine(ex.get_Message());
+        System::Console::WriteLine(ex->get_Message());
     }
     
 }

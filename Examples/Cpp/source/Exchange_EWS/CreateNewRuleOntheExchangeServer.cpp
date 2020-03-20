@@ -8,15 +8,17 @@
 #include <MailAddressCollection.h>
 #include <MailAddress.h>
 #include <cstdint>
-#include <Clients/Exchange/WebService/InboxRules/RulePredicates.h>
-#include <Clients/Exchange/WebService/InboxRules/RuleActions.h>
-#include <Clients/Exchange/WebService/InboxRules/InboxRule.h>
+#include <Clients/Exchange/InboxRules/RulePredicates.h>
+#include <Clients/Exchange/InboxRules/RuleActions.h>
+#include <Clients/Exchange/InboxRules/InboxRule.h>
 #include <Clients/Exchange/WebService/EWSClient/IEWSClient.h>
 #include <Clients/Exchange/WebService/EWSClient/EWSClient.h>
 
 using namespace System;
 using namespace Aspose::Email;
 using namespace Aspose::Email::Clients::Exchange::WebService;
+using namespace Aspose::Email::Clients::Exchange;
+
 void CreateNewRuleOntheExchangeServer()
 {
     // Set Exchange Server 2010 web service URL, Username, password, domain information
@@ -45,6 +47,6 @@ void CreateNewRuleOntheExchangeServer()
     }
     catch (System::Exception& ex)
     {
-        System::Console::WriteLine(ex.get_Message());
+        System::Console::WriteLine(ex->get_Message());
     }
 }

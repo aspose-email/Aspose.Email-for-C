@@ -10,13 +10,14 @@
 #include <MailAddressCollection.h>
 #include <MailAddress.h>
 #include <cstdint>
-#include <Clients/Exchange/WebService/InboxRules/RulePredicates.h>
-#include <Clients/Exchange/WebService/InboxRules/RuleActions.h>
-#include <Clients/Exchange/WebService/InboxRules/InboxRule.h>
+#include <Clients/Exchange/InboxRules/RulePredicates.h>
+#include <Clients/Exchange/InboxRules/RuleActions.h>
+#include <Clients/Exchange/InboxRules/InboxRule.h>
 #include <Clients/Exchange/WebService/EWSClient/IEWSClient.h>
 #include <Clients/Exchange/WebService/EWSClient/EWSClient.h>
 
 using namespace Aspose::Email::Clients::Exchange::WebService;
+using namespace Aspose::Email::Clients::Exchange;
 
 void ExchangeServerReadRules()
 {
@@ -59,7 +60,7 @@ void ExchangeServerReadRules()
     }
     catch (System::Exception& ex)
     {
-        System::Console::WriteLine(ex.get_Message());
+        System::Console::WriteLine(ex->get_Message());
     }
 
 }
