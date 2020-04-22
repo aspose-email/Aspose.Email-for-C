@@ -27,8 +27,8 @@ void LoadLicense(const String& licFile)
 
 void RunExamples()
 {
-    Console::WriteLine(L"Open Examples.cpp \nIn RunExamples() function uncomment the example that you want to run.");
-    Console::WriteLine(L"=====================================================");
+    Console::WriteLine(u"Open Examples.cpp \nIn RunExamples() function uncomment the example that you want to run.");
+    Console::WriteLine(u"=====================================================");
 
     //LoadLicense(u"C:\\project\\License\\Aspose.Email.Cpp.lic");
 
@@ -222,6 +222,11 @@ void RunExamples()
     //MergeFolderFromAnotherPSTFile();
     //LoadingPSTFile();
     //ModifyDeleteOccurrenceInRecurrence();
+
+    // Working with OLM file format
+    // LoadAndReadOLMFile();
+    // GetFolderPathInOLM();
+    // CountItemsInOLMFolder();
 
 
     // IMAP
@@ -505,7 +510,7 @@ int main(int argc, char** argv)
     }
     catch (Exception& e)
     {
-        Console::WriteLine(System::String(L"Examples execution error:") + e.ToString());
+        Console::WriteLine(System::String(u"Examples execution error:") + e.ToString());
     }
 
 

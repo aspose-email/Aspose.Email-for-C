@@ -386,3 +386,8 @@ void UpdateRuleOntheExchangeServer();
 void UpdateTaskOnExchange();
 void UpdateUserConfiguration();
 
+// OLM
+void LoadAndReadOLMFile();
+void GetFolderPathInOLM();
+void CountItemsInOLMFolder();
+
