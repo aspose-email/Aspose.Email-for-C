@@ -270,6 +270,7 @@ void RunExamples()
     //SpecifyEncodingForQueryBuilder();
     //SSLEnabledIMAPServer();
     //SupportIMAPIdleCommand();
+    //IMAPEmailThreading();
 
     //// Gmail
     //InsertFetchAndUpdateCalendar();

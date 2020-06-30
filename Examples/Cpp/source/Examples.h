@@ -237,6 +237,7 @@ void SettingMessageFlags();
 void SpecifyEncodingForQueryBuilder();
 void SSLEnabledIMAPServer();
 void SupportIMAPIdleCommand();
+void IMAPEmailThreading();
 
 // POP3
 void ApplyCaseSensitiveFilters();
