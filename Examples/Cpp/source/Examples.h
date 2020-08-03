@@ -386,9 +386,12 @@ void UpdateExchangeTask();
 void UpdateRuleOntheExchangeServer();
 void UpdateTaskOnExchange();
 void UpdateUserConfiguration();
+void AdvancedSyntaxQueryBuilderUsingEWS();
 
 // OLM
 void LoadAndReadOLMFile();
 void GetFolderPathInOLM();
 void CountItemsInOLMFolder();
 
+// Exchange Graph
+void ListFoldersExchangeGraph();

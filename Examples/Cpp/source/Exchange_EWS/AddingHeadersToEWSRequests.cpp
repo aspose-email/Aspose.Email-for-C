@@ -4,8 +4,8 @@
 #include <system/details/dispose_guard.h>
 #include <Clients/Exchange/WebService/EWSClient/IEWSClient.h>
 #include <Clients/Exchange/WebService/EWSClient/EWSClient.h>
-#include <Clients/Exchange/ExchangeMessageInfoCollection__.h>
-#include <Clients/Exchange/ExchangeMailboxInfo__.h>
+#include <Clients/Exchange/ExchangeMessageInfoCollection.h>
+#include <Clients/Exchange/ExchangeMailboxInfo.h>
 
 using namespace Aspose::Email::Clients::Exchange::WebService;
 using namespace Aspose::Email::Clients::Exchange;

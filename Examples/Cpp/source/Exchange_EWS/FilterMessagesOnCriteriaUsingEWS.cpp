@@ -18,8 +18,8 @@
 #include <Clients/Exchange/WebService/EWSClient/EWSClient.h>
 #include <Clients/Exchange/Search/ExchangeQueryBuilder.h>
 #include <Clients/Exchange/ExchangeMessagePageInfo.h>
-#include <Clients/Exchange/ExchangeMessageInfoCollection__.h>
-#include <Clients/Exchange/ExchangeMailboxInfo__.h>
+#include <Clients/Exchange/ExchangeMessageInfoCollection.h>
+#include <Clients/Exchange/ExchangeMailboxInfo.h>
 #include <Clients/Exchange/Dav/ContentClassType.h>
 
 

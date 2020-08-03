@@ -11,7 +11,7 @@
 #include <Clients/Exchange/WebService/EWSClient/IEWSClient.h>
 #include <Clients/Exchange/WebService/EWSClient/EWSClient.h>
 #include <Clients/Exchange/ExchangePermissionCollection.h>
-#include <Clients/Exchange/ExchangeMailboxInfo__.h>
+#include <Clients/Exchange/ExchangeMailboxInfo.h>
 #include <Clients/Exchange/ExchangeFolderUserInfo.h>
 #include <Clients/Exchange/ExchangeFolderPermissionReadAccess.h>
 #include <Clients/Exchange/ExchangeFolderPermissionCollection.h>

@@ -11,7 +11,7 @@
 #include <Clients/Exchange/WebService/UserConfiguration/UserConfiguration.h>
 #include <Clients/Exchange/WebService/EWSClient/IEWSClient.h>
 #include <Clients/Exchange/WebService/EWSClient/EWSClient.h>
-#include <Clients/Exchange/ExchangeMailboxInfo__.h>
+#include <Clients/Exchange/ExchangeMailboxInfo.h>
 
 using namespace Aspose::Email::Clients::Exchange::WebService;
 

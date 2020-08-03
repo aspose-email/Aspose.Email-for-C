@@ -14,7 +14,7 @@ using namespace Aspose::Email;
 
 int main()
 {
-    Console::WriteLine(L"Example running...");
+    Console::WriteLine(u"Example running...");
 
     // Create an instance of MailMessage class
     SharedPtr<MailMessage> message = System::MakeObject<MailMessage>();
@@ -24,6 +24,6 @@ int main()
 
     message->Save(u"outputAttachments_out.msg", SaveOptions::get_DefaultMsgUnicode());
 
-    Console::WriteLine(L"Example finished OK");
+    Console::WriteLine(u"Example finished OK");
     return 0;
 }

@@ -409,6 +409,12 @@ void RunExamples()
     //UpdateContactInformationUsingEWS();
     //UpdateRuleOntheExchangeServer();
     //UpdateUserConfiguration();
+    //AdvancedSyntaxQueryBuilderUsingEWS();
+
+
+    // Exchange Graph
+    //ListFoldersExchangeGraph();
+
 
     printf("\n\nProgram Finished. Press any key to exit....");
     getchar();

@@ -7,9 +7,9 @@
 #include <MailMessage.h>
 #include <Clients/Exchange/WebService/EWSClient/IEWSClient.h>
 #include <Clients/Exchange/WebService/EWSClient/EWSClient.h>
-#include <Clients/Exchange/ExchangeMessageInfoCollection__.h>
+#include <Clients/Exchange/ExchangeMessageInfoCollection.h>
 #include <Clients/Exchange/ExchangeMessageInfo.h>
-#include <Clients/Exchange/ExchangeMailboxInfo__.h>
+#include <Clients/Exchange/ExchangeMailboxInfo.h>
 #include <Clients/Exchange/ExchangeFolderInfo.h>
 
 using namespace System;
