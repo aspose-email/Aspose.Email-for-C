@@ -2,6 +2,7 @@
 #include <system/shared_ptr.h>
 #include <system/object.h>
 #include <system/array.h>
+#include <system/console.h>
 #include <MailAddressCollection.h>
 #include <MailAddress.h>
 #include <Clients/Exchange/WebService/EWSClient/IEWSClient.h>

@@ -1,5 +1,7 @@
 #include "Examples.h"
 #include <system/enumerator_adapter.h>
+#include <system/console.h>
+#include <system/environment.h>
 #include <Clients/Exchange/WebService/Tasks/ExchangeTask.h>
 #include <Clients/Exchange/WebService/Tasks/DeleteTaskOptions.h>
 #include <Clients/Exchange/WebService/EWSClient/IEWSClient.h>

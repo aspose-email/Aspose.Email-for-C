@@ -6,8 +6,8 @@
    please feel free to contact us using https://forum.aspose.com/c/email            
 */
 
-#include <Tools/OriginalMessageAdditionMode.h>
-#include <Tools/ForwardMessageBuilder.h>
+#include <Tools/ResponseMessageBuilder/OriginalMessageAdditionMode.h>
+#include <Tools/ResponseMessageBuilder/ForwardMessageBuilder.h>
 #include <system/string.h>
 #include <system/shared_ptr.h>
 #include <system/object.h>

@@ -2,6 +2,7 @@
 #include <system/string.h>
 #include <system/shared_ptr.h>
 #include <system/object.h>
+#include <system/console.h>
 #include <Clients/Exchange/WebService/EWSClient/IEWSClient.h>
 #include <Clients/Exchange/WebService/EWSClient/EWSClient.h>
 #include <Clients/Exchange/ExchangeDistributionList.h>

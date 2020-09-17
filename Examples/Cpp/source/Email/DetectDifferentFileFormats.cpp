@@ -6,9 +6,9 @@ install it and then add its reference to this project. For any issues, questions
 please feel free to contact us using https://forum.aspose.com/c/email
 */
 
-#include <Tools/FileFormatUtil.h>
-#include <Tools/FileFormatType.h>
-#include <Tools/FileFormatInfo.h>
+#include <Tools/FileFormat/FileFormatUtil.h>
+#include <Tools/FileFormat/FileFormatType.h>
+#include <Tools/FileFormat/FileFormatInfo.h>
 #include <system/string.h>
 #include <system/shared_ptr.h>
 #include <system/object_ext.h>

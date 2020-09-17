@@ -1,5 +1,3 @@
-#include "mainwindow.h"
-
 #include <QApplication>
 #include <QtCore>
 #include <QtGui>
@@ -10,8 +8,67 @@
 #include <QTextBrowser>
 #include <QFileDialog>
 #include <QLabel>
+#include <QTabWidget>
+#include <QComboBox>
 
 std::string ConvertMailMessageToHtml(const std::string& fileName);
+
+QWidget* ConvertFormatWidget()
+{
+    QHBoxLayout *hLayout = new QHBoxLayout;
+    QLabel *label = new QLabel("Save As");
+    QComboBox *formatCombo = new QComboBox();
+
+    formatCombo->addItems({
+        "EML",
+        "MSG",
+        "MBOX",
+        "OST",
+        "PST"
+        });
+
+/*
+eml
+msg
+mbox
+pst
+mht
+html
+svg
+tiff
+jpg
+bmp
+png
+pdf
+doc
+ppt
+rtf
+docx
+docm
+dotx
+dotm
+odt
+ott
+epub
+txt
+emf
+xps
+pcl
+ps
+mhtml
+*/
+
+    QPushButton *loadButton = new QPushButton("Convert");
+
+    hLayout->addWidget(label);
+    hLayout->addWidget(formatCombo);
+    hLayout->addWidget(loadButton);
+
+    QWidget* widget = new QWidget();
+
+    widget->setLayout(hLayout);
+    return widget;
+}
 
 int main(int argc, char *argv[])
 {
@@ -49,7 +106,13 @@ int main(int argc, char *argv[])
     QVBoxLayout *vLayout = new QVBoxLayout();
     vLayout->addLayout(vboxLayout);
     vLayout->addLayout(hLayout);
-    vLayout->addWidget(tb);
+
+    QTabWidget *tabWidget = new QTabWidget();
+    tabWidget->addTab(tb, "View");
+    tabWidget->addTab(ConvertFormatWidget(), "Convert");
+
+    //vLayout->addWidget(tb);
+    vLayout->addWidget(tabWidget);
 
     ui->setLayout(vLayout);
     ui->setWindowTitle("Aspose.Email for C++ sample Qt application");

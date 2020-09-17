@@ -2,6 +2,7 @@
 #include <system/string.h>
 #include <system/shared_ptr.h>
 #include <system/object.h>
+#include <system/console.h>
 #include <system/enum_helpers.h>
 #include <Storage/Pst/BackupOptions.h>
 #include <net/network_credential.h>

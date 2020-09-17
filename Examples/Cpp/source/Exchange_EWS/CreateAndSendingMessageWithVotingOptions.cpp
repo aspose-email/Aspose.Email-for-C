@@ -2,6 +2,7 @@
 #include <system/string.h>
 #include <system/shared_ptr.h>
 #include <system/object.h>
+#include <system/console.h>
 #include <Mapi/FollowUpOptions.h>
 #include <MailMessage.h>
 #include <Clients/Exchange/WebService/EWSClient/IEWSClient.h>

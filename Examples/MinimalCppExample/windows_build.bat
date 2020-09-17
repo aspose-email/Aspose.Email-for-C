@@ -6,8 +6,6 @@
 SET ASPOSE_ROOT=C:\project\asposecpplib
 SET ASPOSE_EMAIL_CPP_ROOT=C:\project\net.master\tmp\Aspose.Email.Cpp
 
-# set Qt5_DIR to your Qt installation 
-SET Qt5_DIR=C:\Qt\Qt5.14.2\5.14.2\msvc2017_64
 
 mkdir build
 cd build

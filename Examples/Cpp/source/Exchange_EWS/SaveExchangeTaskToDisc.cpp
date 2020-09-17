@@ -1,5 +1,6 @@
 #include "Examples.h"
 #include <system/console.h>
+#include <system/environment.h>
 #include <Clients/Exchange/WebService/Tasks/ExchangeTaskStatus.h>
 #include <Clients/Exchange/WebService/Tasks/ExchangeTask.h>
 #include <Calendar/Task.h>

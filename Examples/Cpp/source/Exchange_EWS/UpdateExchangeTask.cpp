@@ -1,6 +1,7 @@
 #include "Examples.h"
 #include <system/enumerator_adapter.h>
 #include <system/console.h>
+#include <system/environment.h>
 #include <net/network_credential.h>
 #include <MailPriority.h>
 #include <Clients/Exchange/WebService/Tasks/ExchangeTaskStatus.h>

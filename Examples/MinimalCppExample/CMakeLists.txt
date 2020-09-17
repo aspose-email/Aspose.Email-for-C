@@ -33,29 +33,15 @@ GUESS_COMPILER_PREFIX(compiler_prefix)
 find_package(CodePorting.Native.Cs2Cpp REQUIRED CONFIG PATHS ${ASPOSE_ROOT})
 find_package(Aspose.Email.Cpp REQUIRED CONFIG PATHS ${ASPOSE_EMAIL_CPP_ROOT})
 
-#include("${ASPOSE_EMAIL_CPP_ROOT}/Aspose.Email.Cpp-targets-${compiler_prefix}.cmake")
-
-find_package(Qt5 COMPONENTS Widgets REQUIRED PATHS ${Qt5_DIR})
 
 add_executable(${target}
-    main.cpp
-    AsposeEmailConvertor.cpp
+    Example.cpp
 )
 
-target_link_libraries(${target} PRIVATE Qt5::Widgets)
 target_link_libraries(${target} PRIVATE Aspose.Email.Cpp)
 target_link_libraries(${target} PRIVATE Aspose::CodePorting.Native.Cs2Cpp)
 target_link_libraries(${target} PRIVATE CodePorting.Native.Cs2Cpp)
 
-
-if (WIN32)
-    get_target_property(QT5_QMAKE_EXECUTABLE Qt5::qmake IMPORTED_LOCATION)
-    get_filename_component(QT5_WINDEPLOYQT_EXECUTABLE ${QT5_QMAKE_EXECUTABLE} PATH)
-    set(QT5_WINDEPLOYQT_EXECUTABLE "${QT5_WINDEPLOYQT_EXECUTABLE}/windeployqt.exe")
-
-    add_custom_command(TARGET ${target} POST_BUILD
-       COMMAND ${QT5_WINDEPLOYQT_EXECUTABLE} --qmldir ${CMAKE_SOURCE_DIR} $<TARGET_FILE_DIR:${target}>)
-endif(WIN32)
 
 add_custom_command(TARGET ${target} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy 
