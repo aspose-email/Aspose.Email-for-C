@@ -10,65 +10,11 @@
 #include <QLabel>
 #include <QTabWidget>
 #include <QComboBox>
+#include <QFileInfo>
+#include <QMessageBox>
 
 std::string ConvertMailMessageToHtml(const std::string& fileName);
-
-QWidget* ConvertFormatWidget()
-{
-    QHBoxLayout *hLayout = new QHBoxLayout;
-    QLabel *label = new QLabel("Save As");
-    QComboBox *formatCombo = new QComboBox();
-
-    formatCombo->addItems({
-        "EML",
-        "MSG",
-        "MBOX",
-        "OST",
-        "PST"
-        });
-
-/*
-eml
-msg
-mbox
-pst
-mht
-html
-svg
-tiff
-jpg
-bmp
-png
-pdf
-doc
-ppt
-rtf
-docx
-docm
-dotx
-dotm
-odt
-ott
-epub
-txt
-emf
-xps
-pcl
-ps
-mhtml
-*/
-
-    QPushButton *loadButton = new QPushButton("Convert");
-
-    hLayout->addWidget(label);
-    hLayout->addWidget(formatCombo);
-    hLayout->addWidget(loadButton);
-
-    QWidget* widget = new QWidget();
-
-    widget->setLayout(hLayout);
-    return widget;
-}
+void Convert(const std::string& fileName, const std::string& outputFileName, const std::string& outputType);
 
 int main(int argc, char *argv[])
 {
@@ -109,9 +55,42 @@ int main(int argc, char *argv[])
 
     QTabWidget *tabWidget = new QTabWidget();
     tabWidget->addTab(tb, "View");
-    tabWidget->addTab(ConvertFormatWidget(), "Convert");
 
-    //vLayout->addWidget(tb);
+    // create widget for "Convert" tab
+    QComboBox *formatCombo = new QComboBox();
+    formatCombo->addItems({
+        "EML",
+        "MSG",
+        "MBOX",
+        "PST",
+        "MHT",
+        "HTML",
+        "RTF",
+        "TXT"
+        });
+    QPushButton *convertButton = new QPushButton("Convert");
+    QObject::connect(convertButton, &QPushButton::clicked, [txtFileName, formatCombo]() {
+        QString fileName = txtFileName->text();
+        QString outputType = formatCombo->currentText();
+        QFileInfo info(fileName);
+        QString outputFile = info.path() + "/" + info.completeBaseName() + "." + outputType;
+        if (outputFile == fileName)
+            return;
+        outputFile = QFileDialog::getSaveFileName(nullptr, "Select converted file name", outputFile);
+        Convert(txtFileName->text().toStdString(), outputFile.toStdString(), outputType.toLower().toStdString());
+        QMessageBox::information(nullptr, "Information", QString("File %1 Converted into %2").arg(fileName, outputFile));
+        });
+    QHBoxLayout *hConvertLayout = new QHBoxLayout;
+
+    hConvertLayout->addWidget(new QLabel("Save As"));
+    hConvertLayout->addWidget(formatCombo);
+    hConvertLayout->addWidget(convertButton);
+
+    QWidget* convertWidget = new QWidget();
+    convertWidget->setLayout(hConvertLayout);
+    
+    tabWidget->addTab(convertWidget, "Convert");
+
     vLayout->addWidget(tabWidget);
 
     ui->setLayout(vLayout);

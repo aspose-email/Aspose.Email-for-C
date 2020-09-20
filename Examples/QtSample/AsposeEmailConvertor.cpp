@@ -1,3 +1,5 @@
+#include "system/io/file.h"
+
 #include "Aspose.Email.h"
 
 #include <Tools/FileFormat/FileFormatUtil.h>
@@ -9,6 +11,7 @@
 #include <Storage/Mbox/MboxrdStorageWriter.h>
 #include <Storage/Pst/PersonalStorage.h>
 
+using namespace System::IO;
 using namespace Aspose::Email::Tools;
 using namespace Aspose::Email;
 using namespace Aspose::Email::Storage;
@@ -43,7 +46,7 @@ System::SharedPtr<MailMessage> GetMailMessageFromFile(const std::string&  fileNa
     }
 }
 
-System::SharedPtr<MapiMessage>  GetMailMessageFromStream(System::SharedPtr<System::IO::Stream> input)
+System::SharedPtr<MapiMessage>  GetMapiMessageFromStream(System::SharedPtr<System::IO::Stream> input)
 {
     auto formatInfo = FileFormatUtil::DetectFileFormat(input);
     input->set_Position(0);
@@ -62,6 +65,27 @@ System::SharedPtr<MapiMessage>  GetMailMessageFromStream(System::SharedPtr<Syste
             return nullptr;
     }
 }
+
+System::SharedPtr<MapiMessage>  GetMapiMessageFromFile(const std::string&  fileNameUtf8)
+{
+    auto formatInfo = FileFormatUtil::DetectFileFormat(System::String::FromUtf8(fileNameUtf8));
+    System::String fileNamePath = System::String::FromUtf8(fileNameUtf8);
+
+    switch (formatInfo->get_FileFormatType())
+    {
+        case FileFormatType::Msg:
+            return MapiMessage::Load(fileNamePath, System::MakeObject<MsgLoadOptions>());
+        case FileFormatType::Eml:
+            return MapiMessage::Load(fileNamePath, System::MakeObject<EmlLoadOptions>());
+        case FileFormatType::Mht:
+            return MapiMessage::Load(fileNamePath, System::MakeObject<MhtmlLoadOptions>());
+        case FileFormatType::Tnef:
+            return MapiMessage::Load(fileNamePath, System::MakeObject<TnefLoadOptions>());
+        default:
+            return nullptr;
+    }
+}
+
 
 
 std::string MessageToHtml(System::SharedPtr<Aspose::Email::MailMessage> eml)
@@ -96,97 +120,59 @@ std::string ConvertMailMessageToHtml(const std::string& fileName)
     return MessageToHtml(message);
 }
 
-void ConvertMIMEMessageToEML(System::SharedPtr<System::IO::Stream> input, System::SharedPtr<System::IO::Stream> output)
+void Convert(const std::string& fileName, const std::string& outputFileName, const std::string& outputType)
 {
-    auto message = MailMessage::Load(input);
-    message->Save(output, SaveOptions::get_DefaultEml());
-}
+    System::SharedPtr<System::IO::Stream> output = File::Open(System::String::FromUtf8(outputFileName), FileMode::OpenOrCreate);
 
-void ConvertEMLToMSG(System::SharedPtr<System::IO::Stream> input, System::SharedPtr<System::IO::Stream> output)
-{
-    auto message = MailMessage::Load(input, System::MakeObject<EmlLoadOptions>());
-    message->Save(output, SaveOptions::get_DefaultMsgUnicode());
-}
-
-void ConvertMailToMbox(System::SharedPtr<System::IO::Stream> input, System::SharedPtr<System::IO::Stream> output)
-{
-    auto message = MailMessage::Load(input);
-    auto writer = System::MakeObject<Mbox::MboxrdStorageWriter>(output, false);
-    writer->WriteMessage(message);
-}
-
-void ConvertEmailToRtf(System::SharedPtr<System::IO::Stream> input, System::SharedPtr<System::IO::Stream> outputStream)
-{
-    auto mapi = GetMailMessageFromStream(input);
-    auto writer = System::MakeObject<System::IO::StreamWriter>(outputStream);
-    writer->Write(mapi->get_BodyRtf());
-}
-
-void ConvertMailToPst(System::SharedPtr<System::IO::Stream> input, System::SharedPtr<System::IO::Stream> outputStream)
-{
-    auto message = MailMessage::Load(input);
-    //auto outputStream = handler->CreateOutputStream(System::IO::Path::ChangeExtension(shortResourceNameWithExtension, u".pst"));
-    auto personalStorage = PersonalStorage::Create(outputStream, FileFormatVersion::Unicode);
-    auto inbox = personalStorage->get_RootFolder()->AddSubFolder(u"Inbox");
-
-    inbox->AddMessage(MapiMessage::FromMailMessage(message, MapiConversionOptions::get_UnicodeFormat()));
-}
-
-void ConvertEmailToTxt(System::SharedPtr<System::IO::Stream> input, System::SharedPtr<System::IO::Stream> outputStream)
-{
-    auto mapi = GetMailMessageFromStream(input);
-    // auto outputStream = handler->CreateOutputStream(System::IO::Path::ChangeExtension(shortResourceNameWithExtension, u".txt"));
-    auto writer = System::MakeObject<System::IO::StreamWriter>(outputStream);
-    writer->Write(mapi->get_Body());
-}
-
-void ConvertEMLToMHT(System::SharedPtr<System::IO::Stream> input, System::SharedPtr<System::IO::Stream> outputStream)
-{
-    auto mail = MailMessage::Load(input, System::MakeObject<EmlLoadOptions>());
-    auto mhtSaveOptions = System::MakeObject<MhtSaveOptions>();
-    mhtSaveOptions->set_MhtFormatOptions(MhtFormatOptions::WriteHeader | MhtFormatOptions::HideExtraPrintHeader | MhtFormatOptions::DisplayAsOutlook);
-    mhtSaveOptions->set_CheckBodyContentEncoding(true);
-
-    //auto outputStream = handler->CreateOutputStream(System::IO::Path::ChangeExtension(shortResourceNameWithExtension, u".mht"));
-    mail->Save(outputStream, mhtSaveOptions);
-}
-
-void ConvertEmailToHtml(System::SharedPtr<System::IO::Stream> input, System::SharedPtr<System::IO::Stream> outputStream)
-{
-    auto mail = MailMessage::Load(input, System::MakeObject<EmlLoadOptions>());
-    auto htmlSaveOptions = System::MakeObject<HtmlSaveOptions>();
-    htmlSaveOptions->set_HtmlFormatOptions(HtmlFormatOptions::WriteHeader | HtmlFormatOptions::DisplayAsOutlook);
-    htmlSaveOptions->set_CheckBodyContentEncoding(true);
-
-    //auto outputStream = handler->CreateOutputStream(System::IO::Path::ChangeExtension(shortResourceNameWithExtension, u".html"));
-    mail->Save(outputStream, htmlSaveOptions);
-}
-
-void Convert(System::SharedPtr<System::IO::Stream> input, const std::string& shortResourceNameWithExtension, System::SharedPtr<System::IO::Stream> output, const std::string& outputType)
-{
     if (outputType == "eml")
     {
-        ConvertMIMEMessageToEML(input, output);
+        auto message = GetMailMessageFromFile(fileName);
+        message->Save(output, SaveOptions::get_DefaultEml());
     }
     else if (outputType == "msg")
     {
-        ConvertEMLToMSG(input, output);
+        auto message = GetMailMessageFromFile(fileName);
+        message->Save(output, SaveOptions::get_DefaultMsgUnicode());
     }
     else if (outputType == "mbox")
     {
-        ConvertMailToMbox(input, output);
+        auto message = GetMailMessageFromFile(fileName);
+        auto writer = System::MakeObject<Mbox::MboxrdStorageWriter>(output, false);
+        writer->WriteMessage(message);
     }
     else if (outputType == "pst")
     {
-        ConvertMailToPst(input, output);
+        auto message = GetMailMessageFromFile(fileName);
+        auto personalStorage = PersonalStorage::Create(output, FileFormatVersion::Unicode);
+        auto inbox = personalStorage->get_RootFolder()->AddSubFolder(u"Inbox");
+
+        inbox->AddMessage(MapiMessage::FromMailMessage(message, MapiConversionOptions::get_UnicodeFormat()));
+
     }
     else if (outputType == "mht")
     {
-        ConvertEMLToMHT(input, output);
+        auto message = GetMailMessageFromFile(fileName);
+        //auto mail = MailMessage::Load(input, System::MakeObject<EmlLoadOptions>());
+        auto mhtSaveOptions = System::MakeObject<MhtSaveOptions>();
+        mhtSaveOptions->set_MhtFormatOptions(MhtFormatOptions::WriteHeader | MhtFormatOptions::HideExtraPrintHeader | MhtFormatOptions::DisplayAsOutlook);
+        mhtSaveOptions->set_CheckBodyContentEncoding(true);
+
+        //auto outputStream = handler->CreateOutputStream(System::IO::Path::ChangeExtension(shortResourceNameWithExtension, u".mht"));
+        message->Save(output, mhtSaveOptions);
+
     }
     else if (outputType == "html")
     {
-        ConvertEmailToHtml(input, output);
+        auto message = GetMailMessageFromFile(fileName);
+        //ConvertEmailToHtml(input, output);
+        //auto mail = MailMessage::Load(input, System::MakeObject<EmlLoadOptions>());
+        auto htmlSaveOptions = System::MakeObject<HtmlSaveOptions>();
+        htmlSaveOptions->set_HtmlFormatOptions(HtmlFormatOptions::WriteHeader | HtmlFormatOptions::DisplayAsOutlook);
+        htmlSaveOptions->set_CheckBodyContentEncoding(true);
+
+        //auto outputStream = handler->CreateOutputStream(System::IO::Path::ChangeExtension(shortResourceNameWithExtension, u".html"));
+        message->Save(output, htmlSaveOptions);
+
     }
 /*
     else if (outputType == "svg" || outputType == "tiff")
@@ -212,7 +198,10 @@ void Convert(System::SharedPtr<System::IO::Stream> input, const std::string& sho
 */
     else if (outputType == "rtf")
     {
-        ConvertEmailToRtf(input, output);
+        auto mapi = GetMapiMessageFromFile(fileName);
+        auto writer = System::MakeObject<System::IO::StreamWriter>(output);
+        writer->Write(mapi->get_BodyRtf());
+
     }
 /*
     else if (outputType == "docx")
@@ -246,7 +235,11 @@ void Convert(System::SharedPtr<System::IO::Stream> input, const std::string& sho
 */
     else if (outputType == "txt")
     {
-        ConvertEmailToTxt(input, output);
+        auto mapi = GetMapiMessageFromFile(fileName);
+    // auto outputStream = handler->CreateOutputStream(System::IO::Path::ChangeExtension(shortResourceNameWithExtension, u".txt"));
+        auto writer = System::MakeObject<System::IO::StreamWriter>(output);
+        writer->Write(mapi->get_Body());
+
     }
 /*
     else if (outputType == "emf")
