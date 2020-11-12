@@ -1,3 +1,5 @@
+#define USE_ASPOSE_WORDS
+
 #include <QApplication>
 #include <QtCore>
 #include <QtGui>
@@ -15,6 +17,8 @@
 
 std::string ConvertMailMessageToHtml(const std::string& fileName);
 void Convert(const std::string& fileName, const std::string& outputFileName, const std::string& outputType);
+void SetLicense();
+
 
 int main(int argc, char *argv[])
 {
@@ -66,7 +70,10 @@ int main(int argc, char *argv[])
         "MHT",
         "HTML",
         "RTF",
-        "TXT"
+        "TXT",
+#ifdef USE_ASPOSE_WORDS
+        "PDF",
+#endif
         });
     QPushButton *convertButton = new QPushButton("Convert");
     QObject::connect(convertButton, &QPushButton::clicked, [txtFileName, formatCombo]() {
@@ -96,6 +103,8 @@ int main(int argc, char *argv[])
     ui->setLayout(vLayout);
     ui->setWindowTitle("Aspose.Email for C++ sample Qt application");
     ui->show();
+
+    SetLicense();
 
     return a.exec();
 }

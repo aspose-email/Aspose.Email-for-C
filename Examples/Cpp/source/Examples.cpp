@@ -222,6 +222,8 @@ void RunExamples()
     //MergeFolderFromAnotherPSTFile();
     //LoadingPSTFile();
     //ModifyDeleteOccurrenceInRecurrence();
+    //ExploreCorruptedPST();
+    //ExtractAllFromPSTFile();
 
     // Working with OLM file format
     // LoadAndReadOLMFile();

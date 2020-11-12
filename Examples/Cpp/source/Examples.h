@@ -195,6 +195,9 @@ void DeleteMessagesFromPSTFiles();
 void MergeFolderFromAnotherPSTFile();
 void LoadingPSTFile();
 void ModifyDeleteOccurrenceInRecurrence();
+void ExploreCorruptedPST();
+void ExtractAllFromPSTFile();
+
 
 // IMAP
 void AddingNewMessage();
