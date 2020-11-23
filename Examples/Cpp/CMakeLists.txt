@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.5)
 set (target SampleProject)
 project(${target} LANGUAGES CXX)
 
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 if(DEFINED ASPOSE_ROOT)
     message(STATUS "Using ASPOSE_ROOT value from cmake: ${ASPOSE_ROOT}")
@@ -44,8 +46,8 @@ target_link_libraries(${target} PRIVATE CodePorting.Native.Cs2Cpp)
 add_custom_command(TARGET ${target} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy 
         $<TARGET_FILE:Aspose.Email.Cpp>
-        $<TARGET_FILE_DIR:${target}>)      
+        $<TARGET_FILE_DIR:${target}>)
 add_custom_command(TARGET ${target} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy
         $<TARGET_FILE:Aspose::CodePorting.Native.Cs2Cpp>
-        $<TARGET_FILE_DIR:${target}>)        
+        $<TARGET_FILE_DIR:${target}>)  
