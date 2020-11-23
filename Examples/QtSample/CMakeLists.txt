@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.5)
 set (target SampleProject)
 project(${target} LANGUAGES CXX)
 
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 if(DEFINED ASPOSE_ROOT)
     message(STATUS "Using ASPOSE_ROOT value from cmake: ${ASPOSE_ROOT}")

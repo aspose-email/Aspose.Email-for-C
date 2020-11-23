@@ -42,7 +42,7 @@ void AccessGmailContacts()
                 {
                     for (System::SharedPtr<Contact> contact : contacts)
                     {
-                        System::Console::WriteLine(contact->get_DisplayName() + u", " + contact->get_EmailAddresses()->idx_get(0));
+                        System::Console::WriteLine(contact->get_DisplayName() + u", " + contact->get_EmailAddresses()->idx_get((int32_t)0));
                     }
                     
                 }
@@ -77,7 +77,7 @@ void AccessGmailContacts()
                     {
                         for (System::SharedPtr<Contact> con : contacts2)
                         {
-                            System::Console::WriteLine(con->get_DisplayName() + u"," + System::ObjectExt::ToString(con->get_EmailAddresses()->idx_get(0)));
+                            System::Console::WriteLine(con->get_DisplayName() + u"," + System::ObjectExt::ToString(con->get_EmailAddresses()->idx_get((int32_t)0)));
                         }
                         
                     }
