@@ -1,10 +1,9 @@
-# Aspose.Email for C++ zip distribution must be used to build qt applications
-# nuget packages not yet supported
+# Aspose.Email for C++ zip distribution must be used to build applications with CMake command
 # set ASPOSE_ROOT and ASPOSE_EMAIL_CPP_ROOT environment variables to 
 # directory where content of Aspose.Email_for_C++_XX.X.zip is extracted
 
-SET ASPOSE_ROOT=C:\project\Release\CodePorting.Native.Cs2Cpp_internal_20.8
-SET ASPOSE_EMAIL_CPP_ROOT=C:\project\net.master\tmp\Aspose.Email.Cpp
+#SET ASPOSE_ROOT=C:\project\Release\CodePorting.Native.Cs2Cpp_internal_20.8
+#SET ASPOSE_EMAIL_CPP_ROOT=C:\project\net.master\tmp\Aspose.Email.Cpp
 
 rmdir /Q /S build
 mkdir build
