@@ -24,7 +24,7 @@ else()
     message(ERROR "ASPOSE_EMAIL_CPP_ROOT is not set")
 endif()
 
-set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cpp/cmake")
+set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../Cpp/cmake")
 include(OptionsCommon)
 include(SetLibraryOutputName)
 include(GroupSources)

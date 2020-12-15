@@ -46,8 +46,8 @@ target_link_libraries(${target} PRIVATE CodePorting.Native.Cs2Cpp)
 add_custom_command(TARGET ${target} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy 
         $<TARGET_FILE:Aspose.Email.Cpp>
-        $<TARGET_FILE_DIR:${target}>)      
+        $<TARGET_FILE_DIR:${target}>)
 add_custom_command(TARGET ${target} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy
         $<TARGET_FILE:Aspose::CodePorting.Native.Cs2Cpp>
-        $<TARGET_FILE_DIR:${target}>)        
+        $<TARGET_FILE_DIR:${target}>)  
