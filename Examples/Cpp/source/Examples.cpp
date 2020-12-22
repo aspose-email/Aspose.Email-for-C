@@ -412,6 +412,8 @@ void RunExamples()
     //UpdateRuleOntheExchangeServer();
     //UpdateUserConfiguration();
     //AdvancedSyntaxQueryBuilderUsingEWS();
+	//AutoDiscoverUsingEWS();
+
 
 
     // Exchange Graph

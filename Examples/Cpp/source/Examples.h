@@ -390,6 +390,7 @@ void UpdateRuleOntheExchangeServer();
 void UpdateTaskOnExchange();
 void UpdateUserConfiguration();
 void AdvancedSyntaxQueryBuilderUsingEWS();
+void AutoDiscoverUsingEWS();
 
 // OLM
 void LoadAndReadOLMFile();
