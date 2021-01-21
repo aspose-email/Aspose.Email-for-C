@@ -273,6 +273,7 @@ void RunExamples()
     //SSLEnabledIMAPServer();
     //SupportIMAPIdleCommand();
     //IMAPEmailThreading();
+    //ValidateIMAPServerCredentials();
 
     //// Gmail
     //InsertFetchAndUpdateCalendar();
@@ -309,6 +310,7 @@ void RunExamples()
     //RetrievingEmailMessages();
     //SaveToDiskWithoutParsing();
     //SSLEnabledPOP3Server();
+    //ValidatePOP3ServerCredentials();
 
     // SMTP
     //CustomizingEmailHeader();
@@ -335,6 +337,8 @@ void RunExamples()
     //SMTPClientActivityLogging();
     //SSLEnabledSMTPServer();
     //UseSmtpClientFeatures();
+    //ValidateSMTPServerCredentials();
+
 
     //Exchange_EWS
     //AccessAnotherMailboxUsingExchangeWebServiceClient();
@@ -412,7 +416,7 @@ void RunExamples()
     //UpdateRuleOntheExchangeServer();
     //UpdateUserConfiguration();
     //AdvancedSyntaxQueryBuilderUsingEWS();
-	//AutoDiscoverUsingEWS();
+    //AutoDiscoverUsingEWS();
 
 
 

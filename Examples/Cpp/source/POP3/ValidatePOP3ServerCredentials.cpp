@@ -1,6 +1,4 @@
-﻿#include "ValidatePOP3ServerCredentials.h"
-
-#include <system/string.h>
+﻿#include <system/string.h>
 #include <system/console.h>
 #include <cstdint>
 #include <Clients/SecurityOptions.h>
@@ -9,21 +7,8 @@
 
 using namespace Aspose::Email::Clients::Pop3;
 using namespace Aspose::Email::Clients;
-namespace Aspose {
 
-namespace Email {
-
-namespace Examples {
-
-namespace CSharp {
-
-namespace Email {
-
-namespace POP3 {
-
-RTTI_INFO_IMPL_HASH(3725125068u, ::Aspose::Email::Examples::CSharp::Email::POP3::ValidatePOP3ServerCredentials, ThisTypeBaseTypesInfo);
-
-void ValidatePOP3ServerCredentials::Run()
+void ValidatePOP3ServerCredentials()
 {
     System::SharedPtr<Pop3Client> client = System::MakeObject<Pop3Client>();
     
@@ -43,12 +28,4 @@ void ValidatePOP3ServerCredentials::Run()
     {
         System::Console::WriteLine(u"Wrong Credentials");
     }
-    
 }
-
-} // namespace POP3
-} // namespace Email
-} // namespace CSharp
-} // namespace Examples
-} // namespace Email
-} // namespace Aspose

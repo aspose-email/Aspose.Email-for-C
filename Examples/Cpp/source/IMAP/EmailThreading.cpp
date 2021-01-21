@@ -5,6 +5,7 @@
 #include <system/enumerator_adapter.h>
 #include <system/details/dispose_guard.h>
 #include <system/console.h>
+#include <system/collections/list_ext.h>
 #include <system/collections/list.h>
 #include <cstdint>
 #include <Clients/SecurityOptions.h>

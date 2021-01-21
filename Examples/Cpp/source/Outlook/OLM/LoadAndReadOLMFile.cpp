@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <system/collections/ienumerable.h>
 #include <system/collections/list.h>
+#include <system/collections/list_ext.h>
 #include <system/console.h>
 #include <system/details/dispose_guard.h>
 #include <system/enumerator_adapter.h>

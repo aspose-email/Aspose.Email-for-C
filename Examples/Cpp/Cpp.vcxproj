@@ -339,6 +339,7 @@
     <ClCompile Include="source\IMAP\SpecifyEncodingForQueryBuilder.cpp" />
     <ClCompile Include="source\IMAP\SSLEnabledIMAPServer.cpp" />
     <ClCompile Include="source\IMAP\SupportIMAPIdleCommand.cpp" />
+    <ClCompile Include="source\IMAP\ValidateIMAPServerCredentials.cpp" />
     <ClCompile Include="source\Outlook\AccessContactInformation.cpp" />
     <ClCompile Include="source\Outlook\AddAttachmentsToMapiJournal.cpp" />
     <ClCompile Include="source\Outlook\AddAttachmentsToMapiTask.cpp" />
@@ -498,6 +499,7 @@
     <ClCompile Include="source\POP3\RetrievingEmailMessages.cpp" />
     <ClCompile Include="source\POP3\SaveToDiskWithoutParsing.cpp" />
     <ClCompile Include="source\POP3\SSLEnabledPOP3Server.cpp" />
+    <ClCompile Include="source\POP3\ValidatePOP3ServerCredentials.cpp" />
     <ClCompile Include="source\SMTP\CustomizingEmailHeader.cpp" />
     <ClCompile Include="source\SMTP\CustomizingEmailHeaders.cpp" />
     <ClCompile Include="source\SMTP\DeliveryNotifications.cpp" />
@@ -522,6 +524,7 @@
     <ClCompile Include="source\SMTP\SMTPClientActivityLogging.cpp" />
     <ClCompile Include="source\SMTP\SSLEnabledSMTPServer.cpp" />
     <ClCompile Include="source\SMTP\UseSmtpClientFeatures.cpp" />
+    <ClCompile Include="source\SMTP\ValidateSMTPServerCredentials.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch\aspose_pch.h" />

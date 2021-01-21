@@ -7,6 +7,7 @@
 #include <system/date_time.h>
 #include <system/console.h>
 #include <system/collections/list.h>
+#include <system/collections/list_ext.h>
 #include <system/array.h>
 #include <MailAddressCollection.h>
 #include <MailAddress.h>

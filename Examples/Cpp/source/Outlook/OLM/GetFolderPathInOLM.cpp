@@ -4,6 +4,7 @@
 #include <system/enumerator_adapter.h>
 #include <system/console.h>
 #include <system/collections/list.h>
+#include <system/collections/list_ext.h>
 #include <Storage/Olm/OlmStorage.h>
 #include <Storage/Olm/OlmFolder.h>
 #include <cstdint>

@@ -1,4 +1,5 @@
-﻿#include <system/string.h>
+﻿#if 0 // TEMPORARY OFF
+#include <system/string.h>
 #include <system/shared_ptr.h>
 #include <system/object_ext.h>
 #include <system/object.h>
@@ -23,4 +24,4 @@ void AutoDiscoverUsingEWS()
     System::String ewsUrl = System::ObjectExt::Unbox<System::String>(userSettings->idx_get(UserSettingName::ExternalEwsUrl));
     System::Console::WriteLine(System::String(u"Auto discovered EWS Url: ") + ewsUrl);
 }
-
+#endif

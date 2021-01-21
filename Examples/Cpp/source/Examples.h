@@ -241,6 +241,8 @@ void SpecifyEncodingForQueryBuilder();
 void SSLEnabledIMAPServer();
 void SupportIMAPIdleCommand();
 void IMAPEmailThreading();
+void ValidateIMAPServerCredentials();
+
 
 // POP3
 void ApplyCaseSensitiveFilters();
@@ -265,6 +267,8 @@ void RetrievingEmailHeaders();
 void RetrievingEmailMessages();
 void SaveToDiskWithoutParsing();
 void SSLEnabledPOP3Server();
+void ValidatePOP3ServerCredentials();
+
 
 // SMTP
 void CustomizingEmailHeader();
@@ -291,6 +295,7 @@ void SettingTextBody();
 void SMTPClientActivityLogging();
 void SSLEnabledSMTPServer();
 void UseSmtpClientFeatures();
+void ValidateSMTPServerCredentials();
 
 // GMail
 void AccessClientSettings();
