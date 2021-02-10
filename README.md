@@ -1,3 +1,4 @@
+![Nuget](https://img.shields.io/nuget/v/Aspose.email.Cpp) ![Nuget](https://img.shields.io/nuget/dt/Aspose.email.Cpp) ![GitHub](https://img.shields.io/github/license/aspose-email/Aspose.email-for-C)
 # C++ Email Library
 
 [Aspose.Email for C++](https://products.aspose.com/email/cpp) is a complete set of Email Processing APIs to create, read and manipulate emails from within C++ applications. It makes it easier to work with many Outlook email message formats such as MSG, EML, EMLX and MHT files without the need of installing Microsoft Outlook. It also enables you to manage message storage files - Personal Storage Files (PST), Offline Storage Files (OST) along with message sending and receiving capabilities. You can also read and extract Outlook PST file that can be saved to disk in MSG format.
