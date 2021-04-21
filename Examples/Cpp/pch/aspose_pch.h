@@ -97,7 +97,6 @@
 #include <Mapi/MapiCalendarMonthlyRecurrencePattern.h>
 #include <Mapi/MapiCalendarRecurrenceEndType.h>
 #include <Mapi/MapiCalendarRecurrencePattern.h>
-#include <Mapi/MapiCalendarRecurrencePatternFactory.h>
 #include <Mapi/MapiCalendarRecurrencePatternType.h>
 #include <Mapi/MapiCalendarTimeZone.h>
 #include <Mapi/MapiCalendarWeeklyRecurrencePattern.h>

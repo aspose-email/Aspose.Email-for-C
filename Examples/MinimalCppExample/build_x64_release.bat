@@ -9,6 +9,6 @@ rmdir /Q /S build
 mkdir build
 cd build
 cmake .. -G "Visual Studio 15 2017 Win64" -DCMAKE_BUILD_TYPE=Debug
-if %errorlevel% neq 0 goto :error
+if %errorlevel% neq 0 goto error
 cmake --build . --config Release 
 :error
