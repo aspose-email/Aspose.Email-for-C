@@ -20,7 +20,10 @@
 #include <MhtSaveOptions.h>
 #include <Storage/Pst/FolderInfo.h>
 #include <MhtFormatOptions.h>
-#include <Mapi\MapiConversionOptions.h>
+#include <Mapi/MapiConversionOptions.h>
+#include <Licensing/License.h>
+
+#include "AsposeEmailConvetor.h"
 
 using namespace System::IO;
 using namespace Aspose::Email::Tools;
@@ -28,6 +31,23 @@ using namespace Aspose::Email;
 using namespace Aspose::Email::Storage;
 using namespace Aspose::Email::Mapi;
 using namespace Aspose::Email::Storage::Pst;
+
+std::string LoadLicense(std::string licenseFileName)
+{
+    std::string result = "OK";
+    System::String licFile = System::String::FromUtf8(licenseFileName.c_str());
+    System::SharedPtr<License> license = System::MakeObject<License>();
+    try 
+    {
+        license->SetLicense(licFile);
+    }
+    catch (System::Exception& exc)
+    {
+        result = exc->get_Message().ToUtf8String();
+    }
+    return result;
+}
+
 
 std::string getFileFormatType(const std::string& fileName)
 {
@@ -119,16 +139,27 @@ std::string MessageToHtml(System::SharedPtr<Aspose::Email::MailMessage> eml)
 
 std::string ConvertMailMessageToHtml(const std::string& fileName)
 {
-    std::string html = "<H1>File format not recognized";
+    std::string html;
 
-    System::SharedPtr<MailMessage> message = GetMailMessageFromFile(fileName);
+    try {
+        System::SharedPtr<MailMessage> message = GetMailMessageFromFile(fileName);
 
-    if (message == nullptr)
+        if (message == nullptr)
+        {
+            return "FAILED";
+        }
+        System::SharedPtr<System::IO::MemoryStream> ms = System::MakeObject<System::IO::MemoryStream>();
+
+        message->Save(ms, SaveOptions::get_DefaultHtml());
+        html = System::Text::Encoding::get_ASCII()->GetString(ms->ToArray()).ToAsciiString();
+    }
+    catch (System::Exception& exc)
     {
-        return html;
+        std::string message = exc->get_Message().ToUtf8String();
+        return "FAILED: " + message;
     }
 
-    return MessageToHtml(message);
+    return html;
 }
 
 void Convert(const std::string& fileName, const std::string& outputFileName, const std::string& outputType)
@@ -163,50 +194,23 @@ void Convert(const std::string& fileName, const std::string& outputFileName, con
     else if (outputType == "mht")
     {
         auto message = GetMailMessageFromFile(fileName);
-        //auto mail = MailMessage::Load(input, System::MakeObject<EmlLoadOptions>());
         auto mhtSaveOptions = System::MakeObject<MhtSaveOptions>();
         mhtSaveOptions->set_MhtFormatOptions(MhtFormatOptions::WriteHeader | MhtFormatOptions::HideExtraPrintHeader | MhtFormatOptions::DisplayAsOutlook);
         mhtSaveOptions->set_CheckBodyContentEncoding(true);
 
-        //auto outputStream = handler->CreateOutputStream(System::IO::Path::ChangeExtension(shortResourceNameWithExtension, u".mht"));
         message->Save(output, mhtSaveOptions);
 
     }
     else if (outputType == "html")
     {
         auto message = GetMailMessageFromFile(fileName);
-        //ConvertEmailToHtml(input, output);
-        //auto mail = MailMessage::Load(input, System::MakeObject<EmlLoadOptions>());
         auto htmlSaveOptions = System::MakeObject<HtmlSaveOptions>();
         htmlSaveOptions->set_HtmlFormatOptions(HtmlFormatOptions::WriteHeader | HtmlFormatOptions::DisplayAsOutlook);
         htmlSaveOptions->set_CheckBodyContentEncoding(true);
 
-        //auto outputStream = handler->CreateOutputStream(System::IO::Path::ChangeExtension(shortResourceNameWithExtension, u".html"));
         message->Save(output, htmlSaveOptions);
 
     }
-/*
-    else if (outputType == "svg" || outputType == "tiff")
-    {
-        ConvertEmailToSingleImage(input, shortResourceNameWithExtension, output, outputType);
-    }
-    else if (outputType == "jpg" || outputType == "bmp" || outputType == "png")
-    {
-        ConvertEmailToImages(input, shortResourceNameWithExtension, output, outputType);
-    }
-    else if (outputType == "pdf")
-    {
-        ConvertEmailToPdf(input, shortResourceNameWithExtension, output);
-    }
-    else if (outputType == "doc")
-    {
-        ConvertEmailToDoc(input, shortResourceNameWithExtension, output);
-    }
-    else if (outputType == "ppt")
-    {
-        ConvertEmailToPpt(input, shortResourceNameWithExtension, output);
-    }
-*/
     else if (outputType == "rtf")
     {
         auto mapi = GetMapiMessageFromFile(fileName);
@@ -214,68 +218,30 @@ void Convert(const std::string& fileName, const std::string& outputFileName, con
         writer->Write(mapi->get_BodyRtf());
 
     }
-/*
-    else if (outputType == "docx")
-    {
-        ConvertEmailToDocx(input, shortResourceNameWithExtension, output);
-    }
-    else if (outputType == "docm")
-    {
-        ConvertEmailToDocm(input, shortResourceNameWithExtension, output);
-    }
-    else if (outputType == "dotx")
-    {
-        ConvertEmailToDotx(input, shortResourceNameWithExtension, output);
-    }
-    else if (outputType == "dotm")
-    {
-        ConvertEmailToDotm(input, shortResourceNameWithExtension, output);
-    }
-    else if (outputType == "odt")
-    {
-        ConvertEmailToOdt(input, shortResourceNameWithExtension, output);
-    }
-    else if (outputType == "ott")
-    {
-        ConvertEmailToOtt(input, shortResourceNameWithExtension, output);
-    }
-    else if (outputType == "epub")
-    {
-        ConvertEmailToEpub(input, shortResourceNameWithExtension, output);
-    }
-*/
     else if (outputType == "txt")
     {
         auto mapi = GetMapiMessageFromFile(fileName);
-    // auto outputStream = handler->CreateOutputStream(System::IO::Path::ChangeExtension(shortResourceNameWithExtension, u".txt"));
         auto writer = System::MakeObject<System::IO::StreamWriter>(output);
         writer->Write(mapi->get_Body());
-
     }
-/*
-    else if (outputType == "emf")
-    {
-        ConvertEmailToEmf(input, shortResourceNameWithExtension, output);
-    }
-    else if (outputType == "xps")
-    {
-        ConvertEmailToXps(input, shortResourceNameWithExtension, output);
-    }
-    else if (outputType == "pcl")
-    {
-        ConvertEmailToPcl(input, shortResourceNameWithExtension, output);
-    }
-    else if (outputType == "ps")
-    {
-        ConvertEmailToPs(input, shortResourceNameWithExtension, output);
-    }
-    else if (outputType == "mhtml")
-    {
-        ConvertEmailToMhtml(input, shortResourceNameWithExtension, output);
-    }
-*/
     else
     {
         throw System::NotSupportedException(u"Output type not supported {outputType?.ToUpperInvariant()}");
     }
+}
+
+
+std::string ConvertMailMessageFile(const std::string& fileName, const std::string& outputFileName, const std::string& outputType)
+{
+    try
+    {
+        Convert(fileName, outputFileName, outputType);
+    }
+    catch (System::Exception& exc)
+    {
+        std::string message = exc->get_Message().ToUtf8String();
+        return "FAILED: " + message;
+    }
+
+    return "OK";
 }

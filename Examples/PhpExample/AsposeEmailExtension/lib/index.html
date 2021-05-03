@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PHP File Upload</title>
+</head>
+<body>
+  <form method="POST" action="upload_and_convert.php" enctype="multipart/form-data">
+    <div>
+      <span>Upload a File:</span>
+      <input type="file" name="uploadedFile" />
+    </div>
+
+    <div>
+      <span>Select Format:</span>
+        <select id="saveAs" name="saveAs">
+          <option value="EML" selected="selected">eml</option>
+          <option value="MSG">msg</option>
+          <option value="PST">pst</option>
+          <option value="MBOX">mbox</option>
+          <option value="HTML">html</option>
+          <option value="MHT">mht</option>
+          <option value="JPG">jpg</option>
+          <option value="PNG">png</option>
+          <option value="SVG">svg</option>
+          <option value="BMP">bmp</option>
+          <option value="TIFF">tiff</option>
+          <option value="PDF">pdf</option>
+          <option value="DOC">doc</option>
+          <option value="PPT">ppt</option>
+          <option value="RTF">rtf</option>
+          <option value="DOCX">docx</option>
+          <option value="DOCM">docm</option>
+          <option value="DOTX">dotx</option>
+          <option value="DOTM">dotm</option>
+          <option value="ODT">odt</option>
+          <option value="OTT">ott</option>
+          <option value="EPUB">epub</option>
+          <option value="TXT">txt</option>
+          <option value="EMF">emf</option>
+          <option value="XPS">xps</option>
+          <option value="PCL">pcl</option>
+          <option value="PS">ps</option>
+          <option value="MHTML">mhtml</option>
+        </select>
+    </div>
+
+    <input type="submit" name="uploadBtn" value="Upload" />
+  </form>
+</body>
+</html>
