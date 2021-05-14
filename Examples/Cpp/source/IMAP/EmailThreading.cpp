@@ -69,7 +69,7 @@ void IMAPEmailThreading()
             // get results
             System::SharedPtr<List<SharedPtr<MessageThreadResult>>> conversation = client->GetMessageThreads(conditions);
             // print the email conversation in hierarchically manner
-            PrintConversaton(u"", conversation, ImapMessageInfoCollection::to_List(messages));
+            PrintConversaton(u"", conversation, messages->ToList());
             System::Console::WriteLine(System::String(u'-', 20));
         }
     }
