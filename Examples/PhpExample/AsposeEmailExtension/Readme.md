@@ -29,7 +29,7 @@ For example, these two packages may be: php-7.4.18-nts-Win32-vc15-x64.zip (main 
 
 php-dev package should be installed (command 'apt-get install php-dev').
 
-Setup variable in CMakeLists.txt before the build.
+### Setup variable in CMakeLists.txt before the build.
   
 **Variables list:**
 
@@ -42,7 +42,7 @@ path the that folder should be assigned to that variables.
 PHP_INCLUDE_DIR :
  Path to PHP include dir 
   
-* on Linux: this path can be obtained by command  'php --include-dir'.
+* on Linux: this path can be obtained by command  'php-config --include-dir'.
 * on Windows: it should point to 'include' folder development package.
  
 Development package archive 'php-devel-pack-7.4.18-nts-Win32-vc15-x64.zip' is probably extracted at 'c:\soft\php'. Then, variable's values should be at:

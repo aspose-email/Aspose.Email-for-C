@@ -10,12 +10,12 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload')
     $fileTmpPath = $_FILES['uploadedFile']['tmp_name'];
     $tmpDir = dirname($fileTmpPath);
 
-    $newFormat = $_POST['saveAs'];
+    $newFormat = strtolower($_POST['saveAs']);
 
     $newName = pathinfo($fileName)['filename'] . "." . $newFormat;
     $newPath = $tmpDir .  DIRECTORY_SEPARATOR . $newName;
     error_log ("aspose_email_convert($fileTmpPath, $newPath, $newFormat)");
-    $result = aspose_email_convert($fileTmpPath, $newPath, strtolower($newFormat));
+    $result = aspose_email_convert($fileTmpPath, $newPath, $newFormat);
     error_log ("aspose_email_convert result : $result");
 
     header("Content-Description: File Transfer"); 

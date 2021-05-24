@@ -7,7 +7,7 @@ set(CMAKE_SHARED_LIBRARY_PREFIX_бее "")
 # following variables should be set (either in CMakeLists.txt or as environment variables)
 # ASPOSE_ROOT     Path to the root of Aspose.Email for C++ distributions. Cmake config files aspose.email.cpp-config.cmake and codeporting.native.cs2cpp-config.cmake must be located there.
 # ASPOSE_EMAIL_CPP_ROOT  Path to Aspose.Email for C++ distributions 
-# PHP_INCLUDE_DIR      Path to PHP include dir (on linux retrieved by 'php --include-dir')
+# PHP_INCLUDE_DIR      Path to PHP include dir (on linux retrieved by 'php-config --include-dir')
 # PHP_WIN_LIB       For windows build - path to php precompiled libraries (included in develper pack distribution)
 # PHP_WIN_DLL       For windows build - path to php binaries dir 
 
