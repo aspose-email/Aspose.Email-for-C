@@ -89,4 +89,4 @@ msg->set_HtmlBody(u"<h3>sending message from exchange server</h3>");
 client->Send(msg);
 ```
 
-[Home](https://www.aspose.com/) | [Product Page](https://products.aspose.com/email/cpp) | [Docs](https://docs.aspose.com/email/cpp/) | [Demos](https://products.aspose.app/email/family) | [API Reference](https://apireference.aspose.com/email/cpp) | [Examples](https://github.com/aspose-email/Aspose.Email-for-C) | [Blog](https://blog.aspose.com/category/email/) | [Free Support](https://forum.aspose.com/c/email) |  [Temporary License](https://purchase.aspose.com/temporary-license)
+[Home](https://www.aspose.com/) | [Product Page](https://products.aspose.com/email/cpp) | [Docs](https://docs.aspose.com/email/cpp/) | [Demos](https://products.aspose.app/email/family) | [API Reference](https://apireference.aspose.com/email/cpp) | [Examples](https://github.com/aspose-email/Aspose.Email-for-C) | [Blog](https://blog.aspose.com/category/email/) | [Search](https://search.aspose.com/) | [Free Support](https://forum.aspose.com/c/email) |  [Temporary License](https://purchase.aspose.com/temporary-license)
