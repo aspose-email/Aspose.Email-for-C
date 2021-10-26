@@ -13,7 +13,6 @@
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="natvis\aspose_types.natvis" />
-    <Natvis Include="$(MSBuildThisFileDirectory)tools\aspose_types.natvis" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
