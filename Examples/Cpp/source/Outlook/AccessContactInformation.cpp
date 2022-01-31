@@ -7,6 +7,7 @@
 */
 
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/exceptions.h>
 #include <system/console.h>
@@ -40,9 +41,7 @@ void AccessContactInformation()
     System::SharedPtr<MessageInfoCollection> messageInfoCollection = folderInfo->GetContents();
     
     {
-        auto messageInfo_enumerator = (messageInfoCollection)->GetEnumerator();
-        decltype(messageInfo_enumerator->get_Current()) messageInfo;
-        while (messageInfo_enumerator->MoveNext() && (messageInfo = messageInfo_enumerator->get_Current(), true))
+        for (auto&& messageInfo : messageInfoCollection)
         {
             // Get the contact information
             System::SharedPtr<MapiMessage> mapi = personalStorage->ExtractMessage(messageInfo);

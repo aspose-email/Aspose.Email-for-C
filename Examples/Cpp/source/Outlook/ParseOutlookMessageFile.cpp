@@ -36,9 +36,7 @@ void ParseOutlookMessageFile()
     // Iterate through the attachments
     
     {
-        auto attachment_enumerator = (msg->get_Attachments())->GetEnumerator();
-        decltype(attachment_enumerator->get_Current()) attachment;
-        while (attachment_enumerator->MoveNext() && (attachment = attachment_enumerator->get_Current(), true))
+        for (auto&& attachment : msg->get_Attachments())
         {
             System::Console::WriteLine(System::String(u"Attachment:") + attachment->get_FileName());
             attachment->Save(attachment->get_LongFileName());

@@ -7,6 +7,7 @@ please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/object_ext.h>
 #include <system/object.h>
@@ -59,9 +60,7 @@ void SetCustomFlag()
         System::SharedPtr<ImapMessageInfoCollection> messageInfos = client->ListMessages();
         
         {
-            auto inf_enumerator = (messageInfos)->GetEnumerator();
-            decltype(inf_enumerator->get_Current()) inf;
-            while (inf_enumerator->MoveNext() && (inf = inf_enumerator->get_Current(), true))
+            for (auto&& inf : System::IterateOver(messageInfos))
             {
                 System::ArrayPtr<System::SharedPtr<ImapMessageFlags>> flags = inf->get_Flags()->Split();
                 

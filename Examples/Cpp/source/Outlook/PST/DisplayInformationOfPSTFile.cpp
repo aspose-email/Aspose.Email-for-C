@@ -36,9 +36,7 @@ void DisplayInformationOfPSTFile()
     // Browse through each folder to display folder name and number of messages
     
     {
-        auto folderInfo_enumerator = (folderInfoCollection)->GetEnumerator();
-        decltype(folderInfo_enumerator->get_Current()) folderInfo;
-        while (folderInfo_enumerator->MoveNext() && (folderInfo = folderInfo_enumerator->get_Current(), true))
+        for (auto&& folderInfo : folderInfoCollection)
         {
             System::Console::WriteLine(System::String(u"Folder: ") + folderInfo->get_DisplayName());
             System::Console::WriteLine(System::String(u"Total items: ") + folderInfo->get_ContentCount());

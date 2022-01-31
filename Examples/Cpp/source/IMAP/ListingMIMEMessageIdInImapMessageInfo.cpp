@@ -8,6 +8,7 @@ please feel free to contact us using https://forum.aspose.com/c/email
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
+#include <system/enumerator_adapter.h>
 #include <system/object.h>
 #include <system/exceptions.h>
 #include <system/console.h>
@@ -33,9 +34,7 @@ void ListingMIMEMessageIdInImapMessageInfo()
         System::SharedPtr<ImapMessageInfoCollection> messageInfoCol = client->ListMessages(u"Inbox");
         
         {
-            auto info_enumerator = (messageInfoCol)->GetEnumerator();
-            decltype(info_enumerator->get_Current()) info;
-            while (info_enumerator->MoveNext() && (info = info_enumerator->get_Current(), true))
+            for (auto&& info : System::IterateOver(messageInfoCol))
             {
                 // Display MIME Message ID
                 System::Console::WriteLine(System::String(u"Message Id = ") + info->get_MessageId());

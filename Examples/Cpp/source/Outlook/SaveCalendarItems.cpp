@@ -38,9 +38,7 @@ void SaveCalendarItems()
     System::SharedPtr<MessageInfoCollection> messageInfoCollection = folderInfo->GetContents();
     
     {
-        auto messageInfo_enumerator = (messageInfoCollection)->GetEnumerator();
-        decltype(messageInfo_enumerator->get_Current()) messageInfo;
-        while (messageInfo_enumerator->MoveNext() && (messageInfo = messageInfo_enumerator->get_Current(), true))
+        for (auto&& messageInfo : messageInfoCollection)
         {
             // Get the calendar information
             System::SharedPtr<MapiMessage> calendar = System::DynamicCast<Aspose::Email::Mapi::MapiMessage>(pst->ExtractMessage(messageInfo)->ToMapiMessageItem());

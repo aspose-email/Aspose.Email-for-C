@@ -7,6 +7,7 @@ please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/date_time.h>
 #include <system/console.h>
@@ -33,9 +34,7 @@ void RetrieveReadAndDeliveryReceiptInformation()
     System::SharedPtr<MapiMessage> msg = MapiMessage::FromFile(dataDir + u"TestMessage.msg");
     
     {
-        auto recipient_enumerator = (msg->get_Recipients())->GetEnumerator();
-        decltype(recipient_enumerator->get_Current()) recipient;
-        while (recipient_enumerator->MoveNext() && (recipient = recipient_enumerator->get_Current(), true))
+        for (auto&& recipient : System::IterateOver(msg->get_Recipients()))
         {
             System::Console::WriteLine(System::String::Format(u"Recipient: {0}",recipient->get_DisplayName()));
             

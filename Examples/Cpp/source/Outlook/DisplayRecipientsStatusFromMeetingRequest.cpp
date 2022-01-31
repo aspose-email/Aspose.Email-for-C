@@ -7,6 +7,7 @@ please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/object_ext.h>
 #include <system/console.h>
@@ -30,9 +31,7 @@ void DisplayRecipientsStatusFromMeetingRequest()
     System::SharedPtr<MapiMessage> message = MapiMessage::FromFile(fileName);
     
     {
-        auto recipient_enumerator = (message->get_Recipients())->GetEnumerator();
-        decltype(recipient_enumerator->get_Current()) recipient;
-        while (recipient_enumerator->MoveNext() && (recipient = recipient_enumerator->get_Current(), true))
+        for (auto&& recipient : System::IterateOver(message->get_Recipients()))
         {
             System::Console::WriteLine(System::ObjectExt::Box<MapiRecipientTrackStatus>(recipient->get_RecipientTrackStatus()));
         }

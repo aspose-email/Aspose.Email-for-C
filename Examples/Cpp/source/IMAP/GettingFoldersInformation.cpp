@@ -1,4 +1,5 @@
 ﻿#include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/object_ext.h>
 #include <system/object.h>
@@ -38,9 +39,7 @@ void GettingFoldersInformation()
         // Iterate through the collection to get folder info one by one
         
         {
-            auto folderInfo_enumerator = (folderInfoColl)->GetEnumerator();
-            decltype(folderInfo_enumerator->get_Current()) folderInfo;
-            while (folderInfo_enumerator->MoveNext() && (folderInfo = folderInfo_enumerator->get_Current(), true))
+            for (auto&& folderInfo : System::IterateOver(folderInfoColl))
             {
                 // Folder name and get New messages in the folder
                 System::Console::WriteLine(System::String(u"Folder name is ") + folderInfo->get_Name());

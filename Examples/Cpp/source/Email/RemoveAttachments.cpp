@@ -7,6 +7,7 @@ please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/object.h>
 #include <system/environment.h>
@@ -53,9 +54,7 @@ void RemoveAttachments()
     // Create a loop to display the no. of attachments present in email message
     
     {
-        auto getAttachment_enumerator = (message->get_Attachments())->GetEnumerator();
-        decltype(getAttachment_enumerator->get_Current()) getAttachment;
-        while (getAttachment_enumerator->MoveNext() && (getAttachment = getAttachment_enumerator->get_Current(), true))
+        for (auto&& getAttachment : System::IterateOver(message->get_Attachments()))
         {
             // Save your attachments here and Display the the attachment file name
             getAttachment->Save(dataDir + u"/RemoveAttachments/" + u"attachment_out" + getAttachment->get_Name());

@@ -229,6 +229,7 @@ void RunExamples()
     // LoadAndReadOLMFile();
     // GetFolderPathInOLM();
     // CountItemsInOLMFolder();
+    ReadCorruptedOLM();
 
 
     // IMAP

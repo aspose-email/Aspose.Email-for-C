@@ -1,4 +1,5 @@
 ﻿#include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/scope_guard.h>
 #include <system/object.h>
@@ -73,9 +74,7 @@ void ListingMessagesWithPagingSupport()
                     int32_t retrievedItems = 0;
                     
                     {
-                        auto folderCol_enumerator = (pages)->GetEnumerator();
-                        decltype(folderCol_enumerator->get_Current()) folderCol;
-                        while (folderCol_enumerator->MoveNext() && (folderCol = folderCol_enumerator->get_Current(), true))
+                        for (auto&& folderCol : pages)
                         {
                             retrievedItems += folderCol->get_Items()->get_Count();
                         }

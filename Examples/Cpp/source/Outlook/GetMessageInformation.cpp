@@ -33,9 +33,7 @@ void DisplayFolderContents(System::SharedPtr<Aspose::Email::Storage::Pst::Folder
     System::SharedPtr<MessageInfoCollection> messageInfoCollection = folderInfo->GetContents();
 
     {
-        auto messageInfo_enumerator = (messageInfoCollection)->GetEnumerator();
-        decltype(messageInfo_enumerator->get_Current()) messageInfo;
-        while (messageInfo_enumerator->MoveNext() && (messageInfo = messageInfo_enumerator->get_Current(), true))
+        for (auto&& messageInfo : messageInfoCollection)
         {
             System::Console::WriteLine(System::String(u"Subject: ") + messageInfo->get_Subject());
             System::Console::WriteLine(System::String(u"Sender: ") + messageInfo->get_SenderRepresentativeName());
@@ -47,9 +45,7 @@ void DisplayFolderContents(System::SharedPtr<Aspose::Email::Storage::Pst::Folder
     // Call this method recursively for each subfolder
     if (folderInfo->get_HasSubFolders() == true)
     {
-        auto subfolderInfo_enumerator = (folderInfo->GetSubFolders())->GetEnumerator();
-        decltype(subfolderInfo_enumerator->get_Current()) subfolderInfo;
-        while (subfolderInfo_enumerator->MoveNext() && (subfolderInfo = subfolderInfo_enumerator->get_Current(), true))
+        for (auto&& subfolderInfo : folderInfo->GetSubFolders())
         {
             DisplayFolderContents(subfolderInfo, pst);
         }

@@ -7,6 +7,7 @@ please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/object.h>
 #include <system/console.h>
@@ -31,9 +32,7 @@ void ReadMessageByPreservingTNEFAttachments()
     System::SharedPtr<MailMessage> eml = MailMessage::Load(dataDir + u"EmbeddedImage1.msg", options);
     
     {
-        auto attachment_enumerator = (eml->get_Attachments())->GetEnumerator();
-        decltype(attachment_enumerator->get_Current()) attachment;
-        while (attachment_enumerator->MoveNext() && (attachment = attachment_enumerator->get_Current(), true))
+        for (auto&& attachment : System::IterateOver(eml->get_Attachments()))
         {
             System::Console::WriteLine(attachment->get_Name());
         }

@@ -39,9 +39,7 @@ void DeleteMessagesFromPSTFiles()
     System::SharedPtr<MessageInfoCollection> msgInfoColl = folderInfo->GetContents();
     
     {
-        auto msgInfo_enumerator = (msgInfoColl)->GetEnumerator();
-        decltype(msgInfo_enumerator->get_Current()) msgInfo;
-        while (msgInfo_enumerator->MoveNext() && (msgInfo = msgInfo_enumerator->get_Current(), true))
+        for (auto&& msgInfo : msgInfoColl)
         {
             System::Console::WriteLine(msgInfo->get_Subject() + u": " + msgInfo->get_EntryIdString());
             if (System::ObjectExt::Equals(msgInfo->get_Subject(), u"some delete condition") == true)

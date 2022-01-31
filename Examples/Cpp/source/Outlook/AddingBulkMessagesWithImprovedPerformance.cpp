@@ -8,6 +8,7 @@
 
 #include <system/string.h>
 #include <system/shared_ptr.h>
+#include <system/holder_initializer.h>
 #include <system/object.h>
 #include <system/io/directory.h>
 #include <system/exceptions.h>
@@ -31,7 +32,7 @@ class MapiMessageEnumerator : public System::Collections::Generic::IEnumerator<S
 {
 public:
 
-    System::SharedPtr<Aspose::Email::Mapi::MapiMessage> get_Current() const override;
+    const System::SharedPtr<Aspose::Email::Mapi::MapiMessage>& get_Current() const override;
 
     MapiMessageEnumerator(System::String path);
 
@@ -44,6 +45,8 @@ private:
 
     System::ArrayPtr<System::String> files;
     int32_t position;
+    mutable System::SharedPtr<Aspose::Email::Mapi::MapiMessage> m_CurrentHolder;
+
 
 };
 
@@ -64,17 +67,18 @@ private:
 
 
 
-System::SharedPtr<Aspose::Email::Mapi::MapiMessage> MapiMessageEnumerator::get_Current() const
+const System::SharedPtr<Aspose::Email::Mapi::MapiMessage>& MapiMessageEnumerator::get_Current() const
 {
+    System::HolderInitializer<System::SharedPtr<Aspose::Email::Mapi::MapiMessage>> holder(m_CurrentHolder);
+
     try
     {
-        return MapiMessage::FromFile(files[position]);
+        return holder.HoldIfTemporary(MapiMessage::FromFile(files[position]));
     }
-    catch (System::IndexOutOfRangeException& )
+    catch (System::IndexOutOfRangeException&)
     {
         throw System::InvalidOperationException();
     }
-    
 }
 
 MapiMessageEnumerator::MapiMessageEnumerator(System::String path)

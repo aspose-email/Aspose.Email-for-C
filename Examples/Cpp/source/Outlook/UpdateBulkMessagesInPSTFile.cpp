@@ -56,9 +56,7 @@ void UpdateBulkMessagesInPSTFile()
     System::SharedPtr<System::Collections::Generic::IList<System::String>> changeList = System::MakeObject<System::Collections::Generic::List<System::String>>();
     
     {
-        auto messageInfo_enumerator = (messages)->GetEnumerator();
-        decltype(messageInfo_enumerator->get_Current()) messageInfo;
-        while (messageInfo_enumerator->MoveNext() && (messageInfo = messageInfo_enumerator->get_Current(), true))
+        for (auto&& messageInfo : messages)
         {
             changeList->Add(messageInfo->get_EntryIdString());
         }

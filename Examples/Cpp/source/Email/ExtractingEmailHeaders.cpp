@@ -1,4 +1,5 @@
 ﻿#include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/object.h>
 #include <system/console.h>
@@ -29,9 +30,7 @@ void ExtractingEmailHeaders()
     int32_t index = 0;
     
     {
-        auto header_enumerator = (message->get_Headers())->GetEnumerator();
-        decltype(header_enumerator->get_Current()) header;
-        while (header_enumerator->MoveNext() && (header = header_enumerator->get_Current(), true))
+        for (auto&& header : System::IterateOver(message->get_Headers()))
         {
             System::Console::Write(header + u" - ");
             System::Console::WriteLine(message->get_Headers()->Get(index++));

@@ -7,6 +7,7 @@ please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/object.h>
 #include <system/io/stream.h>
@@ -59,9 +60,7 @@ void UpdateResources(System::SharedPtr<MailMessage> msg, System::String imgFileN
     
     
     {
-        auto att_enumerator = (msg->get_LinkedResources())->GetEnumerator();
-        decltype(att_enumerator->get_Current()) att;
-        while (att_enumerator->MoveNext() && (att = att_enumerator->get_Current(), true))
+        for (auto&& att : System::IterateOver(msg->get_LinkedResources()))
         {
             if (att->get_ContentType()->get_MediaType() == u"image/png")
             {

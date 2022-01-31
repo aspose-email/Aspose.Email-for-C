@@ -8,6 +8,7 @@ please feel free to contact us using https://forum.aspose.com/c/email
 
 #include <system/threading/thread_pool.h>
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/object.h>
 #include <system/idisposable.h>
@@ -60,9 +61,7 @@ void SendIMAPasynchronousEmail()
             System::SharedPtr<ImapMessageInfoCollection> messageInfoCol = client->ListMessages();
             
             {
-                auto messageInfo_enumerator = (messageInfoCol)->GetEnumerator();
-                decltype(messageInfo_enumerator->get_Current()) messageInfo;
-                while (messageInfo_enumerator->MoveNext() && (messageInfo = messageInfo_enumerator->get_Current(), true))
+                for (auto&& messageInfo : System::IterateOver(messageInfoCol))
                 {
                     List->Add(client->FetchMessage(messageInfo->get_UniqueId()));
                 }
@@ -90,9 +89,7 @@ void SendIMAPasynchronousEmail()
                     System::SharedPtr<ImapMessageInfoCollection> messageInfoCol = client->ListMessages();
                     
                     {
-                        auto messageInfo_enumerator = (messageInfoCol)->GetEnumerator();
-                        decltype(messageInfo_enumerator->get_Current()) messageInfo;
-                        while (messageInfo_enumerator->MoveNext() && (messageInfo = messageInfo_enumerator->get_Current(), true))
+                        for (auto&& messageInfo : System::IterateOver(messageInfoCol))
                         {
                             List1->Add(client->FetchMessage(messageInfo->get_UniqueId()));
                         }

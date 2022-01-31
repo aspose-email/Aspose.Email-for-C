@@ -9,6 +9,7 @@
 #include <Tools/Search/StringComparisonField.h>
 #include <Tools/Search/MailQuery.h>
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/object.h>
 #include <system/details/dispose_guard.h>
@@ -50,9 +51,7 @@ void DeleteBulkItemsFromPSTFile()
             System::SharedPtr<System::Collections::Generic::IList<System::String>> deleteList = System::MakeObject<System::Collections::Generic::List<System::String>>();
             
             {
-                auto messageInfo_enumerator = (messages)->GetEnumerator();
-                decltype(messageInfo_enumerator->get_Current()) messageInfo;
-                while (messageInfo_enumerator->MoveNext() && (messageInfo = messageInfo_enumerator->get_Current(), true))
+                for (auto&& messageInfo : messages)
                 {
                     deleteList->Add(messageInfo->get_EntryIdString());
                 }

@@ -7,6 +7,7 @@ please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/object.h>
 #include <system/io/memory_stream.h>
@@ -36,9 +37,7 @@ void ExtractEmbeddedObjects()
     // Extract Attachments from the message
     
     {
-        auto attachment_enumerator = (mailMsg->get_Attachments())->GetEnumerator();
-        decltype(attachment_enumerator->get_Current()) attachment;
-        while (attachment_enumerator->MoveNext() && (attachment = attachment_enumerator->get_Current(), true))
+        for (auto&& attachment : System::IterateOver(mailMsg->get_Attachments()))
         {
             // To display the the attachment file name
             System::Console::WriteLine(attachment->get_Name());
@@ -56,9 +55,7 @@ void ExtractEmbeddedObjects()
     // Extract Inline images from the message
     
     {
-        auto lr_enumerator = (mailMsg->get_LinkedResources())->GetEnumerator();
-        decltype(lr_enumerator->get_Current()) lr;
-        while (lr_enumerator->MoveNext() && (lr = lr_enumerator->get_Current(), true))
+        for (auto&& lr : System::IterateOver(mailMsg->get_LinkedResources()))
         {
             System::Console::WriteLine(lr->get_ContentType()->get_Name());
             

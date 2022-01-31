@@ -7,6 +7,7 @@
 */
 
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/scope_guard.h>
 #include <system/object.h>
@@ -68,9 +69,7 @@ void CopyMultipleMessagesFromOneFoldertoAnother()
                     System::SharedPtr<ImapMessageInfoCollection> msgsColl = client->ListMessages();
                     
                     {
-                        auto msgInfo_enumerator = (msgsColl)->GetEnumerator();
-                        decltype(msgInfo_enumerator->get_Current()) msgInfo;
-                        while (msgInfo_enumerator->MoveNext() && (msgInfo = msgInfo_enumerator->get_Current(), true))
+                        for (auto&& msgInfo : System::IterateOver(msgsColl))
                         {
                             System::Console::WriteLine(msgInfo->get_Subject());
                         }
@@ -83,9 +82,7 @@ void CopyMultipleMessagesFromOneFoldertoAnother()
                     msgsColl = client->ListMessages();
                     
                     {
-                        auto msgInfo_enumerator = (msgsColl)->GetEnumerator();
-                        decltype(msgInfo_enumerator->get_Current()) msgInfo;
-                        while (msgInfo_enumerator->MoveNext() && (msgInfo = msgInfo_enumerator->get_Current(), true))
+                        for (auto&& msgInfo : System::IterateOver(msgsColl))
                         {
                             System::Console::WriteLine(msgInfo->get_Subject());
                         }

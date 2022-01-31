@@ -7,6 +7,7 @@
 */
 
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/object.h>
 #include <system/details/dispose_guard.h>
@@ -35,9 +36,7 @@ void IMAP4ExtendedListCommand()
             System::Console::WriteLine(System::String(u"Extended List Supported: ") + client->get_ExtendedListSupported());
             
             {
-                auto folderInfo_enumerator = (folderInfoCol)->GetEnumerator();
-                decltype(folderInfo_enumerator->get_Current()) folderInfo;
-                while (folderInfo_enumerator->MoveNext() && (folderInfo = folderInfo_enumerator->get_Current(), true))
+                for (auto&& folderInfo : System::IterateOver(folderInfoCol))
                 {
                     {
                         const System::String& switch_value_0 = folderInfo->get_Name();

@@ -47,9 +47,7 @@ void WalkFolders(System::SharedPtr<Aspose::Email::Storage::Pst::FolderInfo> fold
     System::SharedPtr<FolderInfoCollection> coll = folder->GetSubFolders(Aspose::Email::Storage::Pst::FolderKind::Search | Aspose::Email::Storage::Pst::FolderKind::Normal);
 
     {
-        auto subfolder_enumerator = (coll)->GetEnumerator();
-        decltype(subfolder_enumerator->get_Current()) subfolder;
-        while (subfolder_enumerator->MoveNext() && (subfolder = subfolder_enumerator->get_Current(), true))
+        for (auto&& subfolder : coll)
         {
             WalkFolders(subfolder, displayName, folderData);
         }

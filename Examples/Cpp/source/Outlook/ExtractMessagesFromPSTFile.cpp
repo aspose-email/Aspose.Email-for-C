@@ -37,9 +37,7 @@ void ExtractMsgFiles(System::SharedPtr<Aspose::Email::Storage::Pst::FolderInfo> 
     System::SharedPtr<MessageInfoCollection> messageInfoCollection = folderInfo->GetContents();
 
     {
-        auto messageInfo_enumerator = (messageInfoCollection)->GetEnumerator();
-        decltype(messageInfo_enumerator->get_Current()) messageInfo;
-        while (messageInfo_enumerator->MoveNext() && (messageInfo = messageInfo_enumerator->get_Current(), true))
+        for (auto&& messageInfo : messageInfoCollection)
         {
             System::Console::WriteLine(u"Saving message {0} ....", System::ObjectExt::Box<System::String>(messageInfo->get_Subject()));
             // get the message in MapiMessage instance
@@ -55,9 +53,7 @@ void ExtractMsgFiles(System::SharedPtr<Aspose::Email::Storage::Pst::FolderInfo> 
     // Call this method recursively for each subfolder
     if (folderInfo->get_HasSubFolders() == true)
     {
-        auto subfolderInfo_enumerator = (folderInfo->GetSubFolders())->GetEnumerator();
-        decltype(subfolderInfo_enumerator->get_Current()) subfolderInfo;
-        while (subfolderInfo_enumerator->MoveNext() && (subfolderInfo = subfolderInfo_enumerator->get_Current(), true))
+        for (auto&& subfolderInfo : folderInfo->GetSubFolders())
         {
             ExtractMsgFiles(subfolderInfo, pst);
         }

@@ -401,6 +401,7 @@ void AutoDiscoverUsingEWS();
 void LoadAndReadOLMFile();
 void GetFolderPathInOLM();
 void CountItemsInOLMFolder();
+void ReadCorruptedOLM();
 
 // Exchange Graph
 void ListFoldersExchangeGraph();

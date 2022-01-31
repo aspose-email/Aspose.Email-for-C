@@ -7,6 +7,7 @@ please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/details/dispose_guard.h>
 #include <system/collections/ienumerator.h>
@@ -41,17 +42,13 @@ void ExtractAttachmentsFromPSTMessages()
             
             
             {
-                auto messageInfo_enumerator = (folder->EnumerateMessagesEntryId())->GetEnumerator();
-                decltype(messageInfo_enumerator->get_Current()) messageInfo;
-                while (messageInfo_enumerator->MoveNext() && (messageInfo = messageInfo_enumerator->get_Current(), true))
+                for (auto&& messageInfo : System::IterateOver(folder->EnumerateMessagesEntryId()))
                 {
                     System::SharedPtr<MapiAttachmentCollection> attachments = personalstorage->ExtractAttachments(messageInfo);
                     
                     if (attachments->get_Count() != 0)
                     {
-                        auto attachment_enumerator = (attachments)->GetEnumerator();
-                        decltype(attachment_enumerator->get_Current()) attachment;
-                        while (attachment_enumerator->MoveNext() && (attachment = attachment_enumerator->get_Current(), true))
+                        for (auto&& attachment : attachments)
                         {
                             if (!System::String::IsNullOrEmpty(attachment->get_LongFileName()))
                             {

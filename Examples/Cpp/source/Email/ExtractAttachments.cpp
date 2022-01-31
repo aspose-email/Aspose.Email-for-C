@@ -7,6 +7,7 @@ please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/object.h>
 #include <system/console.h>
@@ -29,16 +30,12 @@ void ExtractAttachments()
     System::SharedPtr<MailMessage> mailMsg = MailMessage::Load(dataDir + u"Test.eml", System::MakeObject<EmlLoadOptions>());
     
     
+    for (auto&& attachment : System::IterateOver(mailMsg->get_Attachments()))
     {
-        auto attachment_enumerator = (mailMsg->get_Attachments())->GetEnumerator();
-        decltype(attachment_enumerator->get_Current()) attachment;
-        while (attachment_enumerator->MoveNext() && (attachment = attachment_enumerator->get_Current(), true))
-        {
-            // To display the the attachment file name
-            attachment->Save(dataDir + u"ExtractAttachments_out." + attachment->get_Name());
+        // To display the the attachment file name
+        attachment->Save(dataDir + u"ExtractAttachments_out." + attachment->get_Name());
             
-            System::Console::WriteLine(attachment->get_Name());
-        }
+        System::Console::WriteLine(attachment->get_Name());
     }
 }
 

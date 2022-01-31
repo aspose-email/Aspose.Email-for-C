@@ -1,4 +1,5 @@
 ﻿#include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/environment.h>
 #include <system/console.h>
@@ -23,9 +24,7 @@ void RecipientInformation()
     System::SharedPtr<MapiMessage> message = MapiMessage::FromFile(dstEmail);
     
     {
-        auto recip_enumerator = (message->get_Recipients())->GetEnumerator();
-        decltype(recip_enumerator->get_Current()) recip;
-        while (recip_enumerator->MoveNext() && (recip = recip_enumerator->get_Current(), true))
+        for (auto&& recip : System::IterateOver(message->get_Recipients()))
         {
             switch (recip->get_RecipientType())
             {

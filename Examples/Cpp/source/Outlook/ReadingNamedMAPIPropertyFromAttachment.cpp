@@ -8,6 +8,7 @@ please feel free to contact us using https://forum.aspose.com/c/email
 
 #include <system/string_comparison.h>
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/special_casts.h>
 #include <system/shared_ptr.h>
 #include <system/console.h>
@@ -41,9 +42,7 @@ System::String GetNamedPropertyByAspose()
     
     
     {
-        auto namedProperty_enumerator = (System::DynamicCastEnumerableTo<System::SharedPtr<MapiNamedProperty>>(mapi->get_Attachments()->idx_get(0)->get_NamedProperties()->get_Values()))->GetEnumerator();
-        decltype(namedProperty_enumerator->get_Current()) namedProperty;
-        while (namedProperty_enumerator->MoveNext() && (namedProperty = namedProperty_enumerator->get_Current(), true))
+        for (auto&& namedProperty : System::IterateOver<MapiNamedProperty>(mapi->get_Attachments()->idx_get(0)->get_NamedProperties()->get_Values()))
         {
             if (System::String::Compare(namedProperty->get_NameId(), u"CustomAttGuid", System::StringComparison::OrdinalIgnoreCase) == 0)
             {

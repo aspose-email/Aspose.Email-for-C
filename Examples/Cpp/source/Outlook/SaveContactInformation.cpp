@@ -42,9 +42,7 @@ void SaveContactInformation()
     System::SharedPtr<MessageInfoCollection> messageInfoCollection = folderInfo->GetContents();
     
     {
-        auto messageInfo_enumerator = (messageInfoCollection)->GetEnumerator();
-        decltype(messageInfo_enumerator->get_Current()) messageInfo;
-        while (messageInfo_enumerator->MoveNext() && (messageInfo = messageInfo_enumerator->get_Current(), true))
+        for (auto&& messageInfo : messageInfoCollection)
         {
             // Get the contact information
             System::SharedPtr<MapiContact> contact = System::DynamicCast<Aspose::Email::Mapi::MapiContact>(personalStorage->ExtractMessage(messageInfo)->ToMapiMessageItem());

@@ -7,6 +7,7 @@ please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/details/dispose_guard.h>
 #include <system/collections/ienumerator.h>
@@ -36,13 +37,9 @@ void RetreiveParentFolderInformationFromMessageInfo()
         
         try
         {
-            auto folder_enumerator = (personalStorage->get_RootFolder()->GetSubFolders())->GetEnumerator();
-            decltype(folder_enumerator->get_Current()) folder;
-            while (folder_enumerator->MoveNext() && (folder = folder_enumerator->get_Current(), true))
+            for (auto&& folder : personalStorage->get_RootFolder()->GetSubFolders())
             {
-                auto msg_enumerator = (folder->EnumerateMessages())->GetEnumerator();
-                decltype(msg_enumerator->get_Current()) msg;
-                while (msg_enumerator->MoveNext() && (msg = msg_enumerator->get_Current(), true))
+                for (auto&& msg : System::IterateOver(folder->EnumerateMessages()))
                 {
                     System::SharedPtr<FolderInfo> fi = personalStorage->GetParentFolder(msg->get_EntryId());
                 }

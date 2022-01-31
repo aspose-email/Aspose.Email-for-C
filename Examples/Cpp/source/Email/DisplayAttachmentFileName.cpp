@@ -7,6 +7,7 @@ please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/console.h>
 #include <system/collections/ienumerator.h>
@@ -26,14 +27,10 @@ void DisplayAttachmentFileName()
     // ExStart:DisplayAttachmentFileName
     // Create a loop to display the no. of attachments present in email message
     
+    for (auto&& attachment : System::IterateOver(message->get_Attachments()))
     {
-        auto attachment_enumerator = (message->get_Attachments())->GetEnumerator();
-        decltype(attachment_enumerator->get_Current()) attachment;
-        while (attachment_enumerator->MoveNext() && (attachment = attachment_enumerator->get_Current(), true))
-        {
-            // Display the the attachment file name
-            System::Console::WriteLine(attachment->get_Name());
-        }
+        // Display the the attachment file name
+        System::Console::WriteLine(attachment->get_Name());
     }
     // ExEnd:DisplayAttachmentFileName
 }

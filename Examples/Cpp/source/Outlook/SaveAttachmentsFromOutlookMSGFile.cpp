@@ -30,9 +30,7 @@ void SaveAttachmentsFromOutlookMSGFile()
     // Iterate through the attachments collection
     
     {
-        auto attachment_enumerator = (message->get_Attachments())->GetEnumerator();
-        decltype(attachment_enumerator->get_Current()) attachment;
-        while (attachment_enumerator->MoveNext() && (attachment = attachment_enumerator->get_Current(), true))
+        for (auto&& attachment : message->get_Attachments())
         {
             // Save the individual attachment
             attachment->Save(dataDir + attachment->get_FileName());

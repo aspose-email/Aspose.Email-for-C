@@ -10,6 +10,7 @@ please feel free to contact us using https://forum.aspose.com/c/email
 #include <Tools/Search/MailQuery.h>
 #include <system/text/encoding.h>
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/object.h>
 #include <system/exceptions.h>
@@ -50,9 +51,7 @@ void SpecifyEncodingForQueryBuilder()
         System::SharedPtr<ImapMessageInfoCollection> messages = client->ListMessages(query);
         
         {
-            auto info_enumerator = (messages)->GetEnumerator();
-            decltype(info_enumerator->get_Current()) info;
-            while (info_enumerator->MoveNext() && (info = info_enumerator->get_Current(), true))
+            for (auto&& info : System::IterateOver(messages))
             {
                 System::Console::WriteLine(System::String(u"Message Id: ") + info->get_MessageId());
             }

@@ -7,6 +7,7 @@ please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/special_casts.h>
 #include <system/shared_ptr.h>
 #include <system/object_ext.h>
@@ -37,9 +38,7 @@ void ReadNamedMAPIProperties()
     // Read all properties in foreach loop
     
     {
-        auto mapiNamedProp_enumerator = (System::DynamicCastEnumerableTo<System::SharedPtr<MapiNamedProperty>>(properties->get_Values()))->GetEnumerator();
-        decltype(mapiNamedProp_enumerator->get_Current()) mapiNamedProp;
-        while (mapiNamedProp_enumerator->MoveNext() && (mapiNamedProp = mapiNamedProp_enumerator->get_Current(), true))
+        for (auto&& mapiNamedProp : System::IterateOver<MapiNamedProperty>(properties->get_Values()))
         {
             // Read any specific property
             {

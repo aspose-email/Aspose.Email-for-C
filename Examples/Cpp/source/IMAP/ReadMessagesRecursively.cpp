@@ -1,4 +1,5 @@
 ﻿#include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/object_ext.h>
 #include <system/object.h>
@@ -43,9 +44,7 @@ void ListMessagesInFolder(System::SharedPtr<Aspose::Email::Clients::Imap::ImapFo
         System::Console::WriteLine(u"Listing messages....");
         
         {
-            auto msgInfo_enumerator = (msgInfoColl)->GetEnumerator();
-            decltype(msgInfo_enumerator->get_Current()) msgInfo;
-            while (msgInfo_enumerator->MoveNext() && (msgInfo = msgInfo_enumerator->get_Current(), true))
+            for (auto&& msgInfo : System::IterateOver(msgInfoColl))
             {
                 // Get subject and other properties of the message
                 System::Console::WriteLine(System::String(u"Subject: ") + msgInfo->get_Subject());
@@ -70,9 +69,7 @@ void ListMessagesInFolder(System::SharedPtr<Aspose::Email::Clients::Imap::ImapFo
         System::SharedPtr<ImapFolderInfoCollection> folderInfoCollection = client->ListFolders(folderInfo->get_Name());
         
         {
-            auto subfolderInfo_enumerator = (folderInfoCollection)->GetEnumerator();
-            decltype(subfolderInfo_enumerator->get_Current()) subfolderInfo;
-            while (subfolderInfo_enumerator->MoveNext() && (subfolderInfo = subfolderInfo_enumerator->get_Current(), true))
+            for (auto&& subfolderInfo : System::IterateOver(folderInfoCollection))
             {
                 ListMessagesInFolder(subfolderInfo, rootFolder, client);
             }
@@ -104,9 +101,7 @@ void ReadMessagesRecursively()
         System::SharedPtr<ImapFolderInfoCollection> folderInfoCollection = client->ListFolders();
         
         {
-            auto folderInfo_enumerator = (folderInfoCollection)->GetEnumerator();
-            decltype(folderInfo_enumerator->get_Current()) folderInfo;
-            while (folderInfo_enumerator->MoveNext() && (folderInfo = folderInfo_enumerator->get_Current(), true))
+            for (auto&& folderInfo : System::IterateOver(folderInfoCollection))
             {
                 // Call the recursive method to read messages and get sub-folders
                 ListMessagesInFolder(folderInfo, rootFolder, client);

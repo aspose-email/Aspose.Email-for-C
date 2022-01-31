@@ -7,6 +7,7 @@ please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/object.h>
 #include <system/io/path.h>
@@ -73,9 +74,7 @@ void ManageAttachmentsFromCalendarFiles()
     System::Console::WriteLine(app2->get_Attachments()->get_Count());
     
     {
-        auto att_enumerator = (app2->get_Attachments())->GetEnumerator();
-        decltype(att_enumerator->get_Current()) att;
-        while (att_enumerator->MoveNext() && (att = att_enumerator->get_Current(), true))
+        for (auto&& att : System::IterateOver(app2->get_Attachments()))
         {
             System::Console::WriteLine(att->get_Name());
         }

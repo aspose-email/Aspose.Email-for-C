@@ -1,4 +1,5 @@
 ﻿#include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/object_ext.h>
 #include <system/exceptions.h>
@@ -52,9 +53,7 @@ void AccessGmailContacts()
                 System::SharedPtr<GoogleContactGroup> group;
                 
                 {
-                    auto g_enumerator = (groups)->GetEnumerator();
-                    decltype(g_enumerator->get_Current()) g;
-                    while (g_enumerator->MoveNext() && (g = g_enumerator->get_Current(), true))
+                    for (auto&& g : System::IterateOver(groups))
                     {
                         {
                             const System::String& switch_value_0 = g->get_Title();

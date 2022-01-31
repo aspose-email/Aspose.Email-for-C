@@ -44,9 +44,7 @@ void LoadMSGFiles()
     // Get attachments
     
     {
-        auto att_enumerator = (msg->get_Attachments())->GetEnumerator();
-        decltype(att_enumerator->get_Current()) att;
-        while (att_enumerator->MoveNext() && (att = att_enumerator->get_Current(), true))
+        for (auto&& att : msg->get_Attachments())
         {
             System::Console::Write(System::String(u"Attachment Name: ") + att->get_FileName());
             System::Console::Write(System::String(u"Attachment Display Name: ") + att->get_DisplayName());

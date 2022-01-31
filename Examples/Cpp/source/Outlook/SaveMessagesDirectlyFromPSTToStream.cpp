@@ -7,6 +7,7 @@
 */
 
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/object.h>
 #include <system/io/memory_stream.h>
@@ -45,9 +46,7 @@ void SaveMessagesDirectlyFromPSTToStream()
             System::SharedPtr<FolderInfo> inbox = personalStorage->get_RootFolder()->GetSubFolder(u"Inbox");
             
             {
-                auto messageInfo_enumerator = (inbox->EnumerateMessages())->GetEnumerator();
-                decltype(messageInfo_enumerator->get_Current()) messageInfo;
-                while (messageInfo_enumerator->MoveNext() && (messageInfo = messageInfo_enumerator->get_Current(), true))
+                for (auto&& messageInfo : System::IterateOver(inbox->EnumerateMessages()))
                 {
                     {
                         System::SharedPtr<System::IO::MemoryStream> memeorystream = System::MakeObject<System::IO::MemoryStream>();
@@ -85,9 +84,7 @@ void SaveMessagesDirectlyFromPSTToStream()
             System::SharedPtr<FolderInfo> inbox = pst->get_RootFolder()->GetSubFolder(u"Inbox");
             
             {
-                auto messageInfo_enumerator = (inbox->EnumerateMessages())->GetEnumerator();
-                decltype(messageInfo_enumerator->get_Current()) messageInfo;
-                while (messageInfo_enumerator->MoveNext() && (messageInfo = messageInfo_enumerator->get_Current(), true))
+                for (auto&& messageInfo : System::IterateOver(inbox->EnumerateMessages()))
                 {
                     {
                         System::SharedPtr<System::IO::FileStream> fs = System::IO::File::OpenWrite(messageInfo->get_Subject() + u".msg");
@@ -126,9 +123,7 @@ void SaveMessagesDirectlyFromPSTToStream()
             // To enumerate entryId of messages you may use FolderInfo.EnumerateMessagesEntryId() method:
             
             {
-                auto entryId_enumerator = (inbox->EnumerateMessagesEntryId())->GetEnumerator();
-                decltype(entryId_enumerator->get_Current()) entryId;
-                while (entryId_enumerator->MoveNext() && (entryId = entryId_enumerator->get_Current(), true))
+                for (auto&& entryId : System::IterateOver(inbox->EnumerateMessagesEntryId()))
                 {
                     {
                         System::SharedPtr<System::IO::MemoryStream> ms = System::MakeObject<System::IO::MemoryStream>();

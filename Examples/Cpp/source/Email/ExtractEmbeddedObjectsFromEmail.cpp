@@ -7,6 +7,7 @@ please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/object.h>
 #include <system/console.h>
@@ -31,9 +32,7 @@ void ExtractEmbeddedObjectsFromEmail()
     
     
     {
-        auto attachment_enumerator = (mailMsg->get_Attachments())->GetEnumerator();
-        decltype(attachment_enumerator->get_Current()) attachment;
-        while (attachment_enumerator->MoveNext() && (attachment = attachment_enumerator->get_Current(), true))
+        for (auto&& attachment : System::IterateOver(mailMsg->get_Attachments()))
         {
             // To display the the attachment file name
             attachment->Save(dataDir + u"MessageEmbedded_out.msg");

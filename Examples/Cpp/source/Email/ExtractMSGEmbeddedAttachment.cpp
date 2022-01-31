@@ -7,6 +7,7 @@ please feel free to contact us using https://forum.aspose.com/c/email
 */
 
 #include <system/string.h>
+#include <system/enumerator_adapter.h>
 #include <system/shared_ptr.h>
 #include <system/object_ext.h>
 #include <system/object.h>
@@ -39,9 +40,7 @@ bool IsAttachmentInline(System::SharedPtr<Aspose::Email::Mapi::MapiAttachment> a
 {
     
     {
-        auto property_enumerator = (attachment->get_ObjectData()->get_Properties()->get_Values())->GetEnumerator();
-        decltype(property_enumerator->get_Current()) property;
-        while (property_enumerator->MoveNext() && (property = property_enumerator->get_Current(), true))
+        for (auto&& property : System::IterateOver(attachment->get_ObjectData()->get_Properties()->get_Values()))
         {
             if (property->get_Name() == u"\x0003" u"ObjInfo")
             {
@@ -55,9 +54,7 @@ bool IsAttachmentInline(System::SharedPtr<Aspose::Email::Mapi::MapiAttachment> a
 
 void SaveAttachment(System::SharedPtr<Aspose::Email::Mapi::MapiAttachment> attachment, System::String fileName)
 {
-    auto property_enumerator = (attachment->get_ObjectData()->get_Properties()->get_Values())->GetEnumerator();
-    decltype(property_enumerator->get_Current()) property;
-    while (property_enumerator->MoveNext() && (property = property_enumerator->get_Current(), true))
+    for (auto&& property : System::IterateOver(attachment->get_ObjectData()->get_Properties()->get_Values()))
     {
         if (property->get_Name() == u"Package")
         {
@@ -86,9 +83,7 @@ void ExtractInlineAttachments(System::String dataDir)
     System::SharedPtr<MapiAttachmentCollection> attachments = message->get_Attachments();
 
     {
-        auto attachment_enumerator = (attachments)->GetEnumerator();
-        decltype(attachment_enumerator->get_Current()) attachment;
-        while (attachment_enumerator->MoveNext() && (attachment = attachment_enumerator->get_Current(), true))
+        for (auto&& attachment : attachments)
         {
 
             if (IsAttachmentInline(attachment))
