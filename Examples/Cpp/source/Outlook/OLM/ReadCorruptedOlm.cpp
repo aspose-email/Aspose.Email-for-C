@@ -12,6 +12,7 @@
 #include <Storage/Olm/OlmStorage.h>
 #include <Storage/Olm/OlmFolder.h>
 #include <Exceptions/TraversalExceptionsCallback.h>
+#include <Mapi/MapiMessage.h>
 
 #include "Examples.h"
 
