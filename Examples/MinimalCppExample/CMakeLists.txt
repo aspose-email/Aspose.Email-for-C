@@ -32,7 +32,7 @@ include(GroupSources)
 include(GuessCompilerPrefix)
 GUESS_COMPILER_PREFIX(compiler_prefix)
 
-find_package(CodePorting.Native.Cs2Cpp REQUIRED CONFIG PATHS ${ASPOSE_ROOT})
+find_package(CodePorting.Translator.Cs2Cpp.Framework REQUIRED CONFIG PATHS ${ASPOSE_ROOT})
 find_package(Aspose.Email.Cpp REQUIRED CONFIG PATHS ${ASPOSE_EMAIL_CPP_ROOT})
 
 
@@ -41,8 +41,8 @@ add_executable(${target}
 )
 
 target_link_libraries(${target} PRIVATE Aspose.Email.Cpp)
-target_link_libraries(${target} PRIVATE Aspose::CodePorting.Native.Cs2Cpp)
-target_link_libraries(${target} PRIVATE CodePorting.Native.Cs2Cpp)
+target_link_libraries(${target} PRIVATE Aspose::CodePorting.Translator.Cs2Cpp.Framework)
+target_link_libraries(${target} PRIVATE CodePorting.Translator.Cs2Cpp.Framework)
 
 
 add_custom_command(TARGET ${target} POST_BUILD
@@ -51,5 +51,5 @@ add_custom_command(TARGET ${target} POST_BUILD
         $<TARGET_FILE_DIR:${target}>)      
 add_custom_command(TARGET ${target} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy
-        $<TARGET_FILE:Aspose::CodePorting.Native.Cs2Cpp>
+        $<TARGET_FILE:Aspose::CodePorting.Translator.Cs2Cpp.Framework>
         $<TARGET_FILE_DIR:${target}>)        

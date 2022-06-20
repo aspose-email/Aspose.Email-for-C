@@ -1,6 +1,6 @@
 ﻿#include "Examples.h"
 
-#include <system/aspose_cpp_library.h>
+#include <system/codeporting_translator_cs2cpp_framework.h>
 #include <system/string.h>
 #include <system/object_ext.h>
 #include <system/io/path.h>
@@ -530,7 +530,7 @@ int main(int argc, char** argv)
     }
 
 
-    System::AsposeCppLibrary::PrepareForUnload();
+    System::Cs2CppFramework::PrepareForUnload();
 
     return 0;
 }
