@@ -2,8 +2,8 @@
 # set ASPOSE_ROOT and ASPOSE_EMAIL_CPP_ROOT environment variables to 
 # directory where content of Aspose.Email_for_C++_XX.X.zip is extracted
 
-SET ASPOSE_ROOT=C:\project\Release\Release_21.3\Aspose.Email_for_C++_21.3
-SET ASPOSE_EMAIL_CPP_ROOT=C:\project\Release\Release_21.3\Aspose.Email_for_C++_21.3
+SET ASPOSE_ROOT=C:\project\Release\Release_23.2\Aspose.Email_for_C++_23.2
+SET ASPOSE_EMAIL_CPP_ROOT=C:\project\Release\Release_23.2\Aspose.Email_for_C++_23.2
 
 rmdir /Q /S build
 mkdir build
