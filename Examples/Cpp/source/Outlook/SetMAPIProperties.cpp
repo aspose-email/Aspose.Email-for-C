@@ -54,7 +54,7 @@ void SetMAPIProperties()
     System::SharedPtr<MapiMessage> mapiMsg = System::MakeObject<MapiMessage>(u"user1@gmail.com", u"user2@gmail.com", u"This is subject", u"This is body");
     
     // Set multiple properties
-    System::StaticCast<MapiPropertyContainer>(mapiMsg)->SetProperty(System::MakeObject<MapiProperty>(MapiPropertyTag::PR_SENDER_ADDRTYPE_W, System::Text::Encoding::get_Unicode()->GetBytes(u"EX")));
+    System::ExplicitCast<MapiPropertyContainer>(mapiMsg)->SetProperty(System::MakeObject<MapiProperty>(MapiPropertyTag::PR_SENDER_ADDRTYPE_W, System::Text::Encoding::get_Unicode()->GetBytes(u"EX")));
     System::SharedPtr<MapiRecipient> recipientTo = mapiMsg->get_Recipients()->idx_get(0);
     System::SharedPtr<MapiProperty> propAddressType = System::MakeObject<MapiProperty>(MapiPropertyTag::PR_RECEIVED_BY_ADDRTYPE_W, System::Text::Encoding::get_UTF8()->GetBytes(u"MYFAX"));
     recipientTo->SetProperty(propAddressType);
@@ -62,11 +62,11 @@ void SetMAPIProperties()
     System::SharedPtr<MapiProperty> propEmailAddress = System::MakeObject<MapiProperty>(MapiPropertyTag::PR_RECEIVED_BY_EMAIL_ADDRESS_W, System::Text::Encoding::get_UTF8()->GetBytes(faxAddress));
     recipientTo->SetProperty(propEmailAddress);
     mapiMsg->SetMessageFlags(Aspose::Email::Mapi::MapiMessageFlags::MSGFLAG_UNSENT | Aspose::Email::Mapi::MapiMessageFlags::MSGFLAG_FROMME);
-    System::StaticCast<MapiPropertyContainer>(mapiMsg)->SetProperty(System::MakeObject<MapiProperty>(MapiPropertyTag::PR_RTF_IN_SYNC, System::BitConverter::GetBytes((int64_t)1)));
+    System::ExplicitCast<MapiPropertyContainer>(mapiMsg)->SetProperty(System::MakeObject<MapiProperty>(MapiPropertyTag::PR_RTF_IN_SYNC, System::BitConverter::GetBytes((int64_t)1)));
     
     // Set DateTime property
     System::SharedPtr<MapiProperty> modificationTime = System::MakeObject<MapiProperty>(MapiPropertyTag::PR_LAST_MODIFICATION_TIME, ConvertDateTime(System::DateTime(2013, 9, 11)));
-    System::StaticCast<MapiPropertyContainer>(mapiMsg)->SetProperty(modificationTime);
+    System::ExplicitCast<MapiPropertyContainer>(mapiMsg)->SetProperty(modificationTime);
     mapiMsg->Save(dataDir + u"MapiProp_out.msg");
     //ExEnd:SetMAPIProperties
 }

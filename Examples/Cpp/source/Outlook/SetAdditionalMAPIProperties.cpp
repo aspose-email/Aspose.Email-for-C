@@ -41,64 +41,64 @@ void SetAdditionalMAPIProperties()
     System::SharedPtr<System::Collections::Generic::IList<System::SharedPtr<System::Object>>> values = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<System::Object>>>();
     values->Add(System::ObjectExt::Box<float>((float)1));
     values->Add(System::ObjectExt::Box<float>((float)2));
-    System::StaticCast<MapiPropertyContainer>(msg)->SetProperty(System::MakeObject<MapiProperty>(0x23901004, values));
+    System::ExplicitCast<MapiPropertyContainer>(msg)->SetProperty(System::MakeObject<MapiProperty>(0x23901004, values));
     
     // PT_MV_DOUBLE, PT_MV_R8
     values = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<System::Object>>>();
     values->Add(System::ObjectExt::Box<double>((double)1));
     values->Add(System::ObjectExt::Box<double>((double)2));
-    System::StaticCast<MapiPropertyContainer>(msg)->SetProperty(System::MakeObject<MapiProperty>(0x23901005, values));
+    System::ExplicitCast<MapiPropertyContainer>(msg)->SetProperty(System::MakeObject<MapiProperty>(0x23901005, values));
     
     // PT_MV_CURRENCY, mv.fixed.14.4
     values = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<System::Object>>>();
     values->Add(System::ObjectExt::Box<System::Decimal>(System::Decimal(123.34)));
     values->Add(System::ObjectExt::Box<System::Decimal>(System::Decimal(289.45)));
-    System::StaticCast<MapiPropertyContainer>(msg)->SetProperty(System::MakeObject<MapiProperty>(0x23901006, values));
+    System::ExplicitCast<MapiPropertyContainer>(msg)->SetProperty(System::MakeObject<MapiProperty>(0x23901006, values));
     
     // PT_MV_APPTIME
     values = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<System::Object>>>();
     values->Add(System::ObjectExt::Box<double>(30456.34));
     values->Add(System::ObjectExt::Box<double>(40655.45));
-    System::StaticCast<MapiPropertyContainer>(msg)->SetProperty(System::MakeObject<MapiProperty>(0x23901007, values));
+    System::ExplicitCast<MapiPropertyContainer>(msg)->SetProperty(System::MakeObject<MapiProperty>(0x23901007, values));
     
     // PT_MV_I8, PT_MV_LONGLONG
     values = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<System::Object>>>();
     values->Add(System::ObjectExt::Box<int64_t>((int64_t)30456));
     values->Add(System::ObjectExt::Box<int64_t>((int64_t)40655));
-    System::StaticCast<MapiPropertyContainer>(msg)->SetProperty(System::MakeObject<MapiProperty>(0x23901014, values));
+    System::ExplicitCast<MapiPropertyContainer>(msg)->SetProperty(System::MakeObject<MapiProperty>(0x23901014, values));
     
     // PT_MV_CLSID, mv.uuid
     values = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<System::Object>>>();
     values->Add(System::ObjectExt::Box<System::Guid>(System::Guid::NewGuid()));
     values->Add(System::ObjectExt::Box<System::Guid>(System::Guid::NewGuid()));
-    System::StaticCast<MapiPropertyContainer>(msg)->SetProperty(System::MakeObject<MapiProperty>(0x23901048, values));
+    System::ExplicitCast<MapiPropertyContainer>(msg)->SetProperty(System::MakeObject<MapiProperty>(0x23901048, values));
     
     // PT_MV_SHORT, PT_MV_I2, mv.i2
     values = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<System::Object>>>();
     values->Add(System::ObjectExt::Box<int16_t>((int16_t)1));
     values->Add(System::ObjectExt::Box<int16_t>((int16_t)2));
-    System::StaticCast<MapiPropertyContainer>(msg)->SetProperty(System::MakeObject<MapiProperty>(0x23901002, values));
+    System::ExplicitCast<MapiPropertyContainer>(msg)->SetProperty(System::MakeObject<MapiProperty>(0x23901002, values));
     
     // PT_MV_SYSTIME
     values = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<System::Object>>>();
     values->Add(System::ObjectExt::Box<System::DateTime>(System::DateTime::get_Now()));
     values->Add(System::ObjectExt::Box<System::DateTime>(System::DateTime::get_Now()));
-    System::StaticCast<MapiPropertyContainer>(msg)->SetProperty(System::MakeObject<MapiProperty>(0x23901040, values));
+    System::ExplicitCast<MapiPropertyContainer>(msg)->SetProperty(System::MakeObject<MapiProperty>(0x23901040, values));
     
     // PT_MV_BOOLEAN
     values = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<System::Object>>>();
     values->Add(System::ObjectExt::Box<bool>(true));
     values->Add(System::ObjectExt::Box<bool>(false));
-    System::StaticCast<MapiPropertyContainer>(msg)->SetProperty(System::MakeObject<MapiProperty>(0x2390100b, values));
+    System::ExplicitCast<MapiPropertyContainer>(msg)->SetProperty(System::MakeObject<MapiProperty>(0x2390100b, values));
     
     // PT_MV_BINARY
     values = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<System::Object>>>();
     values->Add(System::Guid::NewGuid().ToByteArray());
     values->Add(System::MakeArray<uint8_t>({1, 2, 4, 5, 6, 7, 5, 4, 3, 5, 6, 7, 8, 6, 4, 3, 4, 5, 6, 7, 8, 6, 5, 4, 3, 7, 8, 9, 0, 2, 3, 4}));
-    System::StaticCast<MapiPropertyContainer>(msg)->SetProperty(System::MakeObject<MapiProperty>(0x23901102, values));
+    System::ExplicitCast<MapiPropertyContainer>(msg)->SetProperty(System::MakeObject<MapiProperty>(0x23901102, values));
     
     // PT_NULL
-    System::StaticCast<MapiPropertyContainer>(msg)->SetProperty(System::MakeObject<MapiProperty>(0x67400001, System::MakeArray<uint8_t>(1, 0)));
+    System::ExplicitCast<MapiPropertyContainer>(msg)->SetProperty(System::MakeObject<MapiProperty>(0x67400001, System::MakeArray<uint8_t>(1, 0)));
     System::SharedPtr<MapiMessage> message = System::MakeObject<MapiMessage>(u"sender@test.com", u"recipient@test.com", u"subj", u"Body of test msg");
     
     // PT_MV_LONG
@@ -106,7 +106,7 @@ void SetAdditionalMAPIProperties()
     values->Add(System::ObjectExt::Box<int32_t>((int32_t)4));
     System::SharedPtr<MapiProperty> property = System::MakeObject<MapiProperty>(message->get_NamedPropertyMapping()->GetNextAvailablePropertyId(Aspose::Email::Mapi::MapiPropertyType::PT_MV_LONG), values);
     message->get_NamedPropertyMapping()->AddNamedPropertyMapping(property, 0x00008028, System::Guid(u"00062004-0000-0000-C000-000000000046"));
-    System::StaticCast<MapiPropertyContainer>(message)->SetProperty(property);
+    System::ExplicitCast<MapiPropertyContainer>(message)->SetProperty(property);
     
     // OR you can set the custom property (with the custom name)
     message = System::MakeObject<MapiMessage>(u"sender@test.com", u"recipient@test.com", u"subj", u"Body of test msg");
@@ -123,7 +123,7 @@ void SetAdditionalMAPIProperties()
     System::Guid guid = System::Guid::NewGuid();
     System::SharedPtr<MapiProperty> newMapiProperty = System::MakeObject<MapiProperty>(floatTag, System::BitConverter::GetBytes(floatValue));
     newMsg->get_NamedPropertyMapping()->AddNamedPropertyMapping(newMapiProperty, 12, guid);
-    System::StaticCast<MapiPropertyContainer>(newMsg)->SetProperty(newMapiProperty);
+    System::ExplicitCast<MapiPropertyContainer>(newMsg)->SetProperty(newMapiProperty);
     
     // ExEnd:SetAdditionalMAPIProperties
 }

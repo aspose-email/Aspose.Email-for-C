@@ -46,7 +46,7 @@ void AccessContactInformation()
             // Get the contact information
             System::SharedPtr<MapiMessage> mapi = personalStorage->ExtractMessage(messageInfo);
             
-            System::SharedPtr<MapiContact> contact = System::DynamicCast<Aspose::Email::Mapi::MapiContact>(mapi->ToMapiMessageItem());
+            System::SharedPtr<MapiContact> contact = System::ExplicitCast<Aspose::Email::Mapi::MapiContact>(mapi->ToMapiMessageItem());
             
             // Display some contents on screen
             System::Console::WriteLine(System::String(u"Name: ") + contact->get_NameInfo()->get_DisplayName());

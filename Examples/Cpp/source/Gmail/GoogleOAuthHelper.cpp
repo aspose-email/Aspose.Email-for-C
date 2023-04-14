@@ -44,7 +44,7 @@ void GoogleOAuthHelper::GetAccessTokenByRefreshToken(const GoogleTestUser& user,
     access_token.reset();
     token_type.reset();
     expires_in = 0;
-    System::SharedPtr<System::Net::HttpWebRequest> request = System::DynamicCast<System::Net::HttpWebRequest>(System::Net::WebRequest::Create(TOKEN_REQUEST_URL));
+    System::SharedPtr<System::Net::HttpWebRequest> request = System::ExplicitCast<System::Net::HttpWebRequest>(System::Net::WebRequest::Create(TOKEN_REQUEST_URL));
     request->set_CookieContainer(System::MakeObject<System::Net::CookieContainer>());
     request->set_Method(u"POST");
     request->set_ContentType(u"application/x-www-form-urlencoded");
@@ -73,7 +73,7 @@ void GoogleOAuthHelper::GetAccessTokenByRefreshToken(const GoogleTestUser& user,
             }
         }
     }
-    System::SharedPtr<System::Net::HttpWebResponse> response = System::DynamicCast<System::Net::HttpWebResponse>(request->GetResponse());
+    System::SharedPtr<System::Net::HttpWebResponse> response = System::ExplicitCast<System::Net::HttpWebResponse>(request->GetResponse());
     System::String responseText;
     {
         System::SharedPtr<System::IO::TextReader> reader = System::MakeObject<System::IO::StreamReader>(response->GetResponseStream(), System::Text::Encoding::get_ASCII());

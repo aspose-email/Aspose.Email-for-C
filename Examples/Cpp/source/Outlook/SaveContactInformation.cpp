@@ -45,7 +45,7 @@ void SaveContactInformation()
         for (auto&& messageInfo : messageInfoCollection)
         {
             // Get the contact information
-            System::SharedPtr<MapiContact> contact = System::DynamicCast<Aspose::Email::Mapi::MapiContact>(personalStorage->ExtractMessage(messageInfo)->ToMapiMessageItem());
+            System::SharedPtr<MapiContact> contact = System::ExplicitCast<Aspose::Email::Mapi::MapiContact>(personalStorage->ExtractMessage(messageInfo)->ToMapiMessageItem());
             // Display some contents on screen
             System::Console::WriteLine(System::String(u"Name: ") + contact->get_NameInfo()->get_DisplayName() + u" - " + messageInfo->get_EntryIdString());
             // Save to disk in vCard VCF format
