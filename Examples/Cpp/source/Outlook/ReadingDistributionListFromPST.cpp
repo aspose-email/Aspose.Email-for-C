@@ -25,7 +25,7 @@ void ReadingDistributionListFromPST()
     
     // ExStart:ReadingDistributionListFromPST
     System::SharedPtr<MapiMessage> message = MapiMessage::FromFile(fileName);
-    System::SharedPtr<MapiDistributionList> dlist = System::ExplicitCast<Aspose::Email::Mapi::MapiDistributionList>(message->ToMapiMessageItem());
+    System::SharedPtr<MapiDistributionList> dlist = System::Cast<Aspose::Email::Mapi::MapiDistributionList>(message->ToMapiMessageItem());
     // ExEnd:ReadingDistributionListFromPST
 }
 

@@ -41,7 +41,7 @@ void SaveCalendarItems()
         for (auto&& messageInfo : messageInfoCollection)
         {
             // Get the calendar information
-            System::SharedPtr<MapiMessage> calendar = System::ExplicitCast<Aspose::Email::Mapi::MapiMessage>(pst->ExtractMessage(messageInfo)->ToMapiMessageItem());
+            System::SharedPtr<MapiMessage> calendar = System::Cast<Aspose::Email::Mapi::MapiMessage>(pst->ExtractMessage(messageInfo)->ToMapiMessageItem());
             // Display some contents on screen
             System::Console::WriteLine(System::String(u"Name: ") + calendar->get_Subject());
             // Save to disk in ICS format

@@ -24,7 +24,7 @@ void ReadMapiNote()
     // The path to the File directory.
     System::String dataDir = GetDataDir_Outlook();
     System::SharedPtr<MapiMessage> note = MapiMessage::FromFile(dataDir + u"MapiNote.msg");
-    System::SharedPtr<MapiNote> note2 = System::ExplicitCast<Aspose::Email::Mapi::MapiNote>(note->ToMapiMessageItem());
+    System::SharedPtr<MapiNote> note2 = System::Cast<Aspose::Email::Mapi::MapiNote>(note->ToMapiMessageItem());
     // ExEnd:ReadMapiNote
 }
 

@@ -54,7 +54,7 @@ void RetrieveFolderPermissionsUsingExchangeWebServiceClient()
         System::SharedPtr<ExchangePermissionCollection> folderPermissionCol = client->GetFolderPermissions(publicFolder->get_Uri());
         for (auto perm : System::IterateOver(folderPermissionCol))
         {
-            System::SharedPtr<ExchangeFolderPermission> permission = System::ExplicitCast<Aspose::Email::Clients::Exchange::ExchangeFolderPermission>(perm);
+            System::SharedPtr<ExchangeFolderPermission> permission = System::Cast<Aspose::Email::Clients::Exchange::ExchangeFolderPermission>(perm);
             if (permission == nullptr)
             {
                 System::Console::WriteLine(u"Permission is null.");

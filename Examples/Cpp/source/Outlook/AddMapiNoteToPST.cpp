@@ -36,16 +36,16 @@ void AddMapiNoteToPST()
     System::SharedPtr<MapiMessage> mess = MapiMessage::FromFile(dataDir + u"Note.msg");
     
     // Create three Notes  
-    System::SharedPtr<MapiNote> note1 = System::ExplicitCast<Aspose::Email::Mapi::MapiNote>(mess->ToMapiMessageItem());
+    System::SharedPtr<MapiNote> note1 = System::Cast<Aspose::Email::Mapi::MapiNote>(mess->ToMapiMessageItem());
     note1->set_Subject(u"Yellow color note");
     note1->set_Body(u"This is a yellow color note");
     
-    System::SharedPtr<MapiNote> note2 = System::ExplicitCast<Aspose::Email::Mapi::MapiNote>(mess->ToMapiMessageItem());
+    System::SharedPtr<MapiNote> note2 = System::Cast<Aspose::Email::Mapi::MapiNote>(mess->ToMapiMessageItem());
     note2->set_Subject(u"Pink color note");
     note2->set_Body(u"This is a pink color note");
     note2->set_Color(Aspose::Email::Mapi::NoteColor::Pink);
     
-    System::SharedPtr<MapiNote> note3 = System::ExplicitCast<Aspose::Email::Mapi::MapiNote>(mess->ToMapiMessageItem());
+    System::SharedPtr<MapiNote> note3 = System::Cast<Aspose::Email::Mapi::MapiNote>(mess->ToMapiMessageItem());
     note2->set_Subject(u"Blue color note");
     note2->set_Body(u"This is a blue color note");
     note2->set_Color(Aspose::Email::Mapi::NoteColor::Blue);

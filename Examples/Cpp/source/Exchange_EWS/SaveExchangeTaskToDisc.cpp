@@ -22,7 +22,7 @@ void SaveExchangeTaskToDisc()
     task->set_Status(Aspose::Email::Clients::Exchange::WebService::ExchangeTaskStatus::InProgress);
     task->set_StartDate(System::DateTime::get_Now());
     task->set_DueDate(task->get_StartDate().AddDays(3));
-    System::ExplicitCast<Calendar::Task>(task)->Save(dstEmail);
+    System::Cast<Calendar::Task>(task)->Save(dstEmail);
     
     System::Console::WriteLine(System::Environment::get_NewLine() + u"Task saved on disk successfully at " + dstEmail);
 }

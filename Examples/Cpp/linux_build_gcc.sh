@@ -5,6 +5,9 @@
 #export ASPOSE_ROOT="/mnt/c/project/Release/Release_20.11/Aspose.Email_for_C++_20.11
 #export ASPOSE_EMAIL_CPP_ROOT="/mnt/c/project/Release/Release_20.11/Aspose.Email_for_C++_20.11
 
+export ASPOSE_ROOT="/mnt/c/project/Release/Release_23.7/Aspose.Email_for_C++_23.7"
+export ASPOSE_EMAIL_CPP_ROOT="/mnt/c/project/Release/Release_23.7/Aspose.Email_for_C++_23.7"
+
 export CC="gcc"
 export CXX="g++"
 

@@ -24,7 +24,7 @@ void LoadingContactFromMSG()
     
     // ExStart:LoadingContactFromMSG
     System::SharedPtr<MapiMessage> msg = MapiMessage::FromFile(dataDir + u"Contact.msg");
-    System::SharedPtr<MapiContact> mapiContact = System::ExplicitCast<Aspose::Email::Mapi::MapiContact>(msg->ToMapiMessageItem());
+    System::SharedPtr<MapiContact> mapiContact = System::Cast<Aspose::Email::Mapi::MapiContact>(msg->ToMapiMessageItem());
     // ExEnd:LoadingContactFromMSG
 }
 

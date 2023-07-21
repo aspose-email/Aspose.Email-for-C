@@ -24,7 +24,7 @@ void ReadingMapiTask()
     
     // ExStart:ReadingMapiTask
     System::SharedPtr<MapiMessage> msg = MapiMessage::FromFile(dataDir + u"MapiTask.msg");
-    System::SharedPtr<MapiTask> task2 = System::ExplicitCast<Aspose::Email::Mapi::MapiTask>(msg->ToMapiMessageItem());
+    System::SharedPtr<MapiTask> task2 = System::Cast<Aspose::Email::Mapi::MapiTask>(msg->ToMapiMessageItem());
     // ExEnd:ReadingMapiTask
 }
 

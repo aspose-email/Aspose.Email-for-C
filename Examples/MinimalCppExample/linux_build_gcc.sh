@@ -2,8 +2,8 @@
 # set ASPOSE_ROOT and ASPOSE_EMAIL_CPP_ROOT environment variables to 
 # directory where content of Aspose.Email_for_C++_XX.X.zip is extracted
 # C:\project\Release\CodePorting.Translator.Cs2Cpp_internal_23.2\
-export ASPOSE_ROOT="/mnt/c/project/Release/Release_23.2/Aspose.Email_for_C++_23.3"
-export ASPOSE_EMAIL_CPP_ROOT="/mnt/c/project/Release/Release_23.2/Aspose.Email_for_C++_23.3"
+export ASPOSE_ROOT="/mnt/c/project/Release/Release_23.7/Aspose.Email_for_C++_23.7"
+export ASPOSE_EMAIL_CPP_ROOT="/mnt/c/project/Release/Release_23.7/Aspose.Email_for_C++_23.7"
 
 export CC="gcc"
 export CXX="g++"

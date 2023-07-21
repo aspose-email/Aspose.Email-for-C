@@ -41,7 +41,7 @@ void AddDisplayReminderToACalendar()
     System::SharedPtr<MailMessage> msg = System::MakeObject<MailMessage>();
     msg->AddAlternateView(app->RequestApointment());
     System::SharedPtr<MapiMessage> mapi = MapiMessage::FromMailMessage(msg);
-    System::SharedPtr<MapiCalendar> calendar = System::ExplicitCast<Aspose::Email::Mapi::MapiCalendar>(mapi->ToMapiMessageItem());
+    System::SharedPtr<MapiCalendar> calendar = System::Cast<Aspose::Email::Mapi::MapiCalendar>(mapi->ToMapiMessageItem());
     
     // Set calendar Properties 
     calendar->set_ReminderSet(true);

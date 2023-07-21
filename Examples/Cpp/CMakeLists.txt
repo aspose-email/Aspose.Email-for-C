@@ -30,7 +30,14 @@ find_package(Aspose.Email.Cpp REQUIRED CONFIG PATHS ${ASPOSE_EMAIL_CPP_ROOT})
 file(GLOB_RECURSE srcs "source/*.cpp" "source/*.h")
 file(GLOB_RECURSE hdrs "include/*.h")
 
+file(GLOB_RECURSE test
+    "source/Gmail/GoogleTestUser.cpp"
+   "source/Gmail/TestUser.cpp"
+   "source/Outlook/CreateSaveOutlookFiles.cpp"
+    "source/Examples.cpp")
+
 add_executable(${target} ${srcs} ${hdrs})
+#add_executable(${target} ${test} ${hdrs})
 
 target_include_directories(${target} PRIVATE
 		${CMAKE_CURRENT_SOURCE_DIR}
