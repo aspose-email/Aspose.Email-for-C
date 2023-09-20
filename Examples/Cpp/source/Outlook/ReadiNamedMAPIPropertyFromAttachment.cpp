@@ -27,7 +27,7 @@ void ReadiNamedMAPIPropertyFromAttachment()
     System::String dataDir = GetDataDir_Outlook();
     
     // Load from file
-    System::SharedPtr<MapiMessage> msg = MapiMessage::FromFile(dataDir + u"message.msg");
+    System::SharedPtr<MapiMessage> msg = MapiMessage::Load(dataDir + u"message.msg");
     
     System::String subject;
     

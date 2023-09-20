@@ -25,7 +25,7 @@ void CreateForwardMessage()
     // The path to the File directory.
     System::String dataDir = GetDataDir_Outlook();
     
-    System::SharedPtr<MapiMessage> originalMsg = MapiMessage::FromFile(dataDir + u"message1.msg");
+    System::SharedPtr<MapiMessage> originalMsg = MapiMessage::Load(dataDir + u"message1.msg");
     System::SharedPtr<ForwardMessageBuilder> builder = System::MakeObject<ForwardMessageBuilder>();
     builder->set_AdditionMode(Aspose::Email::Tools::OriginalMessageAdditionMode::Textpart);
     System::SharedPtr<MapiMessage> forwardMsg = builder->BuildResponse(originalMsg);

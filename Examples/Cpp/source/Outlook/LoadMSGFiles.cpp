@@ -27,7 +27,7 @@ void LoadMSGFiles()
     System::String dataDir = GetDataDir_Outlook();
     
     // Create an instance of MapiMessage from file
-    System::SharedPtr<MapiMessage> msg = MapiMessage::FromFile(dataDir + u"message.msg");
+    System::SharedPtr<MapiMessage> msg = MapiMessage::Load(dataDir + u"message.msg");
     
     // Get subject
     System::Console::WriteLine(System::String(u"Subject:") + msg->get_Subject());

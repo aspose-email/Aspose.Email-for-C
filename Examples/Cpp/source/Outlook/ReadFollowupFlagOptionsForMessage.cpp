@@ -22,7 +22,7 @@ void ReadFollowupFlagOptionsForMessage()
     // ExStart:ReadFollowupFlagOptionsForMessage
     // The path to the File directory.
     System::String dataDir = GetDataDir_Outlook();
-    System::SharedPtr<MapiMessage> mapi = MapiMessage::FromFile(dataDir + u"message.msg");
+    System::SharedPtr<MapiMessage> mapi = MapiMessage::Load(dataDir + u"message.msg");
     System::SharedPtr<FollowUpOptions> options = FollowUpManager::GetOptions(mapi);
     // ExEnd:ReadFollowupFlagOptionsForMessage             
 }

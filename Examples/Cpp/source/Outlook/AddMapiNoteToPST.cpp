@@ -33,7 +33,7 @@ void AddMapiNoteToPST()
     // The path to the documents directory.
     System::String dataDir = GetDataDir_Outlook();
     
-    System::SharedPtr<MapiMessage> mess = MapiMessage::FromFile(dataDir + u"Note.msg");
+    System::SharedPtr<MapiMessage> mess = MapiMessage::Load(dataDir + u"Note.msg");
     
     // Create three Notes  
     System::SharedPtr<MapiNote> note1 = System::Cast<Aspose::Email::Mapi::MapiNote>(mess->ToMapiMessageItem());

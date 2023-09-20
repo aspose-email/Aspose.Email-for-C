@@ -42,7 +42,7 @@ void AddMessagesToPSTFiles()
     System::SharedPtr<FolderInfo> inboxFolder = personalStorage->get_RootFolder()->GetSubFolder(u"Inbox");
     
     // Add some messages to "Inbox" folder
-    inboxFolder->AddMessage(MapiMessage::FromFile(GetDataDir_Outlook() + u"MapiMsgWithPoll.msg"));
+    inboxFolder->AddMessage(MapiMessage::Load(GetDataDir_Outlook() + u"MapiMsgWithPoll.msg"));
     // ExEnd:AddMessagesToPSTFiles            
 }
 

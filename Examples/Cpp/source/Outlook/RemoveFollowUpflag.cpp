@@ -23,7 +23,7 @@ void RemoveFollowUpflag()
     System::String dataDir = GetDataDir_Outlook();
     
     // Load file from Disk
-    System::SharedPtr<MapiMessage> mapi = MapiMessage::FromFile(dataDir + u"message.msg");
+    System::SharedPtr<MapiMessage> mapi = MapiMessage::Load(dataDir + u"message.msg");
     FollowUpManager::ClearFlag(mapi);
     mapi->Save(dataDir + u"RemoveFollowUpflag_out.msg");
     //ExEnd:RemoveFollowUpflag

@@ -26,7 +26,7 @@ void CreateMapiCalendarTimeZoneFromStandardTimezone()
     System::String dataDir = GetDataDir_Outlook();
     System::String fileName = dataDir + u"Test Meeting.msg";
     
-    System::SharedPtr<MapiMessage> message = MapiMessage::FromFile(fileName);
+    System::SharedPtr<MapiMessage> message = MapiMessage::Load(fileName);
     System::SharedPtr<MapiCalendar> calendar = System::Cast<Aspose::Email::Mapi::MapiCalendar>(message->ToMapiMessageItem());
     
     // ExStart:CreateMapiCalendarTimeZoneFromStandardTimezone

@@ -23,7 +23,7 @@ void CreatingTNEFFromMSG()
     // ExStart:CreatingTNEFFromMSG
     // The path to the File directory.
     System::String dataDir = GetDataDir_Email();
-    System::SharedPtr<MapiMessage> msg = MapiMessage::FromFile(dataDir + u"Message.msg");
+    System::SharedPtr<MapiMessage> msg = MapiMessage::Load(dataDir + u"Message.msg");
     System::SharedPtr<MailConversionOptions> options = [&]{ auto tmp_0 = System::MakeObject<MailConversionOptions>(); tmp_0->set_ConvertAsTnef(true); return tmp_0; }();
     System::SharedPtr<MailMessage> mail = msg->ToMailMessage(options);
     // ExEnd:CreatingTNEFFromMSG

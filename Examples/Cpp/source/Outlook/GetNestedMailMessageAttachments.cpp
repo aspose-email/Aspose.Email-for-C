@@ -27,7 +27,7 @@ using namespace Aspose::Email::Mapi;
 void GetNestedMailMessageAttachments()
 {
     System::String dataDir = GetDataDir_Outlook();
-    System::SharedPtr<MapiMessage> message = MapiMessage::FromFile(dataDir + u"messageWithEmbeddedEML.msg");
+    System::SharedPtr<MapiMessage> message = MapiMessage::Load(dataDir + u"messageWithEmbeddedEML.msg");
     System::SharedPtr<MapiAttachment> attachment = message->get_Attachments()->idx_get(0);
     
     // ExStart:GetNestedMailMessageAttachments

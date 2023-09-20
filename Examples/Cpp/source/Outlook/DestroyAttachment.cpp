@@ -18,7 +18,7 @@ using namespace Aspose::Email::Mapi;
 void DestroyAttachment()
 {
     System::String dataDir = GetDataDir_Outlook();
-    System::SharedPtr<MapiMessage> msg = MapiMessage::FromFile(dataDir + u"MsgWithAtt.msg");
+    System::SharedPtr<MapiMessage> msg = MapiMessage::Load(dataDir + u"MsgWithAtt.msg");
     msg->Save(dataDir + u"AttachmentsToDestroy_out.msg");
     
     // ExStart:DestroyAttachment

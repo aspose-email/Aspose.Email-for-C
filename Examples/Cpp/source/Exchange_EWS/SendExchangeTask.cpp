@@ -34,7 +34,7 @@ void SendExchangeTask()
         // load task from .eml file
         System::SharedPtr<EmlLoadOptions> loadOptions = System::MakeObject<EmlLoadOptions>();
         
-        loadOptions->set_PrefferedTextEncoding(System::Text::Encoding::get_UTF8());
+        //loadOptions->set_PrefferedTextEncoding(System::Text::Encoding::get_UTF8());
         loadOptions->set_PreserveTnefAttachments(true);
         
         // load task from .msg file

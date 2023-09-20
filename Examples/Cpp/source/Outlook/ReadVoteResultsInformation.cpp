@@ -31,7 +31,7 @@ void ReadVoteResultsInformation()
     System::String dataDir = GetDataDir_Outlook();
     
     // ExStart:ReadVoteResultsInformation
-    System::SharedPtr<MapiMessage> msg = MapiMessage::FromFile(dataDir + u"AddVotingButtonToExistingMessage.msg");
+    System::SharedPtr<MapiMessage> msg = MapiMessage::Load(dataDir + u"AddVotingButtonToExistingMessage.msg");
     
     {
         for (auto&& recipient : System::IterateOver(msg->get_Recipients()))

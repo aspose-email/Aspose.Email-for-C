@@ -37,7 +37,7 @@ void RenderingContactInformationToMhtml()
     System::SharedPtr<System::IO::MemoryStream> ms = System::MakeObject<System::IO::MemoryStream>();
     contact->Save(ms, Aspose::Email::Mapi::ContactSaveFormat::Msg);
     ms->set_Position(0);
-    System::SharedPtr<MapiMessage> msg = MapiMessage::FromStream(ms);
+    System::SharedPtr<MapiMessage> msg = MapiMessage::Load(ms);
     System::SharedPtr<MailConversionOptions> op = System::MakeObject<MailConversionOptions>();
     System::SharedPtr<MailMessage> eml = msg->ToMailMessage(op);
     

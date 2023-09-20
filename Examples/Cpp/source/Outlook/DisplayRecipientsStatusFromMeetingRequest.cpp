@@ -28,7 +28,7 @@ void DisplayRecipientsStatusFromMeetingRequest()
     System::String fileName = dataDir + u"Test Meeting.msg";
     
     // ExStart:DisplayRecipientsStatusFromMeetingRequest
-    System::SharedPtr<MapiMessage> message = MapiMessage::FromFile(fileName);
+    System::SharedPtr<MapiMessage> message = MapiMessage::Load(fileName);
     
     {
         for (auto&& recipient : System::IterateOver(message->get_Recipients()))

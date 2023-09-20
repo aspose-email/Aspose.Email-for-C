@@ -33,10 +33,17 @@ void LoadMessageWithLoadOptions()
     MailMessage::Load(dataDir + u"Message.msg", System::MakeObject<MsgLoadOptions>());
     
     // loading with custom options
-    System::SharedPtr<EmlLoadOptions> emlLoadOptions = [&]{ auto tmp_0 = System::MakeObject<EmlLoadOptions>(); tmp_0->set_PrefferedTextEncoding(System::Text::Encoding::get_UTF8()); tmp_0->set_PreserveTnefAttachments(true); return tmp_0; }();
-    
+    System::SharedPtr<EmlLoadOptions> emlLoadOptions = System::MakeObject<EmlLoadOptions>();
+    //emlLoadOptions->set_PrefferedTextEncoding(System::Text::Encoding::get_UTF8()); 
+    emlLoadOptions->set_PreserveTnefAttachments(true);
+
     MailMessage::Load(dataDir + u"description.html", emlLoadOptions);
-    System::SharedPtr<HtmlLoadOptions> htmlLoadOptions = [&]{ auto tmp_1 = System::MakeObject<HtmlLoadOptions>(); tmp_1->set_PrefferedTextEncoding(System::Text::Encoding::get_UTF8()); tmp_1->set_ShouldAddPlainTextView(true); tmp_1->set_PathToResources(dataDir); return tmp_1; }();
+    System::SharedPtr<HtmlLoadOptions> htmlLoadOptions = System::MakeObject<HtmlLoadOptions>();
+    //htmlLoadOptions->set_PrefferedTextEncoding(System::Text::Encoding::get_UTF8()); 
+    htmlLoadOptions->set_ShouldAddPlainTextView(true); 
+    htmlLoadOptions->set_PathToResources(dataDir);
+
+        //[&]{ auto tmp_1 = System::MakeObject<HtmlLoadOptions>(); tmp_1->set_PrefferedTextEncoding(System::Text::Encoding::get_UTF8()); tmp_1->set_ShouldAddPlainTextView(true); tmp_1->set_PathToResources(dataDir); return tmp_1; }();
     MailMessage::Load(dataDir + u"description.html", emlLoadOptions);
     // ExEnd:LoadMessageWithLoadOptions
 }

@@ -23,7 +23,7 @@ void EmbedMessageAsAttachment()
     
     // ExStart:EmbedMessageAsAttachment
     System::SharedPtr<MapiMessage> message = System::MakeObject<MapiMessage>(u"from@test.com", u"to@test.com", u"Subj", u"This is a message body");
-    System::SharedPtr<MapiMessage> attachMsg = MapiMessage::FromFile(dataDir + u"Message.msg");
+    System::SharedPtr<MapiMessage> attachMsg = MapiMessage::Load(dataDir + u"Message.msg");
     message->get_Attachments()->Add(u"Weekly report.msg", attachMsg);
     message->Save(dataDir + u"WithEmbeddedMsg_out.msg");
     // ExEnd:EmbedMessageAsAttachment

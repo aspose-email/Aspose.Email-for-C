@@ -79,7 +79,7 @@ void SaveAttachment(System::SharedPtr<Aspose::Email::Mapi::MapiAttachment> attac
 
 void ExtractInlineAttachments(System::String dataDir)
 {
-    System::SharedPtr<MapiMessage> message = MapiMessage::FromFile(dataDir + u"MSG file with RTF Formatting.msg");
+    System::SharedPtr<MapiMessage> message = MapiMessage::Load(dataDir + u"MSG file with RTF Formatting.msg");
     System::SharedPtr<MapiAttachmentCollection> attachments = message->get_Attachments();
 
     {

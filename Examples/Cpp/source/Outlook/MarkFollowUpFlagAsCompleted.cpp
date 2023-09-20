@@ -22,7 +22,7 @@ void MarkFollowUpFlagAsCompleted()
     // The path to the File directory.
     System::String dataDir = GetDataDir_Outlook();
     
-    System::SharedPtr<MapiMessage> mapiMessage = MapiMessage::FromFile(dataDir + u"Message.msg");
+    System::SharedPtr<MapiMessage> mapiMessage = MapiMessage::Load(dataDir + u"Message.msg");
     FollowUpManager::MarkAsCompleted(mapiMessage);
     mapiMessage->Save(dataDir + u"MarkedCompleted_out.msg");
     // ExEnd:MarkFollowUpFlagAsCompleted

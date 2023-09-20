@@ -24,7 +24,7 @@ void ReadingDistributionListFromPST()
     System::String fileName = dataDir + u"NewGroup.msg";
     
     // ExStart:ReadingDistributionListFromPST
-    System::SharedPtr<MapiMessage> message = MapiMessage::FromFile(fileName);
+    System::SharedPtr<MapiMessage> message = MapiMessage::Load(fileName);
     System::SharedPtr<MapiDistributionList> dlist = System::Cast<Aspose::Email::Mapi::MapiDistributionList>(message->ToMapiMessageItem());
     // ExEnd:ReadingDistributionListFromPST
 }

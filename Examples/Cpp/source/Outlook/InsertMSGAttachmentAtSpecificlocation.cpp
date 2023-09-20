@@ -25,11 +25,11 @@ void InsertMSGAttachmentAtSpecificlocation()
     System::String fileName = dataDir + u"message3.msg";
     
     // ExStart:InsertMSGAttachmentAtSpecificlocation
-    auto message = MapiMessage::FromFile(fileName);
+    auto message = MapiMessage::Load(fileName);
     auto memoryStream = System::MakeObject<System::IO::MemoryStream>();
     message->get_Attachments()->idx_get(2)->Save(memoryStream);
     
-    auto getData = MapiMessage::FromStream(memoryStream);
+    auto getData = MapiMessage::Load(memoryStream);
     message->get_Attachments()->Insert(1, u"new 11", getData);
     // ExEnd:InsertMSGAttachmentAtSpecificlocation
     

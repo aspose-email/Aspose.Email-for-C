@@ -80,7 +80,7 @@ bool IsInlineAttachment(System::SharedPtr<Aspose::Email::Mapi::MapiAttachment> a
 void IdentifyInlineAndRegularAttachments()
 {
     System::String dataDir = GetDataDir_Email();
-    auto message = MapiMessage::FromFile(dataDir + u"RemoveAttachments.msg");
+    auto message = MapiMessage::Load(dataDir + u"RemoveAttachments.msg");
     auto attachments = message->get_Attachments();
     int32_t count = attachments->get_Count();
 

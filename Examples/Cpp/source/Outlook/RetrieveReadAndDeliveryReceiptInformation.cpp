@@ -31,7 +31,7 @@ void RetrieveReadAndDeliveryReceiptInformation()
     System::String dataDir = GetDataDir_Outlook();
     
     // ExStart:RetrieveReadAndDeliveryReceiptInformation
-    System::SharedPtr<MapiMessage> msg = MapiMessage::FromFile(dataDir + u"TestMessage.msg");
+    System::SharedPtr<MapiMessage> msg = MapiMessage::Load(dataDir + u"TestMessage.msg");
     
     {
         for (auto&& recipient : System::IterateOver(msg->get_Recipients()))

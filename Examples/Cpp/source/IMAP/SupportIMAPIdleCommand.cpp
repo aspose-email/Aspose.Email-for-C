@@ -37,13 +37,18 @@ void SupportIMAPIdleCommand()
     System::SharedPtr<ImapMonitoringEventArgs> eventArgs;
     
     // CSPORTCPP: [WARNING] Using local variables. Make sure that local function ptr does not leave the current scope.
-    std::function<void(System::SharedPtr<System::Object> sender, System::SharedPtr<Clients::Imap::ImapMonitoringEventArgs> e)> _local_func_0 = [&eventArgs, &manualResetEvent](System::SharedPtr<System::Object> sender, System::SharedPtr<Clients::Imap::ImapMonitoringEventArgs> e)
+    std::function<void(System::SharedPtr<System::Object> sender, System::SharedPtr<Clients::Imap::ImapMonitoringEventArgs> e)> callback = [&eventArgs, &manualResetEvent](System::SharedPtr<System::Object> sender, System::SharedPtr<Clients::Imap::ImapMonitoringEventArgs> e)
     {
         eventArgs = e;
         manualResetEvent->Set();
     };
+
+    std::function<void(System::SharedPtr<System::Object> sender, System::SharedPtr<Clients::Imap::ImapMonitoringErrorEventArgs> e)> errorCallback = [&eventArgs, &manualResetEvent](System::SharedPtr<System::Object> sender, System::SharedPtr<Clients::Imap::ImapMonitoringErrorEventArgs> e)
+    {
+    };
+
     
-    client->StartMonitoring(_local_func_0);
+    client->StartMonitoring(callback, errorCallback);
     System::Threading::Thread::Sleep(2000);
     System::SharedPtr<SmtpClient> smtpClient = System::MakeObject<SmtpClient>(u"exchange.aspose.com", u"username", u"password");
     smtpClient->Send(System::MakeObject<MailMessage>(u"from@aspose.com", u"to@aspose.com", System::String(u"EMAILNET-34875 - ") + System::Guid::NewGuid(), u"EMAILNET-34875 Support for IMAP idle command"));

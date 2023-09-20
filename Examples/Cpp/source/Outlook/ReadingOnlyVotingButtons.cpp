@@ -34,7 +34,7 @@ void ReadingOnlyVotingButtons()
         
         // ------------------------------------------
         // ExStart:ReadingOnlyVotingButtons
-        System::SharedPtr<MapiMessage> testMsg = MapiMessage::FromStream(ms);
+        System::SharedPtr<MapiMessage> testMsg = MapiMessage::Load(ms);
         
         // This method can be useful when it is necessary to read only voting buttons Voting buttons will be introduced as a collection of string values
         System::ArrayPtr<System::String> buttons = FollowUpManager::GetVotingButtons(testMsg);

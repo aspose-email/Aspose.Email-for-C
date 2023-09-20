@@ -43,7 +43,7 @@ void LoadingFromStream()
         {
             stream->Seek(0, System::IO::SeekOrigin::Begin);
             // Create an instance of MapiMessage from file
-            System::SharedPtr<MapiMessage> msg = MapiMessage::FromStream(stream);
+            System::SharedPtr<MapiMessage> msg = MapiMessage::Load(stream);
             
             // Get subject
             System::Console::WriteLine(System::String(u"Subject:") + msg->get_Subject());

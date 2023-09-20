@@ -23,7 +23,7 @@ void ReadEmbeddedMessageFromAttachment()
     System::String fileName = dataDir + u"WithEmbeddedMsg.msg";
     
     // ExStart:ReadEmbeddedMessageFromAttachment
-    auto message = MapiMessage::FromFile(fileName);
+    auto message = MapiMessage::Load(fileName);
     if (message->get_Attachments()->idx_get(0)->get_ObjectData()->get_IsOutlookMessage())
     {
         auto getData = message->get_Attachments()->idx_get(0)->get_ObjectData()->ToMapiMessage();

@@ -23,7 +23,7 @@ void ReadingVotingOptions()
     System::String fileName = dataDir + u"MessageWithVotingButtons.msg";
     
     // ExStart:ReadingVotingOptions
-    System::SharedPtr<MapiMessage> message = MapiMessage::FromFile(fileName);
+    System::SharedPtr<MapiMessage> message = MapiMessage::Load(fileName);
     
     // This method can be useful when except voting buttons it is necessary to get other parameters (ex. a category)
     System::SharedPtr<FollowUpOptions> options = FollowUpManager::GetOptions(message);

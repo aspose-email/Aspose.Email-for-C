@@ -30,7 +30,7 @@ void RemovePropertiesFromMSGAndAttachments()
     
     System::SharedPtr<MapiMessage> mapi = System::MakeObject<MapiMessage>(u"from@doamin.com", u"to@domain.com", u"subject", u"body");
     mapi->SetBodyContent(u"<html><body><h1>This is the body content</h1></body></html>", Aspose::Email::Mapi::BodyContentType::Html);
-    System::SharedPtr<MapiMessage> attachment = MapiMessage::FromFile(dataDir + u"message.msg");
+    System::SharedPtr<MapiMessage> attachment = MapiMessage::Load(dataDir + u"message.msg");
     mapi->get_Attachments()->Add(u"Outlook2 Test subject.msg", attachment);
     System::Console::WriteLine(System::String(u"Before removal = ") + mapi->get_Attachments()->idx_get(mapi->get_Attachments()->get_Count() - 1)->get_Properties()->get_Count());
     
@@ -39,7 +39,7 @@ void RemovePropertiesFromMSGAndAttachments()
     System::Console::WriteLine(System::String(u"After removal = ") + mapi->get_Attachments()->idx_get(mapi->get_Attachments()->get_Count() - 1)->get_Properties()->get_Count());
     mapi->Save(u"EMAIL_589265.msg");
     
-    System::SharedPtr<MapiMessage> mapi2 = MapiMessage::FromFile(u"EMAIL_589265.msg");
+    System::SharedPtr<MapiMessage> mapi2 = MapiMessage::Load(u"EMAIL_589265.msg");
     System::Console::WriteLine(System::String(u"Reloaded = ") + mapi2->get_Attachments()->idx_get(mapi2->get_Attachments()->get_Count() - 1)->get_Properties()->get_Count());
     // ExEnd:RemovePropertiesFromMSGAndAttachments
 }

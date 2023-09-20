@@ -34,7 +34,7 @@ void SetAdditionalMAPIProperties()
 {
     System::String dataDir = GetDataDir_Outlook();
     
-    System::SharedPtr<MapiMessage> msg = MapiMessage::FromFile(dataDir + u"message.msg");
+    System::SharedPtr<MapiMessage> msg = MapiMessage::Load(dataDir + u"message.msg");
     
     // ExStart:SetAdditionalMAPIProperties
     // PT_MV_FLOAT, PT_MV_R4, mv.float

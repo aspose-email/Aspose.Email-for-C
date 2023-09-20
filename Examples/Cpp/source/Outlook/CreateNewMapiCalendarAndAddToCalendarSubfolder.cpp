@@ -32,7 +32,7 @@ void CreateNewMapiCalendarAndAddToCalendarSubfolder()
     // The path to the File directory.
     // ExStart:CreateNewMapiCalendarAndAddToCalendarSubfolder
     System::String dataDir = GetDataDir_Outlook();
-    System::SharedPtr<MapiMessage> message = MapiMessage::FromFile(dataDir + u"Note.msg");
+    System::SharedPtr<MapiMessage> message = MapiMessage::Load(dataDir + u"Note.msg");
     
     // Note #1
     System::SharedPtr<MapiNote> note1 = System::Cast<Aspose::Email::Mapi::MapiNote>(message->ToMapiMessageItem());

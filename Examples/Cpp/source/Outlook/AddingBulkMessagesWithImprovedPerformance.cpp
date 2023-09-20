@@ -73,7 +73,7 @@ const System::SharedPtr<Aspose::Email::Mapi::MapiMessage>& MapiMessageEnumerator
 
     try
     {
-        return holder.HoldIfTemporary(MapiMessage::FromFile(files[position]));
+        return holder.HoldIfTemporary(MapiMessage::Load(files[position]));
     }
     catch (System::IndexOutOfRangeException&)
     {

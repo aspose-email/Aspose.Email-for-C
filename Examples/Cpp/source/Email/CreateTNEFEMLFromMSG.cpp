@@ -23,7 +23,7 @@ void CreateTNEFEMLFromMSG()
     System::String dataDir = GetDataDir_Email();
     
     // ExStart:CreateTNEFEMLFromMSG
-    System::SharedPtr<MapiMessage> mapiMsg = MapiMessage::FromFile(dataDir + u"Message.msg");
+    System::SharedPtr<MapiMessage> mapiMsg = MapiMessage::Load(dataDir + u"Message.msg");
     
     System::SharedPtr<MailConversionOptions> mco = System::MakeObject<MailConversionOptions>();
     

@@ -31,7 +31,7 @@ void ReadNamedMAPIProperties()
     System::String dataDir = GetDataDir_Outlook();
     
     // Load from file
-    System::SharedPtr<MapiMessage> message = MapiMessage::FromFile(dataDir + u"message.msg");
+    System::SharedPtr<MapiMessage> message = MapiMessage::Load(dataDir + u"message.msg");
     
     // Get all named MAPI properties
     System::SharedPtr<MapiPropertyCollection> properties = message->get_NamedProperties();

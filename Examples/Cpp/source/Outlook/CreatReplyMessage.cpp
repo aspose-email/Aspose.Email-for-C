@@ -25,7 +25,7 @@ void CreatReplyMessage()
     // The path to the File directory.
     System::String dataDir = GetDataDir_Outlook();
     
-    System::SharedPtr<MapiMessage> originalMsg = MapiMessage::FromFile(dataDir + u"message1.msg");
+    System::SharedPtr<MapiMessage> originalMsg = MapiMessage::Load(dataDir + u"message1.msg");
     System::SharedPtr<ReplyMessageBuilder> builder = System::MakeObject<ReplyMessageBuilder>();
     
     // Set ReplyMessageBuilder Properties

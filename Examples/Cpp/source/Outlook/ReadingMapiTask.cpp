@@ -23,7 +23,7 @@ void ReadingMapiTask()
     System::String dataDir = GetDataDir_Outlook();
     
     // ExStart:ReadingMapiTask
-    System::SharedPtr<MapiMessage> msg = MapiMessage::FromFile(dataDir + u"MapiTask.msg");
+    System::SharedPtr<MapiMessage> msg = MapiMessage::Load(dataDir + u"MapiTask.msg");
     System::SharedPtr<MapiTask> task2 = System::Cast<Aspose::Email::Mapi::MapiTask>(msg->ToMapiMessageItem());
     // ExEnd:ReadingMapiTask
 }

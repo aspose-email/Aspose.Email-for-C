@@ -21,7 +21,7 @@ void RecipientInformation()
     System::String dstEmail = dataDir + u"Message.msg";
     
     // Load message file and Enumerate the recipients
-    System::SharedPtr<MapiMessage> message = MapiMessage::FromFile(dstEmail);
+    System::SharedPtr<MapiMessage> message = MapiMessage::Load(dstEmail);
     
     {
         for (auto&& recip : System::IterateOver(message->get_Recipients()))

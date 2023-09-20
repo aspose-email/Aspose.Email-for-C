@@ -25,7 +25,7 @@ void SaveAttachmentsFromOutlookMSGFile()
     
     // ExStart:SaveAttachmentsFromOutlookMSGFile
     // Create an instance of MapiMessage from file
-    System::SharedPtr<MapiMessage> message = MapiMessage::FromFile(dataDir + fileName);
+    System::SharedPtr<MapiMessage> message = MapiMessage::Load(dataDir + fileName);
     
     // Iterate through the attachments collection
     

@@ -23,7 +23,7 @@ void SetColorCategories()
     // The path to the File directory.
     System::String dataDir = GetDataDir_Outlook();
     
-    System::SharedPtr<MapiMessage> msg = MapiMessage::FromFile(dataDir + u"message1.msg");
+    System::SharedPtr<MapiMessage> msg = MapiMessage::Load(dataDir + u"message1.msg");
     
     // Add Two category
     FollowUpManager::AddCategory(msg, u"Purple Category");

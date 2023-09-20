@@ -25,10 +25,10 @@ void ReplaceEmbeddedMSGAttachmentContents()
     System::String fileName = dataDir + u"message3.msg";
     
     // ExStart:ReplaceEmbeddedMSGAttachmentContents
-    auto message = MapiMessage::FromFile(fileName);
+    auto message = MapiMessage::Load(fileName);
     auto memeoryStream = System::MakeObject<System::IO::MemoryStream>();
     message->get_Attachments()->idx_get(2)->Save(memeoryStream);
-    auto getData = MapiMessage::FromStream(memeoryStream);
+    auto getData = MapiMessage::Load(memeoryStream);
     message->get_Attachments()->Replace(1, u"new 1", getData);
     // ExEnd:ReplaceEmbeddedMSGAttachmentContents
     
