@@ -24,17 +24,8 @@ else()
     message(ERROR "ASPOSE_EMAIL_CPP_ROOT is not set")
 endif()
 
-set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../Cpp/cmake")
-include(OptionsCommon)
-include(SetLibraryOutputName)
-include(GroupSources)
-
-include(GuessCompilerPrefix)
-GUESS_COMPILER_PREFIX(compiler_prefix)
-
 find_package(CodePorting.Translator.Cs2Cpp.Framework REQUIRED CONFIG PATHS ${ASPOSE_ROOT})
 find_package(Aspose.Email.Cpp REQUIRED CONFIG PATHS ${ASPOSE_EMAIL_CPP_ROOT})
-
 
 add_executable(${target}
     Example.cpp
