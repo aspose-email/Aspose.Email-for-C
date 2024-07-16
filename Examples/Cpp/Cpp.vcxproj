@@ -54,8 +54,8 @@
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="Shared">
-    <Import Project="..\packages\CodePorting.Translator.Cs2Cpp.Framework.24.6.0\build\native\CodePorting.Translator.Cs2Cpp.Framework.targets" Condition="Exists('..\packages\CodePorting.Translator.Cs2Cpp.Framework.24.6.0\build\native\CodePorting.Translator.Cs2Cpp.Framework.targets')" />
-    <Import Project="..\packages\Aspose.Email.Cpp.24.6.0\build\native\aspose.email.cpp.targets" Condition="Exists('..\packages\Aspose.Email.Cpp.24.6.0\build\native\aspose.email.cpp.targets')" />
+    <Import Project="..\packages\CodePorting.Translator.Cs2Cpp.Framework.24.7.0\build\native\CodePorting.Translator.Cs2Cpp.Framework.targets" Condition="Exists('..\packages\CodePorting.Translator.Cs2Cpp.Framework.24.7.0\build\native\CodePorting.Translator.Cs2Cpp.Framework.targets')" />
+    <Import Project="..\packages\Aspose.Email.Cpp.24.7.0\build\native\aspose.email.cpp.targets" Condition="Exists('..\packages\Aspose.Email.Cpp.24.7.0\build\native\aspose.email.cpp.targets')" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -540,7 +540,7 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\CodePorting.Translator.Cs2Cpp.Framework.24.6.0\build\native\CodePorting.Translator.Cs2Cpp.Framework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CodePorting.Translator.Cs2Cpp.Framework.24.6.0\build\native\CodePorting.Translator.Cs2Cpp.Framework.targets'))" />
-    <Error Condition="!Exists('..\packages\Aspose.Email.Cpp.24.6.0\build\native\aspose.email.cpp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Aspose.Email.Cpp.24.6.0\build\native\aspose.email.cpp.targets'))" />
+    <Error Condition="!Exists('..\packages\CodePorting.Translator.Cs2Cpp.Framework.24.7.0\build\native\CodePorting.Translator.Cs2Cpp.Framework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CodePorting.Translator.Cs2Cpp.Framework.24.7.0\build\native\CodePorting.Translator.Cs2Cpp.Framework.targets'))" />
+    <Error Condition="!Exists('..\packages\Aspose.Email.Cpp.24.7.0\build\native\aspose.email.cpp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Aspose.Email.Cpp.24.7.0\build\native\aspose.email.cpp.targets'))" />
   </Target>
 </Project>
