@@ -11,5 +11,5 @@ mkdir build
 cd build
 cmake .. -G "Visual Studio 15 2017" 
 if %errorlevel% neq 0 goto error
-cmake --build . --config Debug --parallel 5
+cmake --build . --config Release --parallel 5
 :error

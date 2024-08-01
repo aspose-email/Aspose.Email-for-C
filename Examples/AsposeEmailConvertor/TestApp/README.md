@@ -1,0 +1,1 @@
+﻿This directory contains small test applications for AsposeEmailConvertor library

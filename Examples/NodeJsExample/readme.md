@@ -1,6 +1,6 @@
 # Node.js Native Addon which uses Aspose.Words for C++ Example
 
-This is an example how to create Node.js Native Addon which uses Aspose.Words for C++.
+This is an example how to create Node.js Native Addon which uses Aspose.Email for C++.
 
 ## Prerequisites
 
