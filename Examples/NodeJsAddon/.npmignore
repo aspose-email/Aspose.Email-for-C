@@ -1,0 +1,5 @@
+﻿node_modules/
+*.log
+test/
+README.md
+*.html

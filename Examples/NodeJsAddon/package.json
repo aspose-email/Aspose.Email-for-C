@@ -1,0 +1,18 @@
+{
+  "name": "mail_converter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "cmake-js compile",
+    "install": "cmake-js compile"
+  },
+  "description": "Aspose.Email for C++ Node.js Addon Example with CMake.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-addon-api": "^8.3.0"
+  },
+  "devDependencies": {
+    "cmake-js": "^7.3.0"
+  }
+}

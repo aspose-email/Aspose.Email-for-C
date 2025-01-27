@@ -45,7 +45,7 @@ unset(_expectedTargets)
 add_library(AsposeEmailConvertor SHARED IMPORTED)
 
 set_target_properties(AsposeEmailConvertor PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "C:/project/ae.cpp/Examples/AsposeEmailConvertor"
+  INTERFACE_INCLUDE_DIRECTORIES "C:/project/ae.cpp/Examples/AsposeEmailConvertor/include"
 )
 
 # Import target "AsposeEmailConvertor" for configuration "Debug"

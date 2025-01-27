@@ -23,7 +23,7 @@
 #include <Mapi/MapiConversionOptions.h>
 #include <Licensing/License.h>
 
-#include "AsposeEmailConvetor.h"
+#include "AsposeEmailConvertor.h"
 
 using namespace System::IO;
 using namespace Aspose::Email::Tools;
@@ -245,3 +245,5 @@ std::string ConvertMailMessageFile(const std::string& fileName, const std::strin
 
     return "OK";
 }
+
+

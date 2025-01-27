@@ -46,11 +46,13 @@ find_package(CodePorting.Translator.Cs2Cpp.Framework REQUIRED CONFIG PATHS ${ASP
 find_package(Aspose.Email.Cpp REQUIRED CONFIG PATHS ${ASPOSE_EMAIL_CPP_ROOT})
 
 
-add_library(${target} SHARED  
-AsposeEmailConvertor.cpp
-)
+add_library(${target} SHARED src/AsposeEmailConvertor.cpp)
 
-target_include_directories(${target} INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}> )
+#target_include_directories(${target} INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}> )
+target_include_directories(${target} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include> )
+
+add_executable(testApp tests/testapp.cpp)
+target_link_libraries(testApp PRIVATE ${target})
 
 
 set_target_properties(${target} PROPERTIES PREFIX "")
@@ -69,6 +71,14 @@ add_custom_command(TARGET ${target} POST_BUILD
         $<TARGET_FILE_DIR:${target}>)      
 
 add_custom_command(TARGET ${target} POST_BUILD
+        COMMAND echo !!!!!!  "$<TARGET_FILE_DIR:${target}> $<TARGET_FILE_NAME:Aspose.Email.Cpp>")
+
+
+add_custom_target(Binaries ALL DEPENDS ${CMAKE_BINARY_DIR}/Aspose.Email.Cpp_vc14x64.dll)
+
+add_dependencies(${target} Binaries)
+
+add_custom_command(TARGET ${target} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy
         $<TARGET_FILE:Aspose::CodePorting.Translator.Cs2Cpp.Framework>
         $<TARGET_FILE_DIR:${target}>)        
@@ -79,3 +89,13 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy 
     ${CMAKE_CURRENT_BINARY_DIR}/${target}Config.cmake
     ${CMAKE_CURRENT_SOURCE_DIR}) 
+
+
+
+install(DIRECTORY include DESTINATION include OPTIONAL FILES_MATCHING PATTERN "*.h")
+install(TARGETS ${target} DESTINATION lib EXPORT ${target}Config)
+install(EXPORT ${target}Config DESTINATION lib)
+install(IMPORTED_RUNTIME_ARTIFACTS Aspose.Email.Cpp)
+install(IMPORTED_RUNTIME_ARTIFACTS Aspose::CodePorting.Translator.Cs2Cpp.Framework)
+
+

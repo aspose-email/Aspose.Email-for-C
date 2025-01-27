@@ -240,3 +240,10 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+
+
+**/node_modules/**
+**/build/**
+**/package/**
+**/lib/**
