@@ -3,8 +3,8 @@
 # directory where content of Aspose.Email_for_C++_XX.X.zip is extracted
 
 set PreferredToolArchitecture=x64
-set ASPOSE_ROOT=C:\project\Release\Release_24.5\Aspose.Email_for_C++_24.5
-set ASPOSE_EMAIL_CPP_ROOT=C:\project\Release\Release_24.5\Aspose.Email_for_C++_24.5
+set ASPOSE_ROOT=C:\project\Release\Release_25.6\Aspose.Email_for_C++_25.6
+set ASPOSE_EMAIL_CPP_ROOT=C:\project\Release\Release_25.6\Aspose.Email_for_C++_25.6
 
 rmdir /Q /S build
 mkdir build
