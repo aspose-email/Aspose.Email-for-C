@@ -30,7 +30,7 @@ void RunExamples()
     Console::WriteLine(u"Open Examples.cpp \nIn RunExamples() function uncomment the example that you want to run.");
     Console::WriteLine(u"=====================================================");
 
-    //LoadLicense(u"C:\\project\\License\\Aspose.Email.Cpp.lic");
+    LoadLicense(u"C:\\project\\License2025\\Aspose.Total.C++.lic");
 
     // Uncomment the one you want to try out
 
@@ -215,7 +215,7 @@ void RunExamples()
     //AddMapiNoteToPST();
     //UpdatePSTCustomProperites();
     //SaveContactInformation();
-    //DisplayInformationOfPSTFile();
+    DisplayInformationOfPSTFile();
     //SpecificCriterionSplitPST();
     //AddMessagesFromOtherPST();
     //DeleteMessagesFromPSTFiles();
@@ -229,7 +229,7 @@ void RunExamples()
     // LoadAndReadOLMFile();
     // GetFolderPathInOLM();
     // CountItemsInOLMFolder();
-    ReadCorruptedOLM();
+    //ReadCorruptedOLM();
 
 
     // IMAP
